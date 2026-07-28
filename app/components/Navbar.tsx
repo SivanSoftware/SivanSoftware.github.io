@@ -19,18 +19,18 @@ export default function Navbar() {
   }, []);
 
   const linkClasses =
-    "text-gray-700 font-medium hover:text-[#733B73] transition px-3 py-2 rounded-md hover:bg-purple-100";
+    "text-gray-700 font-medium hover:text-indigo-700 transition px-3 py-2 rounded-md hover:bg-indigo-50";
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-purple-200 backdrop-blur-sm ${
-        scrolled ? "bg-purple-100/80 shadow-lg" : "bg-purple-50/90"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-indigo-100 backdrop-blur-sm ${
+        scrolled ? "bg-white/90 shadow-lg" : "bg-white/75"
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3 sm:p-4">
         <a
           href="#top"
-          className="flex items-center gap-2 font-extrabold text-xl sm:text-2xl text-[#733B73] hover:underline transition"
+          className="flex items-center gap-2 font-extrabold text-xl sm:text-2xl text-indigo-700 hover:underline transition"
           onClick={() => setMenuOpen(false)}
         >
           <Image
@@ -55,7 +55,7 @@ export default function Navbar() {
 
         {/* כפתור המבורגר — מובייל */}
         <button
-          className="sm:hidden p-2 rounded-md text-[#733B73] hover:bg-purple-100 transition"
+          className="sm:hidden p-2 rounded-md text-indigo-700 hover:bg-indigo-50 transition"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? "סגירת תפריט" : "פתיחת תפריט"}
           aria-expanded={menuOpen}
@@ -78,7 +78,7 @@ export default function Navbar() {
 
       {/* תפריט מובייל נפתח */}
       {menuOpen && (
-        <div className="sm:hidden border-t border-purple-200 bg-purple-50/95 backdrop-blur-sm px-4 py-2 flex flex-col gap-1">
+        <div className="sm:hidden border-t border-indigo-100 bg-white/95 backdrop-blur-sm px-4 py-2 flex flex-col gap-1">
           {links.map((link) => (
             <a
               key={link.href}
