@@ -118,34 +118,46 @@ export default function Home() {
   return (
     <main id="top" className="pt-20">
       {/* פתיח */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
-        <Image
-          src="/sivan.jpg"
-          alt="סיון לסרי"
-          width={667}
-          height={1000}
-          priority
-          className="w-40 h-40 sm:w-52 sm:h-52 rounded-full object-cover object-top mx-auto mb-6 border-4 border-purple-200 shadow-lg"
-        />
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-4">
-          היי, אני <span className="text-[#733B73]">סיון לסרי</span>
-        </h1>
-        <p className="text-lg sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          בוגרת הנדסת תוכנה עם תשוקה למערכות מבוזרות, אבטחה ופיתוח ווב.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <a
-            href="#projects"
-            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#733B73] text-white font-semibold shadow-md hover:bg-[#5d2f5d] transition transform hover:-translate-y-0.5"
-          >
-            לפרויקטים שלי
-          </a>
-          <a
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-[#733B73] border border-purple-300 font-semibold shadow-sm hover:bg-purple-50 transition transform hover:-translate-y-0.5"
-          >
-            דברו איתי
-          </a>
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
+          <Image
+            src="/sivan.jpg"
+            alt="סיון לסרי"
+            width={667}
+            height={1000}
+            priority
+            className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-purple-200 shadow-lg shrink-0"
+          />
+          <div className="text-center md:text-right">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3">
+              היי, אני <span className="text-[#733B73]">סיון לסרי</span>
+            </h1>
+            <p className="text-lg sm:text-xl font-semibold text-[#733B73] mb-4">
+              מפתחת ג'וניור · בוגרת הנדסת תוכנה במכללה האקדמית כנרת
+            </p>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
+              במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת
+              ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב
+              מודרניים ב-React וב-Angular. בפרויקט הגמר, WaterVision VR,
+              שימשתי כ-Scrum Master של צוות בן חמישה חברים. נמשכת לבעיות של
+              אמינות, קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי
+              בנייה.
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
+              <a
+                href="#projects"
+                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#733B73] text-white font-semibold shadow-md hover:bg-[#5d2f5d] transition transform hover:-translate-y-0.5 text-center"
+              >
+                לפרויקטים שלי
+              </a>
+              <a
+                href="#contact"
+                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-[#733B73] border border-purple-300 font-semibold shadow-sm hover:bg-purple-50 transition transform hover:-translate-y-0.5 text-center"
+              >
+                דברו איתי
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -221,20 +233,9 @@ export default function Home() {
           כישורים ורקע
         </h2>
         <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-purple-100 p-6 sm:p-8 max-w-3xl mx-auto">
-          <div className="text-gray-700 leading-relaxed mb-6 space-y-3">
-            <p>
-              נעים להכיר! אני סיון, מפתחת ג'וניור ובוגרת טרייה של הנדסת
-              תוכנה במכללה האקדמית כנרת. במהלך התואר בניתי מערכות מהתשתית
-              ועד לממשק — ממערכת חניה מבוזרת ועמידה לתקלות ב-Java, דרך
-              אפליקציות אנדרואיד ועד אתרי ווב מודרניים ב-React וב-Angular.
-            </p>
-            <p>
-              בפרויקט הגמר, WaterVision VR, שימשתי כ-Scrum Master של צוות בן
-              חמישה חברים — ניהלתי ספרינטים, תיאמתי בין אנשי הצוות ודאגתי
-              שהמוצר יגיע להצגה מוכן ובזמן. אני נמשכת לבעיות של אמינות,
-              קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.
-            </p>
-          </div>
+          <p className="text-gray-700 leading-relaxed mb-6 text-center">
+            הטכנולוגיות והכלים שאני עובדת איתם:
+          </p>
           <div className="flex flex-wrap gap-2 justify-center">
             {skills.map((skill) => (
               <span
