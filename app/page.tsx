@@ -221,11 +221,20 @@ export default function Home() {
           כישורים ורקע
         </h2>
         <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-purple-100 p-6 sm:p-8 max-w-3xl mx-auto">
-          <p className="text-gray-700 leading-relaxed mb-6 text-center">
-            אני בונה מערכות מהתשתית ועד לממשק — ממערכות מבוזרות עמידות לתקלות
-            ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב מודרניים. אוהבת בעיות
-            של אמינות, קונצנזוס ואבטחה.
-          </p>
+          <div className="text-gray-700 leading-relaxed mb-6 space-y-3">
+            <p>
+              נעים להכיר! אני סיון, מהנדסת תוכנה צעירה מהמכללה האקדמית כנרת.
+              במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת
+              ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב
+              מודרניים ב-React וב-Angular.
+            </p>
+            <p>
+              בפרויקט הגמר, WaterVision VR, שימשתי כ-Scrum Master של צוות בן
+              חמישה חברים — ניהלתי ספרינטים, תיאמתי בין אנשי הצוות ודאגתי
+              שהמוצר יגיע להצגה מוכן ובזמן. אני נמשכת לבעיות של אמינות,
+              קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-2 justify-center">
             {skills.map((skill) => (
               <span
