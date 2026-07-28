@@ -261,12 +261,20 @@ export default function Home() {
         <p className="text-gray-500 text-center mb-8">
           מוזמנים לפנות אליי בכל שאלה או הצעה
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center px-2">
           <a
             href="mailto:sivanlasri4@gmail.com"
             className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition text-center"
           >
             ✉️ sivanlasri4@gmail.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sivan-lasri-a05924230/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0A66C2] text-white font-semibold shadow-md hover:bg-[#084d92] transition text-center"
+          >
+            LinkedIn
           </a>
           <a
             href="https://github.com/sivanlasri"
