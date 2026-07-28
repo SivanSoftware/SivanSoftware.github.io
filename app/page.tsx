@@ -138,10 +138,11 @@ export default function Home() {
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
               במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת
               ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב
-              מודרניים ב-React וב-Angular. בפרויקט הגמר, WaterVision VR,
-              שימשתי כ-Scrum Master של צוות בן חמישה חברים. נמשכת לבעיות של
-              אמינות, קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי
-              בנייה.
+              מודרניים ב-React וב-Angular. בפרויקט הגמר פיתחנו את
+              WaterVision VR — אפליקציה למשקפי Meta Quest שמשמשת פלטפורמה
+              לפגישות ושיתוף פעולה בנושא תשתיות מים. שימשתי בו גם כמפתחת וגם
+              כ-Scrum Master של צוות בן חמישה חברים. נמשכת לבעיות של אמינות,
+              קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.
             </p>
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
               <a
