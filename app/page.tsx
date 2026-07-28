@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import ProjectModal from "./components/ProjectModal";
 
 type Project = {
@@ -65,6 +66,14 @@ export default function Home() {
     <main id="top" className="pt-20">
       {/* פתיח */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 text-center">
+        <Image
+          src="/sivan.jpg"
+          alt="סיון לסרי"
+          width={667}
+          height={1000}
+          priority
+          className="w-40 h-40 sm:w-52 sm:h-52 rounded-full object-cover object-top mx-auto mb-6 border-4 border-purple-200 shadow-lg"
+        />
         <h1 className="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-4">
           היי, אני <span className="text-[#733B73]">סיון לסרי</span>
         </h1>
