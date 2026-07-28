@@ -126,13 +126,16 @@ export default function Home() {
             width={667}
             height={1000}
             priority
-            className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-purple-200 shadow-lg shrink-0"
+            className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-indigo-200 shadow-lg shrink-0"
           />
           <div className="text-center md:text-right">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-3">
-              היי, אני <span className="text-[#733B73]">סיון לסרי</span>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#1E1B4B] mb-3">
+              היי, אני{" "}
+          <span className="bg-gradient-to-l from-blue-600 to-indigo-900 bg-clip-text text-transparent">
+            סיון לסרי
+          </span>
             </h1>
-            <p className="text-lg sm:text-xl font-semibold text-[#733B73] mb-4">
+            <p className="text-lg sm:text-xl font-semibold text-indigo-700 mb-4">
               מפתחת ג'וניור · בוגרת הנדסת תוכנה במכללה האקדמית כנרת
             </p>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
@@ -147,13 +150,13 @@ export default function Home() {
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
               <a
                 href="#projects"
-                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#733B73] text-white font-semibold shadow-md hover:bg-[#5d2f5d] transition transform hover:-translate-y-0.5 text-center"
+                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition transform hover:-translate-y-0.5 text-center"
               >
                 לפרויקטים שלי
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-[#733B73] border border-purple-300 font-semibold shadow-sm hover:bg-purple-50 transition transform hover:-translate-y-0.5 text-center"
+                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-indigo-700 border border-indigo-300 font-semibold shadow-sm hover:bg-indigo-50 transition transform hover:-translate-y-0.5 text-center"
               >
                 דברו איתי
               </a>
@@ -164,7 +167,7 @@ export default function Home() {
 
       {/* פרויקטים */}
       <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-2 text-center">
           פרויקטים
         </h2>
         <p className="text-gray-500 text-center mb-10">
@@ -174,17 +177,17 @@ export default function Home() {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-purple-100 p-6 flex flex-col transition duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-indigo-100 p-6 flex flex-col transition duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-3xl" aria-hidden="true">
                   {project.emoji}
                 </span>
-                <span className="text-xs font-semibold text-[#733B73] bg-purple-50 border border-purple-200 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
                   {project.category}
                 </span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-[#1E1B4B] mb-3">
                 {project.title}
               </h3>
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 flex-1">
@@ -194,7 +197,7 @@ export default function Home() {
                 {project.tech.slice(0, 3).map((t) => (
                   <span
                     key={t}
-                    className="bg-purple-100 text-[#733B73] text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
+                    className="bg-indigo-100 text-indigo-700 text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
                   >
                     {t}
                   </span>
@@ -208,7 +211,7 @@ export default function Home() {
               <div className="flex gap-2">
                 <button
                   onClick={() => setOpenProject(project)}
-                  className="flex-1 px-4 py-2 rounded-md bg-[#733B73] text-white text-sm sm:text-base font-semibold hover:bg-[#5d2f5d] transition shadow-md"
+                  className="flex-1 px-4 py-2 rounded-md bg-gradient-to-l from-indigo-600 to-blue-600 text-white text-sm sm:text-base font-semibold hover:from-indigo-700 hover:to-blue-700 transition shadow-md"
                 >
                   פרטים נוספים
                 </button>
@@ -230,10 +233,10 @@ export default function Home() {
 
       {/* כישורים ורקע */}
       <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-8 text-center">
           כישורים ורקע
         </h2>
-        <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-purple-100 p-6 sm:p-8 max-w-3xl mx-auto">
+        <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-indigo-100 p-6 sm:p-8 max-w-3xl mx-auto">
           <p className="text-gray-700 leading-relaxed mb-6 text-center">
             הטכנולוגיות והכלים שאני עובדת איתם:
           </p>
@@ -241,7 +244,7 @@ export default function Home() {
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="bg-purple-100 text-[#733B73] font-medium px-4 py-1.5 rounded-full text-sm sm:text-base"
+                className="bg-indigo-100 text-indigo-700 font-medium px-4 py-1.5 rounded-full text-sm sm:text-base"
               >
                 {skill}
               </span>
@@ -252,7 +255,7 @@ export default function Home() {
 
       {/* צרו קשר */}
       <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3 text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-3 text-center">
           צרו קשר
         </h2>
         <p className="text-gray-500 text-center mb-8">
@@ -261,7 +264,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="mailto:sivanlasri4@gmail.com"
-            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#733B73] text-white font-semibold shadow-md hover:bg-[#5d2f5d] transition text-center"
+            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition text-center"
           >
             ✉️ sivanlasri4@gmail.com
           </a>
@@ -284,7 +287,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-purple-200 py-6 text-center text-gray-500 text-sm">
+      <footer className="border-t border-indigo-200 py-6 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} סיון לסרי · נבנה עם Next.js ו-Tailwind CSS
       </footer>
 
