@@ -119,7 +119,7 @@ export default function Home() {
     <main id="top" className="pt-20">
       {/* פתיח */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14 bg-white/70 backdrop-blur-sm rounded-2xl border border-indigo-200 shadow-lg p-6 sm:p-10 md:p-12">
           <Image
             src="/sivan.jpg"
             alt="סיון לסרי"
