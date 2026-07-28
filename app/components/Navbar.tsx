@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const links = [
   { href: "#projects", label: "פרויקטים" },
@@ -29,10 +30,18 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3 sm:p-4">
         <a
           href="#top"
-          className="font-extrabold text-xl sm:text-2xl text-[#733B73] hover:underline transition"
+          className="flex items-center gap-2 font-extrabold text-xl sm:text-2xl text-[#733B73] hover:underline transition"
           onClick={() => setMenuOpen(false)}
         >
-          סיון לסרי
+          <Image
+            src="/logo-mark.png"
+            alt="הלוגו של סיון לסרי"
+            width={242}
+            height={160}
+            priority
+            className="h-9 sm:h-10 w-auto"
+          />
+          <span>סיון לסרי</span>
         </a>
 
         {/* קישורים — דסקטופ */}
