@@ -295,7 +295,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-indigo-200 py-6 text-center text-gray-500 text-sm">
+      <footer className="bg-white border-t border-indigo-100 py-6 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} סיון לסרי · נבנה עם Next.js ו-Tailwind CSS
       </footer>
 
