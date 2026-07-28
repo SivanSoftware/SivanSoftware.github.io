@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #faf7fc;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(115, 59, 115, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(115, 59, 115, 0.08), transparent);
+  background-attachment: fixed;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+/* מרווח לעוגנים כדי שהניווט הקבוע לא יסתיר כותרות */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-modal-pop {
+  animation: modal-pop 0.25s ease-out;
+}
