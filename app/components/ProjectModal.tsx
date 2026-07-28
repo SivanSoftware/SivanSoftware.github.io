@@ -70,7 +70,7 @@ export default function ProjectModal({
             {tech.map((t) => (
               <span
                 key={t}
-                className="bg-purple-100 text-[#733B73] text-sm font-medium px-3 py-1 rounded-full"
+                className="bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full"
               >
                 {t}
               </span>
