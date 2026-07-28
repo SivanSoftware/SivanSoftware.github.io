@@ -131,7 +131,7 @@ export default function Home() {
           היי, אני <span className="text-[#733B73]">סיון לסרי</span>
         </h1>
         <p className="text-lg sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          מפתחת תוכנה עם תשוקה למערכות מבוזרות, אבטחה ופיתוח ווב.
+          בוגרת הנדסת תוכנה עם תשוקה למערכות מבוזרות, אבטחה ופיתוח ווב.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
@@ -223,10 +223,10 @@ export default function Home() {
         <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-purple-100 p-6 sm:p-8 max-w-3xl mx-auto">
           <div className="text-gray-700 leading-relaxed mb-6 space-y-3">
             <p>
-              נעים להכיר! אני סיון, מהנדסת תוכנה צעירה מהמכללה האקדמית כנרת.
-              במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת
-              ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב
-              מודרניים ב-React וב-Angular.
+              נעים להכיר! אני סיון, מפתחת ג'וניור ובוגרת טרייה של הנדסת
+              תוכנה במכללה האקדמית כנרת. במהלך התואר בניתי מערכות מהתשתית
+              ועד לממשק — ממערכת חניה מבוזרת ועמידה לתקלות ב-Java, דרך
+              אפליקציות אנדרואיד ועד אתרי ווב מודרניים ב-React וב-Angular.
             </p>
             <p>
               בפרויקט הגמר, WaterVision VR, שימשתי כ-Scrum Master של צוות בן
