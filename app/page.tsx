@@ -2,118 +2,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProjectModal from "./components/ProjectModal";
-
-type Project = {
-  id: string;
-  emoji: string;
-  category: string;
-  title: string;
-  summary: string;
-  description: string;
-  githubUrl?: string;
-  tech: string[];
-};
-
-const projects: Project[] = [
-  {
-    id: "mulligan",
-    emoji: "🅿️",
-    category: "מערכות מבוזרות",
-    title: "Mulligan — מערכת חניה מבוזרת",
-    summary:
-      "פלטפורמת חניה מבוזרת ועמידה לתקלות ב-Java: נהגים, פקחי חניה ופקידי עירייה על גבי אשכולות MongoDB, RabbitMQ ו-Raft — עם אבטחה קשוחה מקצה לקצה.",
-    description:
-      "Mulligan היא מערכת חניה מבוזרת שנבנתה ב-Java ומשרתת שלושה תפקידים: נהגים (רישום רכב, התחלת/סיום חניה, תשלום והמלצת חניה), פקחי חניה (בדיקת רכבים והנפקת דוחות) ופקידי עירייה (צפייה בדוחות עסקאות ודוחות חניה).\n\n" +
-      "המערכת עמידה לתקלות מקצה לקצה: MongoDB replica set של 3 צמתים, אשכול RabbitMQ של 3 צמתים עם quorum queues, ואשכול המלצות של 3 צמתים המשלב קונצנזוס Raft (Apache Ratis) עם הצבעת רוב — כך שהאשכול שורד גם צומת שנפל וגם צומת זדוני.\n\n" +
-      "בצד האבטחה: אימות TLS מול MongoDB, חתימות HMAC בגישת fail-closed, הגנה מפני replay בין צמתים, הרשאות מינימליות ב-RabbitMQ ותיעוד אבטחה מתמשך. הכול רץ עם Docker Compose, וכל תפקיד מגיע גם כ-GUI (JavaFX) וגם כ-CLI אינטראקטיבי.",
-    githubUrl: "https://github.com/SivanSoftware/mulligan-parking-system",
-    tech: [
-      "Java",
-      "MongoDB",
-      "RabbitMQ",
-      "Raft (Apache Ratis)",
-      "Docker Compose",
-      "JavaFX",
-      "TLS & HMAC",
-      "Gradle",
-    ],
-  },
-  {
-    id: "sugarsteps",
-    emoji: "🍰",
-    category: "אפליקציית אנדרואיד",
-    title: "SugarSteps — לימוד בישול בשלבים",
-    summary:
-      "אפליקציית אנדרואיד ללימוד בישול לפי רמות קושי, עם שני תפקידי משתמש: תלמידים שצופים בשיעורים ומדריכים שמנהלים אותם.",
-    description:
-      "SugarSteps היא אפליקציית אנדרואיד ללימוד בישול בשלבים — השיעורים מאורגנים לפי רמות קושי (קל, בינוני, קשה).\n\n" +
-      "האפליקציה תומכת בשני תפקידים: תלמידים שיכולים לצפות בשיעורים, ומדריכים שיכולים להוסיף, לערוך ולמחוק אותם. בנוסף יש מסך הרשמה עם בחירת תפקיד ואישור תנאים, ומסך הגדרות לעדכון פרטים אישיים.\n\n" +
-      "הנתונים נשמרים מקומית עם Room/SQLite, וה-APK זמין להורדה בעמוד ה-Releases בגיטהאב.",
-    githubUrl: "https://github.com/sivanlasri/SugarStepsApp",
-    tech: ["Android", "Java", "Room / SQLite", "Android Studio"],
-  },
-  {
-    id: "plastic-factory",
-    emoji: "🏭",
-    category: "מערכת ניהול",
-    title: "מערכת ניהול מפעל יריעות פלסטיק",
-    summary:
-      "מערכת בקרה למפעל יריעות פלסטיק ב-Java: ייבוא נתוני ייצור מ-CSV ל-MySQL, ממשק Swing, שש שאילתות אנליטיות ועיבוד מקבילי.",
-    description:
-      "מערכת בקרה למפעל המייצר יריעות פלסטיק לחממות. המערכת קוראת נתוני ייצור מקובץ CSV, מייבאת אותם למסד נתונים MySQL דרך JDBC, ומציגה ממשק גרפי בנוי ב-Java Swing.\n\n" +
-      "המערכת כוללת שש שאילתות SQL אנליטיות לניתוח פעילות המפעל — סך ייצור לפי מכונה, שיעור פגמים ממוצע, סיכומי ייצור יומיים ועוד — והשאילתה השישית רצה במקביל עם Threads לשיפור ביצועים.\n\n" +
-      "הפרויקט פותח יחד עם אלינור סרור במסגרת קורס מבוא לתכנות מערכות.",
-    githubUrl:
-      "https://github.com/sivanlasri/Plastic-Sheet-Factory-Management-System",
-    tech: ["Java", "MySQL", "JDBC", "Swing", "Multithreading"],
-  },
-  {
-    id: "moveit",
-    emoji: "💪",
-    category: "אתר ווב",
-    title: "Moveit — המאמן האישי שלך",
-    summary:
-      "אתר כושר אינטראקטיבי: שאלון העדפות אישי, הרשמה רב-שלבית ומסד נתונים ששומר את הפרופיל לקראת תוכניות אימון מותאמות אישית.",
-    description:
-      "Moveit הוא אתר כושר שנועד ללוות משתמשים במסע הכושר האישי שלהם, ופותח במסגרת קורס פיתוח יישומי ווב.\n\n" +
-      "האתר כולל שאלון העדפות אישי (רמת כושר, מטרות, ימים פנויים ומשך אימון מועדף), תהליך הרשמה רב-שלבי עם הצהרת בריאות, מסכי התחברות ובית עם ניווט נוח, וממשק אינטראקטיבי עם אינדיקטורים של התקדמות.\n\n" +
-      "הנתונים וההעדפות נשמרים בטבלאות SQL ייעודיות — תשתית להמלצות אימון מותאמות אישית בהמשך. פותח יחד עם שלו תורג'מן ודוד רן כהן.",
-    githubUrl:
-      "https://github.com/sivanlasri/Moveit-Website---Your-Personal-Trainer",
-    tech: ["Angular", "JavaScript", "TypeScript", "HTML & CSS", "SQL"],
-  },
-  {
-    id: "budgi",
-    emoji: "💰",
-    category: "אתר ווב",
-    title: "Budgi — ניהול תקציב אישי",
-    summary:
-      "אפליקציית ווב לניהול תקציב אישי ב-React: מעקב הוצאות, תכנון תקציב חודשי וניהול משתמשים מבוסס Firebase.",
-    description:
-      "Budgi היא אפליקציית ווב לניהול תקציב אישי שנבנתה ב-React עם Vite. האפליקציה כוללת מעקב אחר הוצאות, תכנון תקציב חודשי, ומערכת משתמשים מלאה (הרשמה, התחברות ושחזור סיסמה) מבוססת Firebase.",
-    tech: ["React", "Vite", "Firebase", "React Router", "TypeScript"],
-  },
-];
-
-const skills = [
-  "Java",
-  "מערכות מבוזרות",
-  "Android",
-  "MongoDB",
-  "MySQL",
-  "RabbitMQ",
-  "Docker",
-  "React",
-  "Angular",
-  "Next.js",
-  "TypeScript",
-  "Firebase",
-  "Tailwind CSS",
-  "Git & CI/CD",
-];
+import { useLanguage } from "./components/LanguageProvider";
+import type { Project } from "./i18n";
 
 export default function Home() {
-  const [openProject, setOpenProject] = useState<Project | null>(null);
+  const { t } = useLanguage();
+  const [openProjectId, setOpenProjectId] = useState<string | null>(null);
+
+  // מחזיקים מזהה ולא אובייקט, כך שתוכן הפופאפ מתחלף יחד עם השפה
+  const openProject: Project | undefined = t.projectList.find(
+    (p) => p.id === openProjectId
+  );
 
   return (
     <main id="top" className="pt-20">
@@ -122,43 +21,37 @@ export default function Home() {
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14 bg-white/70 backdrop-blur-sm rounded-2xl border border-indigo-200 shadow-lg p-6 sm:p-10 md:p-12">
           <Image
             src="/sivan.jpg"
-            alt="סיון לסרי"
+            alt={t.hero.photoAlt}
             width={667}
             height={1000}
             priority
             className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-indigo-200 shadow-lg shrink-0"
           />
-          <div className="text-center md:text-right">
+          <div className="text-center md:text-start">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#1E1B4B] mb-3">
-              היי, אני{" "}
-          <span className="bg-gradient-to-l from-blue-600 to-indigo-900 bg-clip-text text-transparent">
-            סיון לסרי
-          </span>
+              {t.hero.greeting}{" "}
+              <span className="bg-gradient-to-l from-blue-600 to-indigo-900 bg-clip-text text-transparent">
+                {t.hero.name}
+              </span>
             </h1>
             <p className="text-lg sm:text-xl font-semibold text-indigo-700 mb-4">
-              מפתחת ג'וניור · בוגרת הנדסת תוכנה במכללה האקדמית כנרת
+              {t.hero.role}
             </p>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl">
-              במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת
-              ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב
-              מודרניים ב-React וב-Angular. בפרויקט הגמר פיתחנו את
-              WaterVision VR — אפליקציה למשקפי Meta Quest שמשמשת פלטפורמה
-              לפגישות ושיתוף פעולה בנושא תשתיות מים. שימשתי בו גם כמפתחת וגם
-              כ-Scrum Master של צוות בן חמישה חברים. נמשכת לבעיות של אמינות,
-              קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.
+              {t.hero.bio}
             </p>
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
               <a
                 href="#projects"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition transform hover:-translate-y-0.5 text-center"
               >
-                לפרויקטים שלי
+                {t.hero.ctaProjects}
               </a>
               <a
                 href="#contact"
                 className="w-full sm:w-auto px-8 py-3 rounded-lg bg-white text-indigo-700 border border-indigo-300 font-semibold shadow-sm hover:bg-indigo-50 transition transform hover:-translate-y-0.5 text-center"
               >
-                דברו איתי
+                {t.hero.ctaContact}
               </a>
             </div>
           </div>
@@ -168,13 +61,13 @@ export default function Home() {
       {/* פרויקטים */}
       <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-2 text-center">
-          פרויקטים
+          {t.projects.heading}
         </h2>
         <p className="text-gray-500 text-center mb-10">
-          מבחר עבודות — ממערכות מבוזרות ועד אפליקציות מובייל וווב
+          {t.projects.subheading}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
+          {t.projectList.map((project) => (
             <article
               key={project.id}
               className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-indigo-100 p-6 flex flex-col transition duration-300 hover:shadow-xl hover:-translate-y-1"
@@ -183,7 +76,7 @@ export default function Home() {
                 <span className="text-3xl" aria-hidden="true">
                   {project.emoji}
                 </span>
-                <span className="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full">
                   {project.category}
                 </span>
               </div>
@@ -194,12 +87,12 @@ export default function Home() {
                 {project.summary}
               </p>
               <div className="flex flex-wrap gap-2 mb-5">
-                {project.tech.slice(0, 3).map((t) => (
+                {project.tech.slice(0, 3).map((tech) => (
                   <span
-                    key={t}
+                    key={tech}
                     className="bg-indigo-100 text-indigo-700 text-xs sm:text-sm font-medium px-3 py-1 rounded-full"
                   >
-                    {t}
+                    {tech}
                   </span>
                 ))}
                 {project.tech.length > 3 && (
@@ -210,10 +103,10 @@ export default function Home() {
               </div>
               <div className="flex gap-2">
                 <button
-                  onClick={() => setOpenProject(project)}
+                  onClick={() => setOpenProjectId(project.id)}
                   className="flex-1 px-4 py-2 rounded-md bg-gradient-to-l from-indigo-600 to-blue-600 text-white text-sm sm:text-base font-semibold hover:from-indigo-700 hover:to-blue-700 transition shadow-md"
                 >
-                  פרטים נוספים
+                  {t.projects.details}
                 </button>
                 {project.githubUrl && (
                   <a
@@ -222,7 +115,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-md bg-gray-800 text-white text-sm sm:text-base font-semibold hover:bg-black transition shadow-md text-center"
                   >
-                    GitHub
+                    {t.projects.github}
                   </a>
                 )}
               </div>
@@ -234,14 +127,14 @@ export default function Home() {
       {/* כישורים ורקע */}
       <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-8 text-center">
-          כישורים ורקע
+          {t.about.heading}
         </h2>
         <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-indigo-100 p-6 sm:p-8 max-w-3xl mx-auto">
           <p className="text-gray-700 leading-relaxed mb-6 text-center">
-            הטכנולוגיות והכלים שאני עובדת איתם:
+            {t.about.intro}
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
-            {skills.map((skill) => (
+            {t.skills.map((skill) => (
               <span
                 key={skill}
                 className="bg-indigo-100 text-indigo-700 font-medium px-4 py-1.5 rounded-full text-sm sm:text-base"
@@ -256,10 +149,10 @@ export default function Home() {
       {/* צרו קשר */}
       <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1E1B4B] mb-3 text-center">
-          צרו קשר
+          {t.contact.heading}
         </h2>
         <p className="text-gray-500 text-center mb-8">
-          מוזמנים לפנות אליי בכל שאלה או הצעה
+          {t.contact.subheading}
         </p>
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center px-2">
           <a
@@ -274,7 +167,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0A66C2] text-white font-semibold shadow-md hover:bg-[#084d92] transition text-center"
           >
-            LinkedIn
+            {t.contact.linkedin}
           </a>
           <a
             href="https://github.com/sivanlasri"
@@ -296,12 +189,12 @@ export default function Home() {
       </section>
 
       <footer className="bg-white border-t border-indigo-100 py-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} סיון לסרי · נבנה עם Next.js ו-Tailwind CSS
+        © {new Date().getFullYear()} {t.footer}
       </footer>
 
       <ProjectModal
-        isOpen={openProject !== null}
-        onClose={() => setOpenProject(null)}
+        isOpen={openProject !== undefined}
+        onClose={() => setOpenProjectId(null)}
         title={openProject?.title ?? ""}
         description={openProject?.description ?? ""}
         githubUrl={openProject?.githubUrl}
