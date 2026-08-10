@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
 html {
   scroll-behavior: smooth;
 }
