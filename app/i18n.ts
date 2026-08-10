@@ -31,7 +31,8 @@ export type Dictionary = {
   contact: { heading: string; subheading: string; linkedin: string };
   modal: { github: string; close: string; closeAria: string };
   footer: string;
-  skills: string[];
+  eyebrows: { projects: string; about: string; contact: string };
+  skillGroups: { label: string; items: string[] }[];
   projectList: Project[];
 };
 
@@ -68,7 +69,7 @@ const he: Dictionary = {
   },
   about: {
     heading: "כישורים ורקע",
-    intro: "הטכנולוגיות והכלים שאני עובדת איתם:",
+    intro: "הטכנולוגיות והכלים שאני עובדת איתם — מתוך הפרויקטים עצמם:",
   },
   contact: {
     heading: "צרו קשר",
@@ -81,21 +82,54 @@ const he: Dictionary = {
     closeAria: "סגירה",
   },
   footer: "סיון לסרי · נבנה עם Next.js ו-Tailwind CSS",
-  skills: [
-    "Java",
-    "מערכות מבוזרות",
-    "Android",
-    "MongoDB",
-    "MySQL",
-    "RabbitMQ",
-    "Docker",
-    "React",
-    "Angular",
-    "Next.js",
-    "TypeScript",
-    "Firebase",
-    "Tailwind CSS",
-    "Git & CI/CD",
+  eyebrows: {
+    projects: "// projects",
+    about: "// skills",
+    contact: "// contact",
+  },
+  skillGroups: [
+    {
+      label: "שפות",
+      items: ["Java", "TypeScript", "JavaScript", "C#", "SQL", "HTML & CSS"],
+    },
+    {
+      label: "מערכות מבוזרות ו-Backend",
+      items: [
+        "מערכות מבוזרות",
+        "RabbitMQ (AMQP)",
+        "Apache Ratis (Raft)",
+        "gRPC",
+        "ריבוי תהליכונים",
+        "JDBC",
+        "TLS & HMAC",
+      ],
+    },
+    {
+      label: "מסדי נתונים",
+      items: ["MongoDB", "MySQL", "SQLite / Room", "Firebase"],
+    },
+    {
+      label: "Frontend",
+      items: ["React", "Next.js", "Angular", "Tailwind CSS", "Vite"],
+    },
+    {
+      label: "מובייל, שולחן עבודה ו-XR",
+      items: ["Android", "Unity", "Meta Quest (XR)", "JavaFX", "Swing"],
+    },
+    {
+      label: "DevOps וכלים",
+      items: [
+        "Docker & Compose",
+        "GitHub Actions (CI/CD)",
+        "Gradle",
+        "Git",
+        "Linux & Shell",
+      ],
+    },
+    {
+      label: "בדיקות ומתודולוגיה",
+      items: ["JUnit 5", "Mockito", "Scrum & Agile", "ClickUp"],
+    },
   ],
   projectList: [
     {
@@ -213,7 +247,7 @@ const en: Dictionary = {
   },
   about: {
     heading: "Skills & Background",
-    intro: "The technologies and tools I work with:",
+    intro: "The technologies and tools I work with — drawn from the projects themselves:",
   },
   contact: {
     heading: "Contact",
@@ -226,21 +260,54 @@ const en: Dictionary = {
     closeAria: "Close",
   },
   footer: "Sivan Lasri · Built with Next.js and Tailwind CSS",
-  skills: [
-    "Java",
-    "Distributed Systems",
-    "Android",
-    "MongoDB",
-    "MySQL",
-    "RabbitMQ",
-    "Docker",
-    "React",
-    "Angular",
-    "Next.js",
-    "TypeScript",
-    "Firebase",
-    "Tailwind CSS",
-    "Git & CI/CD",
+  eyebrows: {
+    projects: "// projects",
+    about: "// skills",
+    contact: "// contact",
+  },
+  skillGroups: [
+    {
+      label: "Languages",
+      items: ["Java", "TypeScript", "JavaScript", "C#", "SQL", "HTML & CSS"],
+    },
+    {
+      label: "Distributed Systems & Backend",
+      items: [
+        "Distributed Systems",
+        "RabbitMQ (AMQP)",
+        "Apache Ratis (Raft)",
+        "gRPC",
+        "Multithreading",
+        "JDBC",
+        "TLS & HMAC",
+      ],
+    },
+    {
+      label: "Databases",
+      items: ["MongoDB", "MySQL", "SQLite / Room", "Firebase"],
+    },
+    {
+      label: "Frontend",
+      items: ["React", "Next.js", "Angular", "Tailwind CSS", "Vite"],
+    },
+    {
+      label: "Mobile, Desktop & XR",
+      items: ["Android", "Unity", "Meta Quest (XR)", "JavaFX", "Swing"],
+    },
+    {
+      label: "DevOps & Tools",
+      items: [
+        "Docker & Compose",
+        "GitHub Actions (CI/CD)",
+        "Gradle",
+        "Git",
+        "Linux & Shell",
+      ],
+    },
+    {
+      label: "Testing & Methodology",
+      items: ["JUnit 5", "Mockito", "Scrum & Agile", "ClickUp"],
+    },
   ],
   projectList: [
     {

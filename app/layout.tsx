@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { LanguageProvider } from "./components/LanguageProvider";
 import { ReactNode } from "react";
-import { Rubik } from "next/font/google";
+import { Rubik, JetBrains_Mono } from "next/font/google";
 import type { Metadata } from "next";
 
 type RootLayoutProps = {
@@ -15,6 +15,13 @@ const rubik = Rubik({
   display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "סיון לסרי | פורטפוליו",
   description:
@@ -23,7 +30,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="he" dir="rtl" className={rubik.className}>
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${rubik.className} ${jetbrainsMono.variable}`}
+    >
       <body className="text-gray-800 antialiased">
         <LanguageProvider>
           <Navbar />
