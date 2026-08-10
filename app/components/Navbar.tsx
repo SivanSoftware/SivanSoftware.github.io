@@ -1,14 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const links = [
-  { href: "#projects", label: "פרויקטים" },
-  { href: "#about", label: "כישורים ורקע" },
-  { href: "#contact", label: "צרו קשר" },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
+  const { t, lang, toggleLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -18,8 +14,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const links = [
+    { href: "#projects", label: t.nav.projects },
+    { href: "#about", label: t.nav.about },
+    { href: "#contact", label: t.nav.contact },
+  ];
+
   const linkClasses =
     "text-gray-700 font-medium hover:text-indigo-700 transition px-3 py-2 rounded-md hover:bg-indigo-50";
+
+  const langButtonClasses =
+    "px-3 py-1.5 rounded-md border border-indigo-300 text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition";
 
   return (
     <nav
@@ -35,13 +40,13 @@ export default function Navbar() {
         >
           <Image
             src="/logo-mark.png"
-            alt="הלוגו של סיון לסרי"
+            alt={t.hero.logoAlt}
             width={242}
             height={160}
             priority
             className="h-9 sm:h-10 w-auto"
           />
-          <span>סיון לסרי</span>
+          <span>{t.nav.name}</span>
         </a>
 
         {/* קישורים — דסקטופ */}
@@ -51,29 +56,47 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleLang}
+            className={`${langButtonClasses} ms-2`}
+            aria-label={t.langToggle.aria}
+            lang={lang === "he" ? "en" : "he"}
+          >
+            {t.langToggle.label}
+          </button>
         </div>
 
-        {/* כפתור המבורגר — מובייל */}
-        <button
-          className="sm:hidden p-2 rounded-md text-indigo-700 hover:bg-indigo-50 transition"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label={menuOpen ? "סגירת תפריט" : "פתיחת תפריט"}
-          aria-expanded={menuOpen}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
+        {/* החלפת שפה + המבורגר — מובייל */}
+        <div className="sm:hidden flex items-center gap-2">
+          <button
+            onClick={toggleLang}
+            className={langButtonClasses}
+            aria-label={t.langToggle.aria}
+            lang={lang === "he" ? "en" : "he"}
           >
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+            {t.langToggle.label}
+          </button>
+          <button
+            className="p-2 rounded-md text-indigo-700 hover:bg-indigo-50 transition"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? t.menu.close : t.menu.open}
+            aria-expanded={menuOpen}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* תפריט מובייל נפתח */}

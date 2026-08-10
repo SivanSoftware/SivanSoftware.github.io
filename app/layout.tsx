@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { LanguageProvider } from "./components/LanguageProvider";
 import { ReactNode } from "react";
 import { Rubik } from "next/font/google";
 import type { Metadata } from "next";
@@ -24,8 +25,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="he" dir="rtl" className={rubik.className}>
       <body className="text-gray-800 antialiased">
-        <Navbar />
-        {children}
+        <LanguageProvider>
+          <Navbar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

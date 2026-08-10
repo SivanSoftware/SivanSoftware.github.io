@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { useLanguage } from "./LanguageProvider";
 
 type ProjectModalProps = {
   isOpen: boolean;
@@ -18,6 +19,8 @@ export default function ProjectModal({
   githubUrl,
   tech,
 }: ProjectModalProps) {
+  const { t, lang } = useLanguage();
+
   // סגירה במקש Escape ונעילת גלילת הרקע כשהפופאפ פתוח
   useEffect(() => {
     if (!isOpen) return;
@@ -47,12 +50,12 @@ export default function ProjectModal({
       <div
         className="bg-white p-6 sm:p-8 rounded-xl max-w-lg w-full relative animate-modal-pop max-h-[85vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
-        dir="rtl"
+        dir={lang === "he" ? "rtl" : "ltr"}
       >
         <button
           onClick={onClose}
-          className="absolute top-3 left-3 text-gray-500 hover:text-gray-900 text-2xl font-bold p-1 leading-none"
-          aria-label="סגירה"
+          className="absolute top-3 end-3 text-gray-500 hover:text-gray-900 text-2xl font-bold p-1 leading-none"
+          aria-label={t.modal.closeAria}
         >
           &times;
         </button>
@@ -67,12 +70,12 @@ export default function ProjectModal({
 
         {tech && tech.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
-            {tech.map((t) => (
+            {tech.map((item) => (
               <span
-                key={t}
+                key={item}
                 className="bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full"
               >
-                {t}
+                {item}
               </span>
             ))}
           </div>
@@ -86,14 +89,14 @@ export default function ProjectModal({
               rel="noopener noreferrer"
               className={`${buttonClass} bg-gray-800 text-white hover:bg-black`}
             >
-              מעבר לקוד ב-GitHub
+              {t.modal.github}
             </a>
           )}
           <button
             onClick={onClose}
             className={`${buttonClass} bg-gray-200 text-gray-800 hover:bg-gray-300`}
           >
-            סגירה
+            {t.modal.close}
           </button>
         </div>
       </div>
