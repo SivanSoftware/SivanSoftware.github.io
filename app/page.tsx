@@ -11,6 +11,20 @@ import type { Project } from "./i18n";
 // שמות טכנולוגיות באנגלית מקבלים גופן מונוספייס; טקסט עברי נשאר בגופן הרגיל
 const isLatin = (text: string) => !/[֐-׿]/.test(text);
 
+/**
+ * גוון לכל קבוצת כישורים, לפי סדר הקבוצות (זהה בשתי השפות) — נותן לחלון
+ * תחושה של הדגשת תחביר. המחרוזות מלאות כדי ש-Tailwind יזהה אותן.
+ */
+const skillAccents = [
+  { label: "text-indigo-700", dot: "text-indigo-400", pill: "bg-indigo-50 text-indigo-800 border-indigo-200 hover:bg-indigo-100 hover:border-indigo-300" },
+  { label: "text-violet-700", dot: "text-violet-400", pill: "bg-violet-50 text-violet-800 border-violet-200 hover:bg-violet-100 hover:border-violet-300" },
+  { label: "text-emerald-700", dot: "text-emerald-400", pill: "bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300" },
+  { label: "text-sky-700", dot: "text-sky-400", pill: "bg-sky-50 text-sky-800 border-sky-200 hover:bg-sky-100 hover:border-sky-300" },
+  { label: "text-rose-700", dot: "text-rose-400", pill: "bg-rose-50 text-rose-800 border-rose-200 hover:bg-rose-100 hover:border-rose-300" },
+  { label: "text-amber-700", dot: "text-amber-500", pill: "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100 hover:border-amber-300" },
+  { label: "text-teal-700", dot: "text-teal-400", pill: "bg-teal-50 text-teal-800 border-teal-200 hover:bg-teal-100 hover:border-teal-300" },
+];
+
 function SectionHeading({
   eyebrow,
   heading,
@@ -151,32 +165,37 @@ export default function Home() {
             </div>
 
             <div className="p-5 sm:p-7 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              {t.skillGroups.map((group, index) => (
-                <Reveal key={group.label} delay={index * 70}>
-                  <h3 className="text-sm font-bold text-indigo-700 mb-2.5 flex items-center gap-1.5">
-                    <span
-                      className="font-mono text-indigo-400"
-                      aria-hidden="true"
+              {t.skillGroups.map((group, index) => {
+                const accent = skillAccents[index % skillAccents.length];
+                return (
+                  <Reveal key={group.label} delay={index * 70}>
+                    <h3
+                      className={`text-sm font-bold mb-2.5 flex items-center gap-1.5 ${accent.label}`}
                     >
-                      ▸
-                    </span>
-                    {group.label}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((item) => (
                       <span
-                        key={item}
-                        dir={isLatin(item) ? "ltr" : undefined}
-                        className={`bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-indigo-100 hover:border-indigo-300 ${
-                          isLatin(item) ? "font-mono" : "font-medium"
-                        }`}
+                        className={`font-mono ${accent.dot}`}
+                        aria-hidden="true"
                       >
-                        {item}
+                        ▸
                       </span>
-                    ))}
-                  </div>
-                </Reveal>
-              ))}
+                      {group.label}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <span
+                          key={item}
+                          dir={isLatin(item) ? "ltr" : undefined}
+                          className={`border px-3 py-1 rounded-md text-sm transition-colors duration-200 ${accent.pill} ${
+                            isLatin(item) ? "font-mono" : "font-medium"
+                          }`}
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </Reveal>
