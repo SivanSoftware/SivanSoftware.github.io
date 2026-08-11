@@ -166,7 +166,7 @@ const he: Dictionary = {
         "SugarSteps היא אפליקציית אנדרואיד ללימוד בישול בשלבים — השיעורים מאורגנים לפי רמות קושי (קל, בינוני, קשה).\n\n" +
         "האפליקציה תומכת בשני תפקידים: תלמידים שיכולים לצפות בשיעורים, ומדריכים שיכולים להוסיף, לערוך ולמחוק אותם. בנוסף יש מסך הרשמה עם בחירת תפקיד ואישור תנאים, ומסך הגדרות לעדכון פרטים אישיים.\n\n" +
         "הנתונים נשמרים מקומית עם Room/SQLite, וה-APK זמין להורדה בעמוד ה-Releases בגיטהאב.",
-      githubUrl: "https://github.com/sivanlasri/SugarStepsApp",
+      githubUrl: "https://github.com/SivanSoftware/SugarStepsApp",
       tech: ["Android", "Java", "Room / SQLite", "Android Studio"],
     },
     {
@@ -181,7 +181,7 @@ const he: Dictionary = {
         "המערכת כוללת שש שאילתות SQL אנליטיות לניתוח פעילות המפעל — סך ייצור לפי מכונה, שיעור פגמים ממוצע, סיכומי ייצור יומיים ועוד — והשאילתה השישית רצה במקביל עם Threads לשיפור ביצועים.\n\n" +
         "הפרויקט פותח יחד עם אלינור סרור במסגרת קורס מבוא לתכנות מערכות.",
       githubUrl:
-        "https://github.com/sivanlasri/Plastic-Sheet-Factory-Management-System",
+        "https://github.com/SivanSoftware/Plastic-Sheet-Factory-Management-System",
       tech: ["Java", "MySQL", "JDBC", "Swing", "Multithreading"],
     },
     {
@@ -196,7 +196,7 @@ const he: Dictionary = {
         "האתר כולל שאלון העדפות אישי (רמת כושר, מטרות, ימים פנויים ומשך אימון מועדף), תהליך הרשמה רב-שלבי עם הצהרת בריאות, מסכי התחברות ובית עם ניווט נוח, וממשק אינטראקטיבי עם אינדיקטורים של התקדמות.\n\n" +
         "הנתונים וההעדפות נשמרים בטבלאות SQL ייעודיות — תשתית להמלצות אימון מותאמות אישית בהמשך. פותח יחד עם שלו תורג'מן ודוד רן כהן.",
       githubUrl:
-        "https://github.com/sivanlasri/Moveit-Website---Your-Personal-Trainer",
+        "https://github.com/SivanSoftware/Moveit-Website---Your-Personal-Trainer",
       tech: ["Angular", "JavaScript", "TypeScript", "HTML & CSS", "SQL"],
     },
     {
@@ -344,7 +344,7 @@ const en: Dictionary = {
         "SugarSteps is an Android app for learning cooking step by step — lessons are organized by difficulty level (easy, medium, hard).\n\n" +
         "The app supports two roles: students who can view lessons, and instructors who can add, edit and delete them. It also includes a registration screen with role selection and terms approval, and a settings screen for updating personal details.\n\n" +
         "Data is stored locally with Room/SQLite, and the APK is available for download from the Releases page on GitHub.",
-      githubUrl: "https://github.com/sivanlasri/SugarStepsApp",
+      githubUrl: "https://github.com/SivanSoftware/SugarStepsApp",
       tech: ["Android", "Java", "Room / SQLite", "Android Studio"],
     },
     {
@@ -359,7 +359,7 @@ const en: Dictionary = {
         "It includes six analytical SQL queries for analyzing factory operations — total production per machine, average defect rate, daily production summaries and more — and the sixth query runs in parallel using Threads to improve performance.\n\n" +
         "Developed together with Elinor Srur as part of the Introduction to System Programming course.",
       githubUrl:
-        "https://github.com/sivanlasri/Plastic-Sheet-Factory-Management-System",
+        "https://github.com/SivanSoftware/Plastic-Sheet-Factory-Management-System",
       tech: ["Java", "MySQL", "JDBC", "Swing", "Multithreading"],
     },
     {
@@ -374,7 +374,7 @@ const en: Dictionary = {
         "The site includes a personal preferences questionnaire (fitness level, goals, available days and preferred workout duration), a multi-step registration flow with a health declaration, login and home screens with easy navigation, and an interactive interface with progress indicators.\n\n" +
         "User data and preferences are stored in dedicated SQL tables — the foundation for personalized training recommendations down the line. Developed together with Shalev Turgeman and David Ran Cohen.",
       githubUrl:
-        "https://github.com/sivanlasri/Moveit-Website---Your-Personal-Trainer",
+        "https://github.com/SivanSoftware/Moveit-Website---Your-Personal-Trainer",
       tech: ["Angular", "JavaScript", "TypeScript", "HTML & CSS", "SQL"],
     },
     {

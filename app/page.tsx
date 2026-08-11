@@ -214,20 +214,12 @@ export default function Home() {
             {t.contact.linkedin}
           </a>
           <a
-            href="https://github.com/sivanlasri"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gray-800 text-white font-semibold shadow-md hover:bg-black transition text-center"
-          >
-            GitHub — sivanlasri
-          </a>
-          <a
             href="https://github.com/SivanSoftware"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gray-800 text-white font-semibold shadow-md hover:bg-black transition text-center"
           >
-            GitHub — SivanSoftware
+            GitHub
           </a>
         </div>
       </section>
