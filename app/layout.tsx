@@ -36,6 +36,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${rubik.className} ${jetbrainsMono.variable}`}
     >
       <body className="text-gray-800 antialiased">
+        {/* ללא JavaScript אין מי שיחשוף את התוכן — מציגים אותו כמו שהוא */}
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <LanguageProvider>
           <Navbar />
           {children}

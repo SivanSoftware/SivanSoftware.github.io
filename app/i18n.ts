@@ -1,8 +1,10 @@
+import type { IconName } from "./components/ProjectIcon";
+
 export type Lang = "he" | "en";
 
 export type Project = {
   id: string;
-  emoji: string;
+  icon: IconName;
   category: string;
   title: string;
   summary: string;
@@ -134,7 +136,7 @@ const he: Dictionary = {
   projectList: [
     {
       id: "mulligan",
-      emoji: "🅿️",
+      icon: "network",
       category: "מערכות מבוזרות",
       title: "Mulligan — מערכת חניה מבוזרת",
       summary:
@@ -157,7 +159,7 @@ const he: Dictionary = {
     },
     {
       id: "sugarsteps",
-      emoji: "🍰",
+      icon: "mobile",
       category: "אפליקציית אנדרואיד",
       title: "SugarSteps — לימוד בישול בשלבים",
       summary:
@@ -171,7 +173,7 @@ const he: Dictionary = {
     },
     {
       id: "plastic-factory",
-      emoji: "🏭",
+      icon: "factory",
       category: "מערכת ניהול",
       title: "מערכת ניהול מפעל יריעות פלסטיק",
       summary:
@@ -186,7 +188,7 @@ const he: Dictionary = {
     },
     {
       id: "moveit",
-      emoji: "💪",
+      icon: "pulse",
       category: "אתר ווב",
       title: "Moveit — המאמן האישי שלך",
       summary:
@@ -201,7 +203,7 @@ const he: Dictionary = {
     },
     {
       id: "budgi",
-      emoji: "💰",
+      icon: "wallet",
       category: "אתר ווב",
       title: "Budgi — ניהול תקציב אישי",
       summary:
@@ -312,7 +314,7 @@ const en: Dictionary = {
   projectList: [
     {
       id: "mulligan",
-      emoji: "🅿️",
+      icon: "network",
       category: "Distributed Systems",
       title: "Mulligan — Distributed Parking System",
       summary:
@@ -335,7 +337,7 @@ const en: Dictionary = {
     },
     {
       id: "sugarsteps",
-      emoji: "🍰",
+      icon: "mobile",
       category: "Android App",
       title: "SugarSteps — Learn Cooking by Levels",
       summary:
@@ -349,7 +351,7 @@ const en: Dictionary = {
     },
     {
       id: "plastic-factory",
-      emoji: "🏭",
+      icon: "factory",
       category: "Management System",
       title: "Plastic Sheet Factory Management System",
       summary:
@@ -364,7 +366,7 @@ const en: Dictionary = {
     },
     {
       id: "moveit",
-      emoji: "💪",
+      icon: "pulse",
       category: "Web App",
       title: "Moveit — Your Personal Trainer",
       summary:
@@ -379,7 +381,7 @@ const en: Dictionary = {
     },
     {
       id: "budgi",
-      emoji: "💰",
+      icon: "wallet",
       category: "Web App",
       title: "Budgi — Personal Budget Management",
       summary:

@@ -10,6 +10,20 @@ html {
 
 body {
   background-color: #f5f8ff;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+/*
+ * שכבת הרקע כאלמנט קבוע נפרד ולא background-attachment: fixed —
+ * רקע מחובר מאלץ ציור מחדש בכל גלילה ומקרטע במובייל.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 70, 229, 0.16), transparent),
     radial-gradient(ellipse 60% 40% at 100% 100%, rgba(37, 99, 235, 0.12), transparent),
@@ -18,9 +32,6 @@ body {
     linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
   background-size: auto, auto, 160px 160px, 40px 40px, 40px 40px;
-  background-attachment: fixed;
-  color: #1f2937;
-  min-height: 100vh;
 }
 
 /* מרווח לעוגנים כדי שהניווט הקבוע לא יסתיר כותרות */
@@ -41,4 +52,88 @@ section[id] {
 
 .animate-modal-pop {
   animation: modal-pop 0.25s ease-out;
+}
+
+/* כניסה בטעינה — לתוכן שנמצא מעל הקיפול */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.75s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* חשיפה בגלילה — מופעלת מ-IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* קו תחתון מונפש לקישורי הניווט */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+  transform: scaleX(1);
+}
+
+/* פס התקדמות גלילה */
+.scroll-progress {
+  transform-origin: left center;
+  will-change: transform;
+}
+
+[dir="rtl"] .scroll-progress {
+  transform-origin: right center;
+}
+
+/* כיבוד העדפת תנועה מופחתת */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .animate-modal-pop {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .nav-link::after {
+    transition: none;
+  }
 }

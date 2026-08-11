@@ -7,21 +7,42 @@ export default function Navbar() {
   const { t, lang, toggleLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // מסמן את הסעיף שנמצא כרגע מול העין
+  useEffect(() => {
+    const sections = ["projects", "about", "contact"]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   const links = [
-    { href: "#projects", label: t.nav.projects },
-    { href: "#about", label: t.nav.about },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#projects", id: "projects", label: t.nav.projects },
+    { href: "#about", id: "about", label: t.nav.about },
+    { href: "#contact", id: "contact", label: t.nav.contact },
   ];
 
   const linkClasses =
-    "text-gray-700 font-medium hover:text-indigo-700 transition px-3 py-2 rounded-md hover:bg-indigo-50";
+    "nav-link text-gray-700 font-medium hover:text-indigo-700 transition px-3 py-2 rounded-md hover:bg-indigo-50";
 
   const langButtonClasses =
     "px-3 py-1.5 rounded-md border border-indigo-300 text-indigo-700 text-sm font-bold hover:bg-indigo-50 transition";
@@ -52,7 +73,16 @@ export default function Navbar() {
         {/* קישורים — דסקטופ */}
         <div className="hidden sm:flex items-center gap-1">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className={linkClasses}>
+            <a
+              key={link.href}
+              href={link.href}
+              aria-current={activeSection === link.id ? "true" : undefined}
+              className={`${linkClasses} ${
+                activeSection === link.id
+                  ? "nav-link-active text-indigo-700"
+                  : ""
+              }`}
+            >
               {link.label}
             </a>
           ))}
@@ -106,7 +136,9 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={linkClasses}
+              className={`${linkClasses} ${
+                activeSection === link.id ? "text-indigo-700" : ""
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
