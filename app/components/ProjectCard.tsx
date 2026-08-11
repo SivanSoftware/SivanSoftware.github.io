@@ -3,6 +3,53 @@ import ProjectIcon from "./ProjectIcon";
 import { useReveal } from "./useReveal";
 import type { Project } from "../i18n";
 
+/**
+ * גוון ייעודי לכל פרויקט. המחרוזות כתובות במלואן כדי ש-Tailwind יזהה אותן
+ * בסריקת הקוד — בנייה דינמית של שמות מחלקות לא הייתה נכנסת ל-CSS.
+ */
+const accents: Record<
+  string,
+  { icon: string; badge: string; line: string; border: string; num: string }
+> = {
+  mulligan: {
+    icon: "bg-violet-50 text-violet-600 ring-violet-100 group-hover:bg-violet-600 group-hover:text-white group-hover:ring-violet-600",
+    badge: "border-violet-200 bg-violet-50 text-violet-700",
+    line: "from-violet-500 to-indigo-500",
+    border: "hover:border-violet-300",
+    num: "group-hover:text-violet-500",
+  },
+  sugarsteps: {
+    icon: "bg-rose-50 text-rose-500 ring-rose-100 group-hover:bg-rose-500 group-hover:text-white group-hover:ring-rose-500",
+    badge: "border-rose-200 bg-rose-50 text-rose-700",
+    line: "from-rose-500 to-pink-500",
+    border: "hover:border-rose-300",
+    num: "group-hover:text-rose-500",
+  },
+  "plastic-factory": {
+    icon: "bg-amber-50 text-amber-600 ring-amber-100 group-hover:bg-amber-500 group-hover:text-white group-hover:ring-amber-500",
+    badge: "border-amber-200 bg-amber-50 text-amber-700",
+    line: "from-amber-500 to-orange-500",
+    border: "hover:border-amber-300",
+    num: "group-hover:text-amber-500",
+  },
+  moveit: {
+    icon: "bg-emerald-50 text-emerald-600 ring-emerald-100 group-hover:bg-emerald-600 group-hover:text-white group-hover:ring-emerald-600",
+    badge: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    line: "from-emerald-500 to-teal-500",
+    border: "hover:border-emerald-300",
+    num: "group-hover:text-emerald-500",
+  },
+  budgi: {
+    icon: "bg-sky-50 text-sky-600 ring-sky-100 group-hover:bg-sky-600 group-hover:text-white group-hover:ring-sky-600",
+    badge: "border-sky-200 bg-sky-50 text-sky-700",
+    line: "from-sky-500 to-cyan-500",
+    border: "hover:border-sky-300",
+    num: "group-hover:text-sky-500",
+  },
+};
+
+const fallbackAccent = accents.mulligan;
+
 type ProjectCardProps = {
   project: Project;
   index: number;
@@ -19,31 +66,36 @@ export default function ProjectCard({
   onOpen,
 }: ProjectCardProps) {
   const reveal = useReveal<HTMLElement>(index * 90);
+  const accent = accents[project.id] ?? fallbackAccent;
 
   return (
     <article
       ref={reveal.ref}
       style={reveal.style}
-      className={`${reveal.className} group relative flex flex-col overflow-hidden rounded-xl border border-indigo-100 bg-white/85 backdrop-blur-sm p-6 shadow-sm transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:border-indigo-300 hover:shadow-xl`}
+      className={`${reveal.className} ${accent.border} group relative flex flex-col overflow-hidden rounded-xl border border-indigo-100 bg-white/85 backdrop-blur-sm p-6 shadow-sm transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-xl`}
     >
       {/* קו מבטא עליון שנפרש בריחוף */}
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-0.5 origin-[left_center] scale-x-0 bg-gradient-to-l from-indigo-500 to-blue-500 transition-transform duration-500 group-hover:scale-x-100 rtl:origin-[right_center]"
+        className={`absolute inset-x-0 top-0 h-0.5 origin-[left_center] scale-x-0 bg-gradient-to-l ${accent.line} transition-transform duration-500 group-hover:scale-x-100 rtl:origin-[right_center]`}
       />
 
       <div className="mb-4 flex items-start justify-between gap-3">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100 transition-colors duration-300 group-hover:bg-indigo-600 group-hover:text-white group-hover:ring-indigo-600">
+        <span
+          className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-colors duration-300 ${accent.icon}`}
+        >
           <ProjectIcon name={project.icon} className="h-6 w-6" />
         </span>
         <div className="flex flex-col items-end gap-1.5">
           <span
             dir="ltr"
-            className="font-mono text-xs text-indigo-300 transition-colors duration-300 group-hover:text-indigo-500"
+            className={`font-mono text-xs text-gray-300 transition-colors duration-300 ${accent.num}`}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="rounded-full border border-indigo-100 bg-indigo-50/70 px-3 py-1 text-xs font-semibold text-indigo-700">
+          <span
+            className={`rounded-full border px-3 py-1 text-xs font-semibold ${accent.badge}`}
+          >
             {project.category}
           </span>
         </div>
