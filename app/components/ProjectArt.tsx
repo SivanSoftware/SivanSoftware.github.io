@@ -95,7 +95,32 @@ const budgetScene = (
   </>
 );
 
+// WaterVision VR — משקפת מרחפת מעל גלי מים זורמים + טיפות
+const waterVisionScene = (
+  <>
+    <g stroke="currentColor" fill="none" strokeWidth="3" strokeLinecap="round" opacity="0.7">
+      <path className="art-flow" d="M14 68 q14 -10 28 0 t28 0 t28 0 t28 0 t28 0" />
+      <path className="art-flow" style={{ animationDelay: "0.4s" }} d="M14 78 q14 -10 28 0 t28 0 t28 0 t28 0 t28 0" />
+    </g>
+    <g className="art-bob">
+      <path
+        fill="currentColor"
+        d="M62 28 h76 a6 6 0 0 1 6 6 v9 a9 9 0 0 1 -9 9 h-13 a7 7 0 0 1 -6 -3.5 l-2.5 -4 a4 4 0 0 0 -6.8 0 l-2.5 4 a7 7 0 0 1 -6 3.5 h-13 a9 9 0 0 1 -9 -9 v-9 a6 6 0 0 1 6 -6 z"
+      />
+      <circle cx="80" cy="40" r="6" className="fill-white dark:fill-[#0a0f1f]" />
+      <circle cx="120" cy="40" r="6" className="fill-white dark:fill-[#0a0f1f]" />
+    </g>
+    <circle className="art-bob" style={{ animationDelay: "0.6s" }} cx="40" cy="22" r="4" fill="currentColor" />
+    <circle className="art-bob" style={{ animationDelay: "1s" }} cx="162" cy="20" r="5" fill="currentColor" />
+  </>
+);
+
 const artMap: Record<string, Art> = {
+  watervision: {
+    text: "text-cyan-500 dark:text-cyan-300",
+    bg: "from-cyan-100/70 to-sky-100/50 dark:from-cyan-500/15 dark:to-sky-500/10",
+    scene: waterVisionScene,
+  },
   mulligan: {
     text: "text-violet-500 dark:text-violet-300",
     bg: "from-violet-100/70 to-indigo-100/50 dark:from-violet-500/15 dark:to-indigo-500/10",
