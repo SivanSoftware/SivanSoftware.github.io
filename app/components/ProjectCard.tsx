@@ -1,5 +1,6 @@
 "use client";
 import ProjectIcon from "./ProjectIcon";
+import ImagePlaceholder from "./ImagePlaceholder";
 import { useReveal } from "./useReveal";
 import type { Project } from "../i18n";
 
@@ -72,12 +73,21 @@ export default function ProjectCard({
     <article
       ref={reveal.ref}
       style={reveal.style}
-      className={`${reveal.className} ${accent.border} group relative flex flex-col overflow-hidden rounded-xl border border-indigo-100 bg-white/85 backdrop-blur-sm p-6 shadow-sm transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-xl`}
+      className={`${reveal.className} ${accent.border} group relative flex flex-col overflow-hidden rounded-xl border border-indigo-100 bg-white/85 backdrop-blur-sm p-6 shadow-sm transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-xl dark:border-indigo-400/20 dark:bg-white/[0.04] dark:hover:shadow-black/40`}
     >
       {/* קו מבטא עליון שנפרש בריחוף */}
       <span
         aria-hidden="true"
-        className={`absolute inset-x-0 top-0 h-0.5 origin-[left_center] scale-x-0 bg-gradient-to-l ${accent.line} transition-transform duration-500 group-hover:scale-x-100 rtl:origin-[right_center]`}
+        className={`absolute inset-x-0 top-0 z-10 h-0.5 origin-[left_center] scale-x-0 bg-gradient-to-l ${accent.line} transition-transform duration-500 group-hover:scale-x-100 rtl:origin-[right_center]`}
+      />
+
+      {/* תצוגת צילום מסך — placeholder שאפשר להחליף בתמונה אמיתית */}
+      <ImagePlaceholder
+        src={project.image}
+        alt={project.title}
+        hint={`/projects/${project.id}.png`}
+        rounded="rounded-lg"
+        className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] !border-x-0 !border-t-0 transition-transform duration-500 group-hover:scale-[1.03]"
       />
 
       <div className="mb-4 flex items-start justify-between gap-3">
@@ -89,7 +99,7 @@ export default function ProjectCard({
         <div className="flex flex-col items-end gap-1.5">
           <span
             dir="ltr"
-            className={`font-mono text-xs text-gray-300 transition-colors duration-300 ${accent.num}`}
+            className={`font-mono text-xs text-gray-300 transition-colors duration-300 dark:text-gray-600 ${accent.num}`}
           >
             {String(index + 1).padStart(2, "0")}
           </span>
@@ -101,10 +111,10 @@ export default function ProjectCard({
         </div>
       </div>
 
-      <h3 className="mb-3 text-lg font-bold text-[#1E1B4B] sm:text-xl">
+      <h3 className="mb-3 text-lg font-bold text-[#1E1B4B] sm:text-xl dark:text-indigo-100">
         {project.title}
       </h3>
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-700 sm:text-base">
+      <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-700 sm:text-base dark:text-gray-300">
         {project.summary}
       </p>
 
@@ -113,13 +123,13 @@ export default function ProjectCard({
           <span
             key={tech}
             dir="ltr"
-            className="rounded-md border border-indigo-100 bg-indigo-50 px-2.5 py-1 font-mono text-xs text-indigo-800"
+            className="rounded-md border border-indigo-100 bg-indigo-50 px-2.5 py-1 font-mono text-xs text-indigo-800 dark:border-indigo-400/20 dark:bg-indigo-500/10 dark:text-indigo-200"
           >
             {tech}
           </span>
         ))}
         {project.tech.length > 3 && (
-          <span dir="ltr" className="px-1 py-1 font-mono text-xs text-gray-400">
+          <span dir="ltr" className="px-1 py-1 font-mono text-xs text-gray-400 dark:text-gray-500">
             +{project.tech.length - 3}
           </span>
         )}

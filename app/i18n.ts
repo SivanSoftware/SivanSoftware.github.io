@@ -11,12 +11,39 @@ export type Project = {
   description: string;
   githubUrl?: string;
   tech: string[];
+  /** תמונת תצוגה אופציונלית מתוך /public (למשל "/projects/mulligan.png").
+   *  אם ריק — מוצג placeholder מעוצב עם שם הקובץ המומלץ. */
+  image?: string;
 };
+
+export type ExperienceKind = "work" | "service";
+
+export type Experience = {
+  id: string;
+  kind: ExperienceKind;
+  role: string;
+  org: string;
+  period: string;
+  location?: string;
+  points: string[];
+  tech?: string[];
+  /** לוגו ארגון אופציונלי מתוך /public (למשל "/logos/magshimim.png"). */
+  logo?: string;
+};
+
+export type Stat = { value: string; label: string };
 
 export type Dictionary = {
   meta: { title: string; description: string };
-  nav: { name: string; projects: string; about: string; contact: string };
+  nav: {
+    name: string;
+    projects: string;
+    experience: string;
+    about: string;
+    contact: string;
+  };
   langToggle: { label: string; aria: string };
+  themeToggle: { toDark: string; toLight: string };
   menu: { open: string; close: string };
   hero: {
     greeting: string;
@@ -25,17 +52,21 @@ export type Dictionary = {
     bio: string;
     ctaProjects: string;
     ctaContact: string;
+    ctaCv: string;
     photoAlt: string;
     logoAlt: string;
   };
+  stats: Stat[];
   projects: { heading: string; subheading: string; details: string; github: string };
+  experience: { heading: string; subheading: string; techLabel: string };
   about: { heading: string; intro: string };
   contact: { heading: string; subheading: string; linkedin: string };
   modal: { github: string; close: string; closeAria: string };
   footer: string;
-  eyebrows: { projects: string; about: string; contact: string };
+  eyebrows: { projects: string; experience: string; about: string; contact: string };
   skillGroups: { label: string; items: string[] }[];
   projectList: Project[];
+  experienceList: Experience[];
 };
 
 const he: Dictionary = {
@@ -47,10 +78,12 @@ const he: Dictionary = {
   nav: {
     name: "סיון לסרי",
     projects: "פרויקטים",
+    experience: "ניסיון",
     about: "כישורים ורקע",
     contact: "צרו קשר",
   },
   langToggle: { label: "EN", aria: "Switch to English" },
+  themeToggle: { toDark: "מעבר למצב כהה", toLight: "מעבר למצב בהיר" },
   menu: { open: "פתיחת תפריט", close: "סגירת תפריט" },
   hero: {
     greeting: "היי, אני",
@@ -60,14 +93,26 @@ const he: Dictionary = {
       "במהלך התואר בניתי מערכות מהתשתית ועד לממשק — ממערכת חניה מבוזרת ועמידה לתקלות ב-Java, דרך אפליקציות אנדרואיד ועד אתרי ווב מודרניים ב-React וב-Angular. בפרויקט הגמר פיתחנו את WaterVision VR — אפליקציה למשקפי Meta Quest שמשמשת פלטפורמה לפגישות ושיתוף פעולה בנושא תשתיות מים. שימשתי בו גם כמפתחת וגם כ-Scrum Master של צוות בן חמישה חברים. נמשכת לבעיות של אמינות, קונצנזוס ואבטחה, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.",
     ctaProjects: "לפרויקטים שלי",
     ctaContact: "דברו איתי",
+    ctaCv: "הורדת קורות חיים",
     photoAlt: "סיון לסרי",
     logoAlt: "הלוגו של סיון לסרי",
   },
+  stats: [
+    { value: "93", label: "ממוצע בתואר" },
+    { value: "2025", label: "רשימת הנשיא למצטיינים" },
+    { value: "6+", label: "פרויקטים" },
+    { value: "30+", label: "טכנולוגיות וכלים" },
+  ],
   projects: {
     heading: "פרויקטים",
     subheading: "מבחר עבודות — ממערכות מבוזרות ועד אפליקציות מובייל וווב",
     details: "פרטים נוספים",
     github: "GitHub",
+  },
+  experience: {
+    heading: "ניסיון",
+    subheading: "תפקידים, הדרכה וצוות — מעבר לקוד עצמו",
+    techLabel: "טכנולוגיות",
   },
   about: {
     heading: "כישורים ורקע",
@@ -86,6 +131,7 @@ const he: Dictionary = {
   footer: "סיון לסרי · נבנה עם Next.js ו-Tailwind CSS",
   eyebrows: {
     projects: "// projects",
+    experience: "// experience",
     about: "// skills",
     contact: "// contact",
   },
@@ -213,6 +259,33 @@ const he: Dictionary = {
       tech: ["React", "Vite", "Firebase", "React Router", "TypeScript"],
     },
   ],
+  experienceList: [
+    {
+      id: "magshimim",
+      kind: "work",
+      role: "מדריכת תכנות",
+      org: "מגשימים (Pre-Magshimim)",
+      period: "2024 – 2026",
+      points: [
+        "לימוד שפת Processing (מבוססת Java) לתלמידי כיתות ח׳, ו-C# (‏.NET) לתלמידי כיתות ט׳.",
+        "הנגשת מושגי יסוד במדעי המחשב באמצעות שיטות למידה אינטראקטיביות.",
+        "ליווי התלמידים בפיתוח משחקים אינטראקטיביים — חיזוק מיומנויות קוד וחשיבה לפתרון בעיות.",
+      ],
+      tech: ["Java (Processing)", "C# / .NET"],
+    },
+    {
+      id: "national-service",
+      kind: "service",
+      role: "מדריכה בשירות לאומי",
+      org: "מוזיאון הרצל · מוזיאון לח״י",
+      period: "2018 – 2020",
+      points: [
+        "הדרכת סיורים בעברית ובאנגלית — דיבור מול קהל והתאמה לקהלים מגוונים.",
+        "ניהול לוגיסטיקה ותיאום לתפעול חלק ורציף של הסיורים.",
+        "יצירת חוויית מבקרים מעולה מתוך ידע מקיף והגשה מקצועית.",
+      ],
+    },
+  ],
 };
 
 const en: Dictionary = {
@@ -224,10 +297,12 @@ const en: Dictionary = {
   nav: {
     name: "Sivan Lasri",
     projects: "Projects",
+    experience: "Experience",
     about: "Skills & Background",
     contact: "Contact",
   },
   langToggle: { label: "עב", aria: "מעבר לעברית" },
+  themeToggle: { toDark: "Switch to dark mode", toLight: "Switch to light mode" },
   menu: { open: "Open menu", close: "Close menu" },
   hero: {
     greeting: "Hi, I'm",
@@ -237,15 +312,27 @@ const en: Dictionary = {
       "Throughout my degree I built systems from the infrastructure up to the interface — from a fault-tolerant distributed parking system in Java, through Android apps, to modern web apps in React and Angular. For my final project we built WaterVision VR — a Meta Quest application that serves as a platform for meetings and collaboration around water infrastructure. I served on it as both a developer and Scrum Master of a five-person team. I'm drawn to problems of reliability, consensus and security, and I love picking up new technologies while building.",
     ctaProjects: "View my projects",
     ctaContact: "Get in touch",
+    ctaCv: "Download CV",
     photoAlt: "Sivan Lasri",
     logoAlt: "Sivan Lasri's logo",
   },
+  stats: [
+    { value: "93", label: "Degree GPA" },
+    { value: "2025", label: "President's List" },
+    { value: "6+", label: "Projects" },
+    { value: "30+", label: "Technologies & tools" },
+  ],
   projects: {
     heading: "Projects",
     subheading:
       "Selected work — from distributed systems to mobile and web applications",
     details: "More details",
     github: "GitHub",
+  },
+  experience: {
+    heading: "Experience",
+    subheading: "Roles, instruction and teamwork — beyond the code itself",
+    techLabel: "Tech",
   },
   about: {
     heading: "Skills & Background",
@@ -264,6 +351,7 @@ const en: Dictionary = {
   footer: "Sivan Lasri · Built with Next.js and Tailwind CSS",
   eyebrows: {
     projects: "// projects",
+    experience: "// experience",
     about: "// skills",
     contact: "// contact",
   },
@@ -389,6 +477,33 @@ const en: Dictionary = {
       description:
         "Budgi is a web app for managing a personal budget, built with React and Vite. It includes expense tracking, monthly budget planning, and a full user system (registration, login and password recovery) based on Firebase.",
       tech: ["React", "Vite", "Firebase", "React Router", "TypeScript"],
+    },
+  ],
+  experienceList: [
+    {
+      id: "magshimim",
+      kind: "work",
+      role: "Programming Instructor",
+      org: "Magshimim (Pre-Magshimim)",
+      period: "2024 – 2026",
+      points: [
+        "Taught Processing (Java-based) to 8th-grade students and C# (.NET) to 9th-grade students.",
+        "Explained core computer-science concepts through interactive learning methodologies.",
+        "Guided students in building interactive game projects — strengthening coding and problem-solving skills.",
+      ],
+      tech: ["Java (Processing)", "C# / .NET"],
+    },
+    {
+      id: "national-service",
+      kind: "service",
+      role: "National Service Guide",
+      org: "Herzl Museum · Lehi Museum",
+      period: "2018 – 2020",
+      points: [
+        "Led tours in Hebrew and English — public speaking and adapting to diverse audiences.",
+        "Managed logistics and coordination for smooth, continuous tour operations.",
+        "Delivered an excellent visitor experience through broad knowledge and professional presentation.",
+      ],
     },
   ],
 };
