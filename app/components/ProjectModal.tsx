@@ -48,23 +48,23 @@ export default function ProjectModal({
       role="dialog"
     >
       <div
-        className="bg-white p-6 sm:p-8 rounded-xl max-w-lg w-full relative animate-modal-pop max-h-[85vh] overflow-y-auto"
+        className="bg-white p-6 sm:p-8 rounded-xl max-w-lg w-full relative animate-modal-pop max-h-[85vh] overflow-y-auto dark:bg-[#111827] dark:ring-1 dark:ring-indigo-400/20"
         onClick={(e) => e.stopPropagation()}
         dir={lang === "he" ? "rtl" : "ltr"}
       >
         <button
           onClick={onClose}
-          className="absolute top-3 end-3 text-gray-500 hover:text-gray-900 text-2xl font-bold p-1 leading-none"
+          className="absolute top-3 end-3 text-gray-500 hover:text-gray-900 text-2xl font-bold p-1 leading-none dark:text-gray-400 dark:hover:text-white"
           aria-label={t.modal.closeAria}
         >
           &times;
         </button>
 
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-4 border-b pb-2">
+        <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-4 border-b pb-2 dark:text-indigo-100 dark:border-indigo-400/20">
           {title}
         </h3>
 
-        <p className="text-gray-700 mb-4 whitespace-pre-wrap leading-relaxed">
+        <p className="text-gray-700 mb-4 whitespace-pre-wrap leading-relaxed dark:text-gray-300">
           {description}
         </p>
 
@@ -73,7 +73,7 @@ export default function ProjectModal({
             {tech.map((item) => (
               <span
                 key={item}
-                className="bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full"
+                className="bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full dark:bg-indigo-500/15 dark:text-indigo-200"
               >
                 {item}
               </span>
@@ -81,7 +81,7 @@ export default function ProjectModal({
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4 border-t">
+        <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4 border-t dark:border-indigo-400/20">
           {githubUrl && (
             <a
               href={githubUrl}
@@ -94,7 +94,7 @@ export default function ProjectModal({
           )}
           <button
             onClick={onClose}
-            className={`${buttonClass} bg-gray-200 text-gray-800 hover:bg-gray-300`}
+            className={`${buttonClass} bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-white/10 dark:text-gray-200 dark:hover:bg-white/20`}
           >
             {t.modal.close}
           </button>
