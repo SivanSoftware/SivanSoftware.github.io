@@ -13,6 +13,13 @@ const accents: Record<
   string,
   { icon: string; badge: string; line: string; border: string; num: string }
 > = {
+  watervision: {
+    icon: "bg-cyan-50 text-cyan-600 ring-cyan-100 group-hover:bg-cyan-600 group-hover:text-white group-hover:ring-cyan-600",
+    badge: "border-cyan-200 bg-cyan-50 text-cyan-700",
+    line: "from-cyan-500 to-sky-500",
+    border: "hover:border-cyan-300",
+    num: "group-hover:text-cyan-500",
+  },
   mulligan: {
     icon: "bg-violet-50 text-violet-600 ring-violet-100 group-hover:bg-violet-600 group-hover:text-white group-hover:ring-violet-600",
     badge: "border-violet-200 bg-violet-50 text-violet-700",

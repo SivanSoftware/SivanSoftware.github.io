@@ -181,6 +181,28 @@ const he: Dictionary = {
   ],
   projectList: [
     {
+      id: "watervision",
+      icon: "vr",
+      category: "מציאות מדומה · פרויקט גמר",
+      title: "WaterVision VR — פלטפורמת פגישות VR",
+      summary:
+        "פלטפורמת מציאות מדומה לפגישות מקצועיות בתעשיית המים, ב-Unity ל-Meta Quest: חדר ישיבות משותף עם avatars מסונכרנים, תמלול דיבור בזמן אמת, מודלים תלת-ממדיים וסימולציה חיה. פרויקט הגמר שלי — כמפתחת וכ-Scrum Master.",
+      description:
+        "WaterVision VR הוא פרויקט הגמר שלי (2026) — פלטפורמת VR/AR לפגישות מקצועיות בתחום תשתיות המים, שפותחה ב-Unity 6 (C#) למשקפי Meta Quest. שימשתי בו גם כמפתחת וגם כ-Scrum Master של צוות בן חמישה חברים, בעבודה בשיטת Agile.\n\n" +
+        "הפלטפורמה כוללת חדר ישיבות משותף עם avatars מסונכרנים, מעקב ידיים ותקשורת קולית; תמלול דיבור לטקסט בזמן אמת עם ייצוא ל-PDF; חדר מודלים תלת-ממדי לקבצי GLB/FBX עם סימולציה חיה של טיהור שפכים; וניתוח השתתפות (זמן דיבור לכל משתתף).\n\n" +
+        "בנוסף: זיהוי שפת סימנים ומחוות ידיים, לוח שיתופי, ומעבר בין VR מלא ל-passthrough (מציאות מעורבת) על ה-Quest. המערכת נוסתה בשטח במתקן טיהור השפכים בבית שאן.",
+      githubUrl: "https://github.com/SivanSoftware/WaterVision_VR",
+      tech: [
+        "Unity 6",
+        "C#",
+        "Meta Quest (XR)",
+        "URP",
+        "Multiplayer",
+        "Speech-to-Text",
+        "Agile / Scrum",
+      ],
+    },
+    {
       id: "mulligan",
       icon: "network",
       category: "מערכות מבוזרות",
@@ -400,6 +422,28 @@ const en: Dictionary = {
     },
   ],
   projectList: [
+    {
+      id: "watervision",
+      icon: "vr",
+      category: "Virtual Reality · Final Project",
+      title: "WaterVision VR — VR Meeting Platform",
+      summary:
+        "A virtual-reality platform for professional meetings in the water sector, built in Unity for Meta Quest: a shared meeting room with synchronized avatars, real-time speech-to-text, 3D models and a live simulation. My final project — as developer and Scrum Master.",
+      description:
+        "WaterVision VR is my final graduation project (2026) — a VR/AR platform for professional meetings in the water-infrastructure field, built in Unity 6 (C#) for Meta Quest headsets. I served as both a developer and the Scrum Master of a five-person team, working in an Agile methodology.\n\n" +
+        "The platform includes a shared meeting room with synchronized avatars, hand tracking and voice; real-time speech-to-text transcription with PDF export; a 3D model room for GLB/FBX files with a live wastewater-treatment simulation; and participation analytics (speaking time per attendee).\n\n" +
+        "It also features sign-language and hand-gesture recognition, a collaborative whiteboard, and switching between full VR and passthrough (mixed reality) on the Quest. The system was field-tested at the Beit She'an wastewater treatment plant.",
+      githubUrl: "https://github.com/SivanSoftware/WaterVision_VR",
+      tech: [
+        "Unity 6",
+        "C#",
+        "Meta Quest (XR)",
+        "URP",
+        "Multiplayer",
+        "Speech-to-Text",
+        "Agile / Scrum",
+      ],
+    },
     {
       id: "mulligan",
       icon: "network",
