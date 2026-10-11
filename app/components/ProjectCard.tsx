@@ -1,6 +1,7 @@
 "use client";
+import Image from "next/image";
 import ProjectIcon from "./ProjectIcon";
-import ImagePlaceholder from "./ImagePlaceholder";
+import ProjectArt from "./ProjectArt";
 import { useReveal } from "./useReveal";
 import type { Project } from "../i18n";
 
@@ -81,14 +82,19 @@ export default function ProjectCard({
         className={`absolute inset-x-0 top-0 z-10 h-0.5 origin-[left_center] scale-x-0 bg-gradient-to-l ${accent.line} transition-transform duration-500 group-hover:scale-x-100 rtl:origin-[right_center]`}
       />
 
-      {/* תצוגת צילום מסך — placeholder שאפשר להחליף בתמונה אמיתית */}
-      <ImagePlaceholder
-        src={project.image}
-        alt={project.title}
-        hint={`/projects/${project.id}.png`}
-        rounded="rounded-lg"
-        className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] !border-x-0 !border-t-0 transition-transform duration-500 group-hover:scale-[1.03]"
-      />
+      {/* כותרת חזותית: אייקון מונפש, או תמונה אמיתית אם הוגדרה ב-i18n */}
+      <div className="-mx-6 -mt-6 mb-5 h-36 w-[calc(100%+3rem)] overflow-hidden border-b border-indigo-100 dark:border-indigo-400/15">
+        {project.image ? (
+          <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-[1.04]">
+            <Image src={project.image} alt={project.title} fill className="object-cover" />
+          </div>
+        ) : (
+          <ProjectArt
+            project={project}
+            className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        )}
+      </div>
 
       <div className="mb-4 flex items-start justify-between gap-3">
         <span
