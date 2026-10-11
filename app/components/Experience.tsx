@@ -1,5 +1,5 @@
 "use client";
-import ImagePlaceholder from "./ImagePlaceholder";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import { useReveal } from "./useReveal";
 import type { Experience as ExperienceItem } from "../i18n";
@@ -61,15 +61,20 @@ function TimelineRow({
             </p>
           </div>
 
-          {/* placeholder ללוגו הארגון — אפשר להחליף בתמונה אמיתית */}
-          <ImagePlaceholder
-            src={item.logo}
-            alt={item.org}
-            icon="logo"
-            rounded="rounded-lg"
-            hint={`/logos/${item.id}.png`}
-            className="hidden h-16 w-16 shrink-0 sm:flex"
-          />
+          {/* אמblem מונפש של הארגון — או לוגו אמיתי אם הוגדר ב-i18n */}
+          {item.logo ? (
+            <div className="relative hidden h-16 w-16 shrink-0 overflow-hidden rounded-lg sm:block">
+              <Image src={item.logo} alt={item.org} fill className="object-contain" />
+            </div>
+          ) : (
+            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-100 to-sky-100 text-indigo-500 sm:flex dark:from-indigo-500/15 dark:to-sky-500/10 dark:text-indigo-300">
+              <span className="float-y flex items-center justify-center">
+                <span className="scale-[1.6]">
+                  <KindIcon kind={item.kind} />
+                </span>
+              </span>
+            </div>
+          )}
         </div>
 
         <ul className="mt-4 space-y-2">

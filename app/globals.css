@@ -237,6 +237,59 @@ section[id] {
   animation: pulse-ring 2.4s ease-out infinite;
 }
 
+/* ===== אייקונים מונפשים (ProjectArt) ===== */
+
+/* זרימה לאורך קווי חיבור (מערכת מבוזרת / דופק) */
+@keyframes art-dash { to { stroke-dashoffset: -20; } }
+.art-flow {
+  stroke-dasharray: 4 6;
+  animation: art-dash 1.1s linear infinite;
+}
+
+/* הבהוב צמתים */
+@keyframes art-node {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.art-node { animation: art-node 1.8s ease-in-out infinite; }
+
+/* גדילת עמודות (גרף תקציב / מדרגות) */
+@keyframes art-bar {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+.art-bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: art-bar 1.7s ease-in-out infinite;
+}
+
+/* סיבוב גלגלי שיניים */
+.art-spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin-slow 6s linear infinite;
+}
+
+/* פעימת לב (כושר) */
+@keyframes art-beat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  32% { transform: scale(1); }
+}
+.art-beat {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: art-beat 1.4s ease-in-out infinite;
+}
+
+/* ניתור/ריחוף קצר */
+@keyframes art-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.art-bob { animation: art-bob 1.9s ease-in-out infinite; }
+
 /* זוהר רך בריחוף */
 .glow-hover {
   transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -263,7 +316,13 @@ section[id] {
   .float-y,
   .shimmer::after,
   .animate-spin-slow,
-  .pulse-ring {
+  .pulse-ring,
+  .art-flow,
+  .art-node,
+  .art-bar,
+  .art-spin,
+  .art-beat,
+  .art-bob {
     animation: none;
   }
 
