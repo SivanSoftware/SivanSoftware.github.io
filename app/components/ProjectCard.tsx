@@ -104,11 +104,22 @@ export default function ProjectCard({
       </div>
 
       <div className="mb-4 flex items-start justify-between gap-3">
-        <span
-          className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-colors duration-300 ${accent.icon}`}
-        >
-          <ProjectIcon name={project.icon} className="h-6 w-6" />
-        </span>
+        {project.iconImage ? (
+          <span className="relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-lg">
+            <Image
+              src={project.iconImage}
+              alt={project.title}
+              fill
+              className="object-contain"
+            />
+          </span>
+        ) : (
+          <span
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 transition-colors duration-300 ${accent.icon}`}
+          >
+            <ProjectIcon name={project.icon} className="h-6 w-6" />
+          </span>
+        )}
         <div className="flex flex-col items-end gap-1.5">
           <span
             dir="ltr"
