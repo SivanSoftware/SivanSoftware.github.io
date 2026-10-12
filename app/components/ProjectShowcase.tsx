@@ -69,6 +69,18 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent = accents.mulligan;
 
+// בועות עדינות לתמונה הגדולה (left/גודל/משך/השהיה)
+const bubbles = [
+  { left: "12%", size: 10, dur: "7s", delay: "0s" },
+  { left: "24%", size: 6, dur: "9s", delay: "1.4s" },
+  { left: "38%", size: 14, dur: "8s", delay: "2.6s" },
+  { left: "50%", size: 8, dur: "10s", delay: "0.8s" },
+  { left: "63%", size: 11, dur: "7.5s", delay: "3.2s" },
+  { left: "74%", size: 6, dur: "9.5s", delay: "1.9s" },
+  { left: "85%", size: 13, dur: "8.5s", delay: "0.4s" },
+  { left: "92%", size: 7, dur: "10.5s", delay: "2.2s" },
+];
+
 function IconBadge({
   project,
   accent,
@@ -186,6 +198,22 @@ export default function ProjectShowcase({
                   aria-hidden="true"
                   className="media-shine pointer-events-none absolute inset-0"
                 />
+                {/* בועות עדינות שעולות */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                  {bubbles.map((b, i) => (
+                    <span
+                      key={i}
+                      className="bubble"
+                      style={{
+                        left: b.left,
+                        width: b.size,
+                        height: b.size,
+                        animationDuration: b.dur,
+                        animationDelay: b.delay,
+                      }}
+                    />
+                  ))}
+                </div>
               </>
             ) : (
               <ProjectArt project={active} className="h-full w-full" />

@@ -322,6 +322,31 @@ section[id] {
   animation: media-shine 7s ease-in-out infinite;
 }
 
+/* בועות עדינות שעולות על תמונה */
+@keyframes bubble-rise {
+  0% { transform: translateY(16px) scale(0.6); opacity: 0; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.6; }
+  100% { transform: translateY(-210px) scale(1); opacity: 0; }
+}
+.bubble {
+  position: absolute;
+  bottom: -16px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgba(255, 255, 255, 0.95),
+    rgba(190, 225, 255, 0.35) 45%,
+    rgba(255, 255, 255, 0.05) 72%
+  );
+  box-shadow:
+    0 1px 4px rgba(12, 28, 58, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.75);
+  animation: bubble-rise linear infinite;
+  will-change: transform, opacity;
+}
+
 /* זוהר רך בריחוף */
 .glow-hover {
   transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -356,7 +381,8 @@ section[id] {
   .art-beat,
   .art-bob,
   .ken-burns,
-  .media-shine::after {
+  .media-shine::after,
+  .bubble {
     animation: none;
   }
 
