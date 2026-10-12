@@ -209,6 +209,8 @@ const he: Dictionary = {
     {
       id: "mulligan",
       icon: "network",
+      iconImage: "/projects/mulligan-icon.webp",
+      image: "/projects/mulligan.webp",
       category: "מערכות מבוזרות",
       title: "Mulligan — מערכת חניה מבוזרת",
       summary:
@@ -466,6 +468,8 @@ const en: Dictionary = {
     {
       id: "mulligan",
       icon: "network",
+      iconImage: "/projects/mulligan-icon.webp",
+      image: "/projects/mulligan.webp",
       category: "Distributed Systems",
       title: "Mulligan — Distributed Parking System",
       summary:
