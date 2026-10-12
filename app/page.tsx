@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProjectModal from "./components/ProjectModal";
-import ProjectCard from "./components/ProjectCard";
+import ProjectShowcase from "./components/ProjectShowcase";
 import Experience from "./components/Experience";
 import Stats from "./components/Stats";
 import Reveal from "./components/Reveal";
@@ -168,18 +168,12 @@ export default function Home() {
           heading={t.projects.heading}
           sub={t.projects.subheading}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.projectList.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              detailsLabel={t.projects.details}
-              githubLabel={t.projects.github}
-              onOpen={() => setOpenProjectId(project.id)}
-            />
-          ))}
-        </div>
+        <ProjectShowcase
+          projects={t.projectList}
+          detailsLabel={t.projects.details}
+          githubLabel={t.projects.github}
+          onOpen={(id) => setOpenProjectId(id)}
+        />
       </section>
 
       {/* ניסיון */}
