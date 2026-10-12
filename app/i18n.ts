@@ -250,6 +250,8 @@ const he: Dictionary = {
     {
       id: "plastic-factory",
       icon: "factory",
+      iconImage: "/projects/plastic-factory-icon.webp",
+      image: "/projects/plastic-factory.webp",
       category: "מערכת ניהול",
       title: "מערכת ניהול מפעל יריעות פלסטיק",
       summary:
@@ -511,6 +513,8 @@ const en: Dictionary = {
     {
       id: "plastic-factory",
       icon: "factory",
+      iconImage: "/projects/plastic-factory-icon.webp",
+      image: "/projects/plastic-factory.webp",
       category: "Management System",
       title: "Plastic Sheet Factory Management System",
       summary:
