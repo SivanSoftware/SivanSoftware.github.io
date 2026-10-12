@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, type CSSProperties } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import ProjectArt from "./ProjectArt";
 import ProjectIcon from "./ProjectIcon";
@@ -107,40 +107,7 @@ export default function ProjectShowcase({
   const active = projects.find((p) => p.id === activeId) ?? projects[0];
   const accent = accents[active.id] ?? fallbackAccent;
 
-  const panelRef = useRef<HTMLDivElement>(null);
-  const [panelStyle, setPanelStyle] = useState<CSSProperties>({});
   const listReveal = useReveal<HTMLUListElement>(0);
-
-  const reducedMotion = () =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = panelRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    const vars = { "--mx": `${px * 100}%`, "--my": `${py * 100}%` } as CSSProperties;
-    if (reducedMotion()) {
-      setPanelStyle(vars);
-      return;
-    }
-    const rx = (0.5 - py) * 6;
-    const ry = (px - 0.5) * 6;
-    setPanelStyle({
-      ...vars,
-      transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`,
-    });
-  };
-
-  const handleLeave = () => {
-    setPanelStyle({
-      "--mx": "50%",
-      "--my": "50%",
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-    } as CSSProperties);
-  };
 
   return (
     <div className="grid gap-5 lg:grid-cols-[minmax(240px,0.82fr)_1.4fr]">
@@ -202,26 +169,24 @@ export default function ProjectShowcase({
       {/* פאנל התצוגה */}
       <Reveal>
         <div
-          ref={panelRef}
-          onMouseMove={handleMove}
-          onMouseLeave={handleLeave}
-          style={panelStyle}
           role="tabpanel"
-          className={`group/panel relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/85 shadow-lg backdrop-blur-sm transition-[border-color] duration-300 [transform-style:preserve-3d] dark:bg-white/[0.04] dark:shadow-black/40 ${accent.activeBorder}`}
+          className={`relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/85 shadow-lg backdrop-blur-sm transition-[border-color] duration-300 dark:bg-white/[0.04] dark:shadow-black/40 ${accent.activeBorder}`}
         >
-          {/* זוהר עדין שעוקב אחר העכבר */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover/panel:opacity-45"
-            style={{
-              background: `radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), ${accent.glow}, transparent 45%)`,
-            }}
-          />
-
-          {/* ויזואל גדול — תמונה אמיתית או סצנה מונפשת */}
+          {/* ויזואל גדול — תמונה אמיתית (עם תנועה עדינה) או סצנה מונפשת */}
           <div className="relative h-44 w-full overflow-hidden sm:h-56">
             {active.image ? (
-              <Image src={active.image} alt={active.title} fill className="object-cover" />
+              <>
+                <Image
+                  src={active.image}
+                  alt={active.title}
+                  fill
+                  className="ken-burns object-cover"
+                />
+                <span
+                  aria-hidden="true"
+                  className="media-shine pointer-events-none absolute inset-0"
+                />
+              </>
             ) : (
               <ProjectArt project={active} className="h-full w-full" />
             )}

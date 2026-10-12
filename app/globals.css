@@ -290,6 +290,38 @@ section[id] {
 }
 .art-bob { animation: art-bob 1.9s ease-in-out infinite; }
 
+/* תנועת "קן־ברנס" עדינה לתמונות גדולות */
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.09) translate(1.5%, -1.5%); }
+}
+.ken-burns {
+  animation: ken-burns 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* הבהוב אור אלכסוני חולף על התמונה */
+@keyframes media-shine {
+  0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  16% { opacity: 0.5; }
+  42% { opacity: 0; }
+  100% { transform: translateX(240%) skewX(-18deg); opacity: 0; }
+}
+.media-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: media-shine 7s ease-in-out infinite;
+}
+
 /* זוהר רך בריחוף */
 .glow-hover {
   transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -322,7 +354,9 @@ section[id] {
   .art-bar,
   .art-spin,
   .art-beat,
-  .art-bob {
+  .art-bob,
+  .ken-burns,
+  .media-shine::after {
     animation: none;
   }
 
