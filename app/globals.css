@@ -349,19 +349,25 @@ section[id] {
 
 /* מכוניות נוסעות מעל תמונה (פרויקט החניה) */
 @keyframes car-ltr {
-  from { left: -18%; }
-  to { left: 118%; }
+  0% { left: -18%; transform: translateY(0); }
+  25% { transform: translateY(-5px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(5px); }
+  100% { left: 118%; transform: translateY(0); }
 }
 @keyframes car-rtl {
-  from { left: 118%; }
-  to { left: -18%; }
+  0% { left: 118%; transform: translateY(0); }
+  25% { transform: translateY(5px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-5px); }
+  100% { left: -18%; transform: translateY(0); }
 }
 .car {
   position: absolute;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   filter: drop-shadow(0 2px 3px rgba(12, 28, 58, 0.35));
-  will-change: left;
+  will-change: left, transform;
 }
 
 /* זוהר רך בריחוף */

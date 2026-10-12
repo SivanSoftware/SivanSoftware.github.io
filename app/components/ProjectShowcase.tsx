@@ -83,9 +83,12 @@ const bubbles = [
 
 // מכוניות נוסעות לתמונה של Mulligan (פרויקט החניה)
 const cars: { bottom: string; w: number; dur: string; delay: string; dir: "ltr" | "rtl" }[] = [
-  { bottom: "8%", w: 36, dur: "11s", delay: "0s", dir: "ltr" },
-  { bottom: "23%", w: 26, dur: "17s", delay: "5.5s", dir: "rtl" },
-  { bottom: "4%", w: 30, dur: "14s", delay: "9s", dir: "ltr" },
+  { bottom: "6%", w: 36, dur: "11s", delay: "0s", dir: "ltr" },
+  { bottom: "20%", w: 26, dur: "17s", delay: "4s", dir: "rtl" },
+  { bottom: "34%", w: 22, dur: "19s", delay: "8s", dir: "ltr" },
+  { bottom: "2%", w: 30, dur: "14s", delay: "6s", dir: "ltr" },
+  { bottom: "48%", w: 20, dur: "23s", delay: "2s", dir: "rtl" },
+  { bottom: "13%", w: 24, dur: "15s", delay: "11s", dir: "rtl" },
 ];
 
 function Car({ className = "" }: { className?: string }) {
@@ -215,7 +218,7 @@ export default function ProjectShowcase({
                   src={active.image}
                   alt={active.title}
                   fill
-                  className="ken-burns object-cover"
+                  className="object-cover"
                 />
                 <span
                   aria-hidden="true"
@@ -253,10 +256,14 @@ export default function ProjectShowcase({
                           animationName: c.dir === "ltr" ? "car-ltr" : "car-rtl",
                           animationDuration: c.dur,
                           animationDelay: c.delay,
-                          transform: c.dir === "rtl" ? "scaleX(-1)" : undefined,
                         }}
                       >
-                        <Car className="h-auto w-full" />
+                        <span
+                          className="block"
+                          style={{ transform: c.dir === "rtl" ? "scaleX(-1)" : undefined }}
+                        >
+                          <Car className="h-auto w-full" />
+                        </span>
                       </span>
                     ))}
                   </div>
