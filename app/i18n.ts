@@ -186,6 +186,7 @@ const he: Dictionary = {
       id: "watervision",
       icon: "vr",
       iconImage: "/projects/watervision-icon.webp",
+      image: "/projects/watervision.webp",
       category: "מציאות מדומה · פרויקט גמר",
       title: "WaterVision VR — פלטפורמת פגישות VR",
       summary:
@@ -442,6 +443,7 @@ const en: Dictionary = {
       id: "watervision",
       icon: "vr",
       iconImage: "/projects/watervision-icon.webp",
+      image: "/projects/watervision.webp",
       category: "Virtual Reality · Final Project",
       title: "WaterVision VR — VR Meeting Platform",
       summary:

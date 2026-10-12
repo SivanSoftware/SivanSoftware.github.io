@@ -209,12 +209,12 @@ export default function ProjectShowcase({
           role="tabpanel"
           className={`group/panel relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/85 shadow-lg backdrop-blur-sm transition-[border-color] duration-300 [transform-style:preserve-3d] dark:bg-white/[0.04] dark:shadow-black/40 ${accent.activeBorder}`}
         >
-          {/* זוהר שעוקב אחר העכבר */}
+          {/* זוהר עדין שעוקב אחר העכבר */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover/panel:opacity-100"
+            className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover/panel:opacity-45"
             style={{
-              background: `radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), ${accent.glow}, transparent 55%)`,
+              background: `radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), ${accent.glow}, transparent 45%)`,
             }}
           />
 
