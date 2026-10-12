@@ -69,17 +69,40 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent = accents.mulligan;
 
-// בועות עדינות לתמונה הגדולה (left/גודל/משך/השהיה)
+// בועות עדינות לתמונה של WaterVision (left/גודל/משך/השהיה)
 const bubbles = [
-  { left: "12%", size: 10, dur: "7s", delay: "0s" },
-  { left: "24%", size: 6, dur: "9s", delay: "1.4s" },
-  { left: "38%", size: 14, dur: "8s", delay: "2.6s" },
-  { left: "50%", size: 8, dur: "10s", delay: "0.8s" },
-  { left: "63%", size: 11, dur: "7.5s", delay: "3.2s" },
-  { left: "74%", size: 6, dur: "9.5s", delay: "1.9s" },
-  { left: "85%", size: 13, dur: "8.5s", delay: "0.4s" },
-  { left: "92%", size: 7, dur: "10.5s", delay: "2.2s" },
+  { left: "12%", size: 12, dur: "7s", delay: "0s" },
+  { left: "24%", size: 8, dur: "9s", delay: "1.4s" },
+  { left: "38%", size: 16, dur: "8s", delay: "2.6s" },
+  { left: "50%", size: 10, dur: "10s", delay: "0.8s" },
+  { left: "63%", size: 13, dur: "7.5s", delay: "3.2s" },
+  { left: "74%", size: 8, dur: "9.5s", delay: "1.9s" },
+  { left: "85%", size: 15, dur: "8.5s", delay: "0.4s" },
+  { left: "92%", size: 9, dur: "10.5s", delay: "2.2s" },
 ];
+
+// מכוניות נוסעות לתמונה של Mulligan (פרויקט החניה)
+const cars: { bottom: string; w: number; dur: string; delay: string; dir: "ltr" | "rtl" }[] = [
+  { bottom: "8%", w: 36, dur: "11s", delay: "0s", dir: "ltr" },
+  { bottom: "23%", w: 26, dur: "17s", delay: "5.5s", dir: "rtl" },
+  { bottom: "4%", w: 30, dur: "14s", delay: "9s", dir: "ltr" },
+];
+
+function Car({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 24" className={className} aria-hidden="true">
+      <path fill="#ffffff" d="M9 13 L13 6.5 Q14 5 16 5 L24 5 Q26 5 27 6.5 L31 13 Z" />
+      <rect x="3" y="11.5" width="34" height="8" rx="4" fill="#ffffff" />
+      <path fill="#bfdbfe" d="M12 11.5 L14.6 7.6 Q15 7 16 7 L19 7 L19 11.5 Z" />
+      <path fill="#bfdbfe" d="M21 7 L24 7 Q25 7 25.4 7.6 L28 11.5 L21 11.5 Z" />
+      <circle cx="11.5" cy="19.5" r="3.1" fill="#1f2937" />
+      <circle cx="11.5" cy="19.5" r="1.2" fill="#cbd5e1" />
+      <circle cx="28.5" cy="19.5" r="3.1" fill="#1f2937" />
+      <circle cx="28.5" cy="19.5" r="1.2" fill="#cbd5e1" />
+      <circle cx="36" cy="14.5" r="1.1" fill="#fde68a" />
+    </svg>
+  );
+}
 
 function IconBadge({
   project,
@@ -198,22 +221,46 @@ export default function ProjectShowcase({
                   aria-hidden="true"
                   className="media-shine pointer-events-none absolute inset-0"
                 />
-                {/* בועות עדינות שעולות */}
-                <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-                  {bubbles.map((b, i) => (
-                    <span
-                      key={i}
-                      className="bubble"
-                      style={{
-                        left: b.left,
-                        width: b.size,
-                        height: b.size,
-                        animationDuration: b.dur,
-                        animationDelay: b.delay,
-                      }}
-                    />
-                  ))}
-                </div>
+                {/* בועות עדינות שעולות — WaterVision */}
+                {active.id === "watervision" && (
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                    {bubbles.map((b, i) => (
+                      <span
+                        key={i}
+                        className="bubble"
+                        style={{
+                          left: b.left,
+                          width: b.size,
+                          height: b.size,
+                          animationDuration: b.dur,
+                          animationDelay: b.delay,
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {/* מכוניות נוסעות — Mulligan */}
+                {active.id === "mulligan" && (
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                    {cars.map((c, i) => (
+                      <span
+                        key={i}
+                        className="car"
+                        style={{
+                          bottom: c.bottom,
+                          width: c.w,
+                          animationName: c.dir === "ltr" ? "car-ltr" : "car-rtl",
+                          animationDuration: c.dur,
+                          animationDelay: c.delay,
+                          transform: c.dir === "rtl" ? "scaleX(-1)" : undefined,
+                        }}
+                      >
+                        <Car className="h-auto w-full" />
+                      </span>
+                    ))}
+                  </div>
+                )}
               </>
             ) : (
               <ProjectArt project={active} className="h-full w-full" />
