@@ -12,8 +12,10 @@ export type Project = {
   githubUrl?: string;
   tech: string[];
   /** תמונת תצוגה אופציונלית מתוך /public (למשל "/projects/mulligan.png").
-   *  אם ריק — מוצג placeholder מעוצב עם שם הקובץ המומלץ. */
+   *  אם ריק — מוצגת הסצנה המונפשת של הפרויקט. */
   image?: string;
+  /** אייקון תמונה קטן אופציונלי מתוך /public (מחליף את אייקון הקו בצ'יפ). */
+  iconImage?: string;
 };
 
 export type ExperienceKind = "work" | "service";
@@ -183,6 +185,7 @@ const he: Dictionary = {
     {
       id: "watervision",
       icon: "vr",
+      iconImage: "/projects/watervision-icon.webp",
       category: "מציאות מדומה · פרויקט גמר",
       title: "WaterVision VR — פלטפורמת פגישות VR",
       summary:
@@ -282,6 +285,19 @@ const he: Dictionary = {
     },
   ],
   experienceList: [
+    {
+      id: "siftt",
+      kind: "work",
+      role: "מפתחת Full-Stack (התמחות)",
+      org: "DealFlow · Siftt AI",
+      period: "2025 – היום",
+      points: [
+        "פיתוח פיצ'רים מקצה-לקצה בפלטפורמת CRM מבוססת-AI לעסקאות נדל\"ן מסחרי — ב-Next.js / React ו-NestJS מעל PostgreSQL (Prisma) ו-Firebase.",
+        "פריסה ל-GCP ‏(Cloud Run) עם Terraform ו-CI/CD ב-GitHub Actions; בניית אינטגרציית הודעות חיצונית עם תורי עבודה (BullMQ), דוח סיכום יומי ודשבורד engagement.",
+        "פיתוח עמוד העסקה — מפות, שיתוף עם הגבלת קצב ומשפך המרה — ואיתור ותיקון תקלות בפרודקשן.",
+      ],
+      tech: ["Next.js", "React", "NestJS", "PostgreSQL", "GCP", "Terraform"],
+    },
     {
       id: "magshimim",
       kind: "work",
@@ -425,6 +441,7 @@ const en: Dictionary = {
     {
       id: "watervision",
       icon: "vr",
+      iconImage: "/projects/watervision-icon.webp",
       category: "Virtual Reality · Final Project",
       title: "WaterVision VR — VR Meeting Platform",
       summary:
@@ -524,6 +541,19 @@ const en: Dictionary = {
     },
   ],
   experienceList: [
+    {
+      id: "siftt",
+      kind: "work",
+      role: "Full-Stack Developer (Intern)",
+      org: "DealFlow · Siftt AI",
+      period: "2025 – Present",
+      points: [
+        "Build product features end to end on an AI-based CRM platform for commercial real-estate deals — in Next.js / React and NestJS over PostgreSQL (Prisma) and Firebase.",
+        "Deploy to GCP (Cloud Run) with Terraform and CI/CD in GitHub Actions; built an external messaging integration with queue-based workflows (BullMQ), a daily summary report and an engagement dashboard.",
+        "Developed the deal page — maps, rate-limited sharing and a conversion funnel — and investigate and fix issues in production.",
+      ],
+      tech: ["Next.js", "React", "NestJS", "PostgreSQL", "GCP", "Terraform"],
+    },
     {
       id: "magshimim",
       kind: "work",
