@@ -234,6 +234,8 @@ const he: Dictionary = {
     {
       id: "sugarsteps",
       icon: "mobile",
+      iconImage: "/projects/sugarsteps-icon.webp",
+      image: "/projects/sugarsteps.webp",
       category: "אפליקציית אנדרואיד",
       title: "SugarSteps — לימוד בישול בשלבים",
       summary:
@@ -493,6 +495,8 @@ const en: Dictionary = {
     {
       id: "sugarsteps",
       icon: "mobile",
+      iconImage: "/projects/sugarsteps-icon.webp",
+      image: "/projects/sugarsteps.webp",
       category: "Android App",
       title: "SugarSteps — Learn Cooking by Levels",
       summary:

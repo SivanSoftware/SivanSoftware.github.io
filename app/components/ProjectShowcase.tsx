@@ -91,6 +91,16 @@ const cars: { bottom: string; w: number; dur: string; delay: string; dir: "ltr" 
   { bottom: "13%", w: 24, dur: "15s", delay: "11s", dir: "rtl" },
 ];
 
+// סוכריות צבעוניות נושרות — SugarSteps
+const sprinkleColors = ["#f472b6", "#facc15", "#34d399", "#38bdf8", "#a78bfa", "#fb923c", "#fb7185"];
+const sprinkles = Array.from({ length: 16 }, (_, i) => ({
+  left: `${4 + (i * 6.1) % 92}%`,
+  color: sprinkleColors[i % sprinkleColors.length],
+  len: 8 + (i % 4) * 2,
+  dur: `${4.5 + (i % 5) * 0.9}s`,
+  delay: `${(i * 0.5) % 6}s`,
+}));
+
 function Car({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 24" className={className} aria-hidden="true">
@@ -237,6 +247,26 @@ export default function ProjectShowcase({
                           height: b.size,
                           animationDuration: b.dur,
                           animationDelay: b.delay,
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {/* סוכריות צבעוניות נושרות — SugarSteps */}
+                {active.id === "sugarsteps" && (
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                    {sprinkles.map((s, i) => (
+                      <span
+                        key={i}
+                        className="sprinkle"
+                        style={{
+                          left: s.left,
+                          width: 4,
+                          height: s.len,
+                          background: s.color,
+                          animationDuration: s.dur,
+                          animationDelay: s.delay,
                         }}
                       />
                     ))}
