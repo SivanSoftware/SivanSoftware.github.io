@@ -267,6 +267,8 @@ const he: Dictionary = {
     {
       id: "moveit",
       icon: "pulse",
+      iconImage: "/projects/moveit-icon.webp",
+      image: "/projects/moveit.webp",
       category: "אתר ווב",
       title: "Moveit — המאמן האישי שלך",
       summary:
@@ -530,6 +532,8 @@ const en: Dictionary = {
     {
       id: "moveit",
       icon: "pulse",
+      iconImage: "/projects/moveit-icon.webp",
+      image: "/projects/moveit.webp",
       category: "Web App",
       title: "Moveit — Your Personal Trainer",
       summary:
