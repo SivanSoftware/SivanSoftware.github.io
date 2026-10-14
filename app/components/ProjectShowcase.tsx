@@ -25,6 +25,14 @@ const accents: Record<string, Accent> = {
     bar: "from-cyan-500 to-sky-400",
     glow: "rgba(6,182,212,0.20)",
   },
+  "watervision-site": {
+    text: "text-teal-600 dark:text-teal-300",
+    chip: "bg-teal-50 text-teal-600 ring-teal-100 dark:bg-teal-500/10 dark:text-teal-300 dark:ring-teal-400/20",
+    activeBorder: "border-teal-300 dark:border-teal-400/40",
+    activeBg: "bg-teal-50/70 dark:bg-teal-500/10",
+    bar: "from-teal-500 to-cyan-400",
+    glow: "rgba(20,184,166,0.18)",
+  },
   mulligan: {
     text: "text-violet-600 dark:text-violet-300",
     chip: "bg-violet-50 text-violet-600 ring-violet-100 dark:bg-violet-500/10 dark:text-violet-300 dark:ring-violet-400/20",
@@ -192,11 +200,13 @@ export default function ProjectShowcase({
   projects,
   detailsLabel,
   githubLabel,
+  liveLabel,
   onOpen,
 }: {
   projects: Project[];
   detailsLabel: string;
   githubLabel: string;
+  liveLabel: string;
   onOpen: (id: string) => void;
 }) {
   const [activeId, setActiveId] = useState(projects[0]?.id);
@@ -272,11 +282,20 @@ export default function ProjectShowcase({
           <div className="relative h-44 w-full overflow-hidden sm:h-56">
             {active.image ? (
               <>
+                {active.imageFit === "contain" && (
+                  <Image
+                    src={active.image}
+                    alt=""
+                    fill
+                    aria-hidden="true"
+                    className="scale-110 object-cover opacity-40 blur-2xl"
+                  />
+                )}
                 <Image
                   src={active.image}
                   alt={active.title}
                   fill
-                  className="object-cover"
+                  className={active.imageFit === "contain" ? "object-contain" : "object-cover"}
                 />
                 <span
                   aria-hidden="true"
@@ -411,13 +430,26 @@ export default function ProjectShowcase({
               ))}
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => onOpen(active.id)}
                 className="flex-1 rounded-md bg-gradient-to-l from-indigo-600 to-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:from-indigo-700 hover:to-blue-700 sm:text-base"
               >
                 {detailsLabel}
               </button>
+              {active.liveUrl && (
+                <a
+                  href={active.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-gradient-to-l from-teal-600 to-cyan-600 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-md transition hover:from-teal-700 hover:to-cyan-700 sm:text-base"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5h5v5M19 5l-8 8M19 13v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4" />
+                  </svg>
+                  {liveLabel}
+                </a>
+              )}
               {active.githubUrl && (
                 <a
                   href={active.githubUrl}

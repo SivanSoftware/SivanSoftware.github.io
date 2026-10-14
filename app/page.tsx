@@ -172,6 +172,7 @@ export default function Home() {
           projects={t.projectList}
           detailsLabel={t.projects.details}
           githubLabel={t.projects.github}
+          liveLabel={t.projects.live}
           onOpen={(id) => setOpenProjectId(id)}
         />
       </section>
@@ -291,6 +292,8 @@ export default function Home() {
         title={openProject?.title ?? ""}
         description={openProject?.description ?? ""}
         githubUrl={openProject?.githubUrl}
+        liveUrl={openProject?.liveUrl}
+        liveLabel={t.projects.live}
         tech={openProject?.tech}
       />
     </main>

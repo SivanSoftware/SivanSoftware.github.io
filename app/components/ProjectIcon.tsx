@@ -4,12 +4,21 @@ export type IconName =
   | "factory"
   | "pulse"
   | "wallet"
-  | "vr";
+  | "vr"
+  | "web";
 
 const paths: Record<IconName, React.ReactNode> = {
   // משקפת מציאות מדומה
   vr: (
     <path d="M3.5 8.5h17a1 1 0 0 1 1 1v3.5a2.5 2.5 0 0 1-2.5 2.5h-2.8a2 2 0 0 1-1.7-1l-.8-1.2a1.4 1.4 0 0 0-2.4 0l-.8 1.2a2 2 0 0 1-1.7 1H5a2.5 2.5 0 0 1-2.5-2.5V9.5a1 1 0 0 1 1-1z" />
+  ),
+  // חלון דפדפן — אתר
+  web: (
+    <>
+      <rect x="3" y="4.5" width="18" height="15" rx="2.5" />
+      <path d="M3 9h18" />
+      <path d="M6 6.75h.01M8.4 6.75h.01M10.8 6.75h.01" />
+    </>
   ),
   // אשכול צמתים — מערכת מבוזרת
   network: (
