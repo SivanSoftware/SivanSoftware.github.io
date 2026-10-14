@@ -101,6 +101,54 @@ const sprinkles = Array.from({ length: 16 }, (_, i) => ({
   delay: `${(i * 0.5) % 6}s`,
 }));
 
+// אייקוני ספורט שעולים — Moveit
+type ExName = "dumbbell" | "heart" | "flame" | "bolt" | "stopwatch";
+function ExerciseIcon({ name, className = "" }: { name: ExName; className?: string }) {
+  const common = { viewBox: "0 0 24 24", className, "aria-hidden": true as const };
+  switch (name) {
+    case "dumbbell":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+          <path d="M4 9v6M7 7.5v9M17 7.5v9M20 9v6M7 12h10" />
+        </svg>
+      );
+    case "heart":
+      return (
+        <svg {...common} fill="currentColor">
+          <path d="M12 20s-6.5-4.3-6.5-9A3.5 3.5 0 0 1 12 8a3.5 3.5 0 0 1 6.5 3c0 4.7-6.5 9-6.5 9z" />
+        </svg>
+      );
+    case "flame":
+      return (
+        <svg {...common} fill="currentColor">
+          <path d="M12 2c1.6 3 4.5 4 4.5 8a4.5 4.5 0 0 1-9 0c0-1.8.9-2.8 1.8-3.7.4 1 1.3 1.5 1.9 1-.1-2-1-4 .8-5.3z" />
+        </svg>
+      );
+    case "bolt":
+      return (
+        <svg {...common} fill="currentColor">
+          <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13l1-8z" />
+        </svg>
+      );
+    case "stopwatch":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+          <circle cx="12" cy="14" r="7" />
+          <path d="M12 14V10M10 2.5h4M18.5 7l-1.3 1.3" />
+        </svg>
+      );
+  }
+}
+
+const exercises: { left: string; name: ExName; size: number; dur: string; delay: string }[] = [
+  { left: "10%", name: "dumbbell", size: 26, dur: "7s", delay: "0s" },
+  { left: "28%", name: "heart", size: 20, dur: "9s", delay: "2.4s" },
+  { left: "45%", name: "flame", size: 24, dur: "8s", delay: "4.6s" },
+  { left: "62%", name: "bolt", size: 22, dur: "7.5s", delay: "1.3s" },
+  { left: "78%", name: "stopwatch", size: 24, dur: "9.5s", delay: "3.6s" },
+  { left: "90%", name: "dumbbell", size: 18, dur: "8.5s", delay: "5.5s" },
+];
+
 function Car({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 24" className={className} aria-hidden="true">
@@ -269,6 +317,35 @@ export default function ProjectShowcase({
                           animationDelay: s.delay,
                         }}
                       />
+                    ))}
+                  </div>
+                )}
+
+                {/* יריעת פלסטיק שנגללת — מפעל הפלסטיק */}
+                {active.id === "plastic-factory" && (
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <span className="plastic-sheet" />
+                    <span className="plastic-roll" />
+                  </div>
+                )}
+
+                {/* אייקוני ספורט שעולים — Moveit */}
+                {active.id === "moveit" && (
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+                    {exercises.map((e, i) => (
+                      <span
+                        key={i}
+                        className="exercise"
+                        style={{
+                          left: e.left,
+                          width: e.size,
+                          height: e.size,
+                          animationDuration: e.dur,
+                          animationDelay: e.delay,
+                        }}
+                      >
+                        <ExerciseIcon name={e.name} className="h-full w-full" />
+                      </span>
                     ))}
                   </div>
                 )}
