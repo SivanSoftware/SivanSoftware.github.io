@@ -390,6 +390,62 @@ section[id] {
   will-change: transform, opacity;
 }
 
+/* יריעת פלסטיק שנגללת (מפעל הפלסטיק) */
+@keyframes plastic-unroll {
+  0% { transform: scaleX(0); opacity: 0; }
+  10% { opacity: 1; }
+  55% { transform: scaleX(1); opacity: 1; }
+  80% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+.plastic-sheet {
+  position: absolute;
+  inset: 0;
+  transform-origin: right center;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(222, 238, 255, 0.22) 10%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(222, 238, 255, 0.2) 70%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  animation: plastic-unroll 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.plastic-roll {
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  right: -2%;
+  width: 16px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(190, 212, 240, 0.9),
+    rgba(255, 255, 255, 0.96) 42%,
+    rgba(176, 200, 232, 0.85)
+  );
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+/* אייקוני ספורט שעולים (Moveit) */
+@keyframes exercise-rise {
+  0% { transform: translateY(18px) scale(0.75) rotate(-6deg); opacity: 0; }
+  18% { opacity: 0.9; }
+  82% { opacity: 0.9; }
+  100% { transform: translateY(-190px) scale(1.05) rotate(6deg); opacity: 0; }
+}
+.exercise {
+  position: absolute;
+  bottom: -12px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+  animation: exercise-rise linear infinite;
+  animation-fill-mode: backwards;
+  will-change: transform, opacity;
+}
+
 /* זוהר רך בריחוף */
 .glow-hover {
   transition: box-shadow 0.4s ease, transform 0.4s ease;
@@ -427,7 +483,9 @@ section[id] {
   .media-shine::after,
   .bubble,
   .car,
-  .sprinkle {
+  .sprinkle,
+  .plastic-sheet,
+  .exercise {
     animation: none;
   }
 
