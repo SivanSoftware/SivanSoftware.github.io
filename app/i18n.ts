@@ -292,6 +292,7 @@ const he: Dictionary = {
     {
       id: "watervision-site",
       icon: "web",
+      iconImage: "/projects/watervision-site-icon.webp",
       image: "/projects/watervision-site.webp",
       imagePosition: "object-top",
       category: "אתר תצוגה · פרויקט גמר",
@@ -566,7 +567,9 @@ const en: Dictionary = {
     {
       id: "watervision-site",
       icon: "web",
+      iconImage: "/projects/watervision-site-icon.webp",
       image: "/projects/watervision-site.webp",
+      imagePosition: "object-top",
       category: "Showcase Website · Final Project",
       title: "WaterVision VR — Showcase Website",
       summary:
