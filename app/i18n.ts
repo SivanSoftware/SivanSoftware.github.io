@@ -10,10 +10,13 @@ export type Project = {
   summary: string;
   description: string;
   githubUrl?: string;
+  liveUrl?: string;
   tech: string[];
   /** תמונת תצוגה אופציונלית מתוך /public (למשל "/projects/mulligan.png").
    *  אם ריק — מוצגת הסצנה המונפשת של הפרויקט. */
   image?: string;
+  /** אופן הצגת התמונה הגדולה: "cover" (ברירת מחדל) או "contain" (לתמונות לאורך כמו צילום טלפון). */
+  imageFit?: "cover" | "contain";
   /** אייקון תמונה קטן אופציונלי מתוך /public (מחליף את אייקון הקו בצ'יפ). */
   iconImage?: string;
 };
@@ -59,7 +62,7 @@ export type Dictionary = {
     logoAlt: string;
   };
   stats: Stat[];
-  projects: { heading: string; subheading: string; details: string; github: string };
+  projects: { heading: string; subheading: string; details: string; github: string; live: string };
   experience: { heading: string; subheading: string; techLabel: string };
   about: { heading: string; intro: string };
   contact: { heading: string; subheading: string; linkedin: string };
@@ -110,6 +113,7 @@ const he: Dictionary = {
     subheading: "מבחר עבודות — ממערכות מבוזרות ועד אפליקציות מובייל וווב",
     details: "פרטים נוספים",
     github: "GitHub",
+    live: "אתר חי",
   },
   experience: {
     heading: "ניסיון",
@@ -236,6 +240,7 @@ const he: Dictionary = {
       icon: "mobile",
       iconImage: "/projects/sugarsteps-icon.webp",
       image: "/projects/sugarsteps.webp",
+      imageFit: "contain",
       category: "אפליקציית אנדרואיד",
       title: "SugarSteps — לימוד בישול בשלבים",
       summary:
@@ -282,15 +287,20 @@ const he: Dictionary = {
       tech: ["Angular", "JavaScript", "TypeScript", "HTML & CSS", "SQL"],
     },
     {
-      id: "budgi",
-      icon: "wallet",
-      category: "אתר ווב",
-      title: "Budgi — ניהול תקציב אישי",
+      id: "watervision-site",
+      icon: "web",
+      image: "/projects/watervision-site.webp",
+      category: "אתר תצוגה · פרויקט גמר",
+      title: "אתר WaterVision VR",
       summary:
-        "אפליקציית ווב לניהול תקציב אישי ב-React: מעקב הוצאות, תכנון תקציב חודשי וניהול משתמשים מבוסס Firebase.",
+        "אתר תצוגה ותיעוד לפרויקט הגמר WaterVision VR — HTML/CSS/JS סטטי, רספונסיבי (מובייל ודסקטופ), מתארח ב-Firebase. כולל סקירת מוצר, תיעוד ספרינטים, גלריה, פוסטר וסרטון.",
       description:
-        "Budgi היא אפליקציית ווב לניהול תקציב אישי שנבנתה ב-React עם Vite. האפליקציה כוללת מעקב אחר הוצאות, תכנון תקציב חודשי, ומערכת משתמשים מלאה (הרשמה, התחברות ושחזור סיסמה) מבוססת Firebase.",
-      tech: ["React", "Vite", "Firebase", "React Router", "TypeScript"],
+        "אתר התצוגה הרשמי של פרויקט הגמר WaterVision VR — נבנה ב-HTML, CSS ו-JavaScript (סטטי, ללא תלויות build) ומתארח ב-Firebase Hosting.\n\n" +
+        "האתר מרכז את כל סיפור הפרויקט: סקירת מוצר, תיעוד לארבעה ספרינטים, גלריית צילומי מסך ותמונות מאירועים, הפוסטר של הפרויקט, סרטון ההגשה הסופי ועמוד צוות.\n\n" +
+        "מעוצב רספונסיבית ועובד יפה גם במובייל וגם בדסקטופ.",
+      githubUrl: "https://github.com/SivanSoftware/watervision-vr-site",
+      liveUrl: "https://watervision-vr.web.app",
+      tech: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Responsive"],
     },
   ],
   experienceList: [
@@ -375,6 +385,7 @@ const en: Dictionary = {
       "Selected work — from distributed systems to mobile and web applications",
     details: "More details",
     github: "GitHub",
+    live: "Live site",
   },
   experience: {
     heading: "Experience",
@@ -501,6 +512,7 @@ const en: Dictionary = {
       icon: "mobile",
       iconImage: "/projects/sugarsteps-icon.webp",
       image: "/projects/sugarsteps.webp",
+      imageFit: "contain",
       category: "Android App",
       title: "SugarSteps — Learn Cooking by Levels",
       summary:
@@ -547,15 +559,20 @@ const en: Dictionary = {
       tech: ["Angular", "JavaScript", "TypeScript", "HTML & CSS", "SQL"],
     },
     {
-      id: "budgi",
-      icon: "wallet",
-      category: "Web App",
-      title: "Budgi — Personal Budget Management",
+      id: "watervision-site",
+      icon: "web",
+      image: "/projects/watervision-site.webp",
+      category: "Showcase Website · Final Project",
+      title: "WaterVision VR — Showcase Website",
       summary:
-        "A React web app for managing a personal budget: expense tracking, monthly budget planning and Firebase-based user management.",
+        "A showcase and documentation site for the WaterVision VR graduation project — static HTML/CSS/JS, responsive (mobile & desktop), hosted on Firebase. Features a product overview, sprint docs, a gallery, poster and video.",
       description:
-        "Budgi is a web app for managing a personal budget, built with React and Vite. It includes expense tracking, monthly budget planning, and a full user system (registration, login and password recovery) based on Firebase.",
-      tech: ["React", "Vite", "Firebase", "React Router", "TypeScript"],
+        "The official showcase site for the WaterVision VR graduation project — built in plain HTML, CSS and JavaScript (static, no build dependencies) and hosted on Firebase Hosting.\n\n" +
+        "It brings together the whole project story: a product overview, documentation for four sprints, a gallery of screenshots and event photos, the project poster, the final submission video and a team page.\n\n" +
+        "Designed responsively, it works smoothly on both mobile and desktop.",
+      githubUrl: "https://github.com/SivanSoftware/watervision-vr-site",
+      liveUrl: "https://watervision-vr.web.app",
+      tech: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Responsive"],
     },
   ],
   experienceList: [

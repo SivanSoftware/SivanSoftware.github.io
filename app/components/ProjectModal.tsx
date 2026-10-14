@@ -8,6 +8,8 @@ type ProjectModalProps = {
   title: string;
   description: string;
   githubUrl?: string;
+  liveUrl?: string;
+  liveLabel?: string;
   tech?: string[];
 };
 
@@ -17,6 +19,8 @@ export default function ProjectModal({
   title,
   description,
   githubUrl,
+  liveUrl,
+  liveLabel,
   tech,
 }: ProjectModalProps) {
   const { t, lang } = useLanguage();
@@ -82,6 +86,16 @@ export default function ProjectModal({
         )}
 
         <div className="flex flex-col sm:flex-row justify-start gap-3 pt-4 border-t dark:border-indigo-400/20">
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${buttonClass} bg-gradient-to-l from-teal-600 to-cyan-600 text-white hover:from-teal-700 hover:to-cyan-700`}
+            >
+              {liveLabel ?? "Live"}
+            </a>
+          )}
           {githubUrl && (
             <a
               href={githubUrl}
