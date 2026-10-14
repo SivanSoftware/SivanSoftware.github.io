@@ -295,7 +295,11 @@ export default function ProjectShowcase({
                   src={active.image}
                   alt={active.title}
                   fill
-                  className={active.imageFit === "contain" ? "object-contain" : "object-cover"}
+                  className={
+                    active.imageFit === "contain"
+                      ? "object-contain"
+                      : `object-cover ${active.imagePosition ?? ""}`
+                  }
                 />
                 <span
                   aria-hidden="true"

@@ -17,6 +17,8 @@ export type Project = {
   image?: string;
   /** אופן הצגת התמונה הגדולה: "cover" (ברירת מחדל) או "contain" (לתמונות לאורך כמו צילום טלפון). */
   imageFit?: "cover" | "contain";
+  /** מיקום החיתוך לתמונת cover (מחלקת Tailwind, למשל "object-top"). ברירת מחדל: מרכז. */
+  imagePosition?: string;
   /** אייקון תמונה קטן אופציונלי מתוך /public (מחליף את אייקון הקו בצ'יפ). */
   iconImage?: string;
 };
@@ -215,6 +217,7 @@ const he: Dictionary = {
       icon: "network",
       iconImage: "/projects/mulligan-icon.webp",
       image: "/projects/mulligan.webp",
+      imagePosition: "object-top",
       category: "מערכות מבוזרות",
       title: "Mulligan — מערכת חניה מבוזרת",
       summary:
@@ -290,6 +293,7 @@ const he: Dictionary = {
       id: "watervision-site",
       icon: "web",
       image: "/projects/watervision-site.webp",
+      imagePosition: "object-top",
       category: "אתר תצוגה · פרויקט גמר",
       title: "אתר WaterVision VR",
       summary:
@@ -487,6 +491,7 @@ const en: Dictionary = {
       icon: "network",
       iconImage: "/projects/mulligan-icon.webp",
       image: "/projects/mulligan.webp",
+      imagePosition: "object-top",
       category: "Distributed Systems",
       title: "Mulligan — Distributed Parking System",
       summary:
