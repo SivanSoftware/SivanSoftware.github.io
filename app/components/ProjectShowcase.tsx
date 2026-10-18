@@ -237,7 +237,17 @@ export default function ProjectShowcase({
                 tabIndex={isActive ? 0 : -1}
                 onMouseEnter={() => setActiveId(project.id)}
                 onFocus={() => setActiveId(project.id)}
-                onClick={() => setActiveId(project.id)}
+                onClick={() => {
+                  setActiveId(project.id);
+                  // במובייל הפאנל נמצא מתחת לרשימה — גוללים אליו אחרי הבחירה
+                  if (typeof window !== "undefined" && window.innerWidth < 1024) {
+                    requestAnimationFrame(() =>
+                      document
+                        .getElementById("project-panel")
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                    );
+                  }
+                }}
                 className={`group relative flex w-full items-center gap-3 overflow-hidden rounded-xl border p-3 text-start transition-all duration-300 ${
                   isActive
                     ? `${a.activeBorder} ${a.activeBg} shadow-sm`
@@ -275,8 +285,9 @@ export default function ProjectShowcase({
       {/* פאנל התצוגה */}
       <Reveal>
         <div
+          id="project-panel"
           role="tabpanel"
-          className={`relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/85 shadow-lg backdrop-blur-sm transition-[border-color] duration-300 dark:bg-white/[0.04] dark:shadow-black/40 ${accent.activeBorder}`}
+          className={`relative flex h-full scroll-mt-24 flex-col overflow-hidden rounded-2xl border bg-white/85 shadow-lg backdrop-blur-sm transition-[border-color] duration-300 dark:bg-white/[0.04] dark:shadow-black/40 ${accent.activeBorder}`}
         >
           {/* ויזואל גדול — תמונה אמיתית (עם תנועה עדינה) או סצנה מונפשת */}
           <div className="relative h-44 w-full overflow-hidden sm:h-56">
