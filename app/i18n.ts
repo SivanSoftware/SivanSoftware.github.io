@@ -314,7 +314,7 @@ const he: Dictionary = {
       kind: "work",
       role: "מפתחת Full-Stack (התמחות)",
       org: "DealFlow · Siftt AI",
-      period: "2025 – היום",
+      period: "2026 – היום",
       points: [
         "פיתוח פיצ'רים מקצה-לקצה בפלטפורמת CRM מבוססת-AI לעסקאות נדל\"ן מסחרי — ב-Next.js / React ו-NestJS מעל PostgreSQL (Prisma) ו-Firebase.",
         "פריסה ל-GCP ‏(Cloud Run) עם Terraform ו-CI/CD ב-GitHub Actions; בניית אינטגרציית הודעות חיצונית עם תורי עבודה (BullMQ), דוח סיכום יומי ודשבורד engagement.",
@@ -589,7 +589,7 @@ const en: Dictionary = {
       kind: "work",
       role: "Full-Stack Developer (Intern)",
       org: "DealFlow · Siftt AI",
-      period: "2025 – Present",
+      period: "2026 – Present",
       points: [
         "Build product features end to end on an AI-based CRM platform for commercial real-estate deals — in Next.js / React and NestJS over PostgreSQL (Prisma) and Firebase.",
         "Deploy to GCP (Cloud Run) with Terraform and CI/CD in GitHub Actions; built an external messaging integration with queue-based workflows (BullMQ), a daily summary report and an engagement dashboard.",
