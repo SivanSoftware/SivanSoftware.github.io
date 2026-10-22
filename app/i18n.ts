@@ -307,6 +307,20 @@ const he: Dictionary = {
       liveUrl: "https://watervision-vr.web.app",
       tech: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Responsive"],
     },
+    {
+      id: "tic-tac-toe",
+      icon: "grid",
+      category: "משחק · C++",
+      title: "Tic-Tac-Toe — משחק ב-C++",
+      summary:
+        "משחק איקס-עיגול לשני שחקנים בטרמינל, ב-C++ מודרני (C++17): לוגיקת לוח מופרדת מה-I/O, בנייה עם CMake ובדיקות יחידה עם CTest.",
+      description:
+        "משחק איקס-עיגול (Tic-Tac-Toe) לשני שחקנים הרץ בטרמינל, כתוב ב-C++ מודרני (C++17).\n\n" +
+        "לוגיקת הלוח מופרדת מלולאת הקלט/פלט — מה שמאפשר כיסוי בבדיקות יחידה (CTest). השחקנים מזינים מספר משבצת (1–9), ו-q יוצא מהמשחק.\n\n" +
+        "הבנייה מתבצעת עם CMake (3.16+), והרישיון הוא MIT.",
+      githubUrl: "https://github.com/SivanSoftware/tic-tac-toe-cpp",
+      tech: ["C++17", "CMake", "CTest", "MIT"],
+    },
   ],
   experienceList: [
     {
@@ -581,6 +595,20 @@ const en: Dictionary = {
       githubUrl: "https://github.com/SivanSoftware/watervision-vr-site",
       liveUrl: "https://watervision-vr.web.app",
       tech: ["HTML", "CSS", "JavaScript", "Firebase Hosting", "Responsive"],
+    },
+    {
+      id: "tic-tac-toe",
+      icon: "grid",
+      category: "Game · C++",
+      title: "Tic-Tac-Toe — C++ Game",
+      summary:
+        "A two-player terminal Tic-Tac-Toe in modern C++ (C++17): board logic decoupled from I/O, built with CMake and covered by unit tests (CTest).",
+      description:
+        "A two-player Tic-Tac-Toe game that runs in the terminal, written in modern C++ (C++17).\n\n" +
+        "The board logic is separated from the input/output loop, which makes it unit-testable (CTest). Players enter a cell number (1–9), and q quits the game.\n\n" +
+        "It builds with CMake (3.16+) and is MIT-licensed.",
+      githubUrl: "https://github.com/SivanSoftware/tic-tac-toe-cpp",
+      tech: ["C++17", "CMake", "CTest", "MIT"],
     },
   ],
   experienceList: [
