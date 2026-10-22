@@ -33,6 +33,14 @@ const accents: Record<string, Accent> = {
     bar: "from-teal-500 to-cyan-400",
     glow: "rgba(20,184,166,0.18)",
   },
+  "tic-tac-toe": {
+    text: "text-slate-600 dark:text-slate-300",
+    chip: "bg-slate-100 text-slate-600 ring-slate-200 dark:bg-slate-500/10 dark:text-slate-300 dark:ring-slate-400/20",
+    activeBorder: "border-slate-300 dark:border-slate-400/40",
+    activeBg: "bg-slate-50/70 dark:bg-slate-500/10",
+    bar: "from-slate-500 to-indigo-400",
+    glow: "rgba(100,116,139,0.18)",
+  },
   mulligan: {
     text: "text-violet-600 dark:text-violet-300",
     chip: "bg-violet-50 text-violet-600 ring-violet-100 dark:bg-violet-500/10 dark:text-violet-300 dark:ring-violet-400/20",

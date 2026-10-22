@@ -5,9 +5,14 @@ export type IconName =
   | "pulse"
   | "wallet"
   | "vr"
-  | "web";
+  | "web"
+  | "grid";
 
 const paths: Record<IconName, React.ReactNode> = {
+  // לוח איקס-עיגול
+  grid: (
+    <path d="M9 3.5v17M15 3.5v17M3.5 9h17M3.5 15h17" />
+  ),
   // משקפת מציאות מדומה
   vr: (
     <path d="M3.5 8.5h17a1 1 0 0 1 1 1v3.5a2.5 2.5 0 0 1-2.5 2.5h-2.8a2 2 0 0 1-1.7-1l-.8-1.2a1.4 1.4 0 0 0-2.4 0l-.8 1.2a2 2 0 0 1-1.7 1H5a2.5 2.5 0 0 1-2.5-2.5V9.5a1 1 0 0 1 1-1z" />

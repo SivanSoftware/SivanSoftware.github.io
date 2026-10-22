@@ -115,7 +115,38 @@ const waterVisionScene = (
   </>
 );
 
+// Tic-Tac-Toe — לוח עם סימני X/O שמופיעים לסירוגין
+const ticTacToeScene = (
+  <>
+    <g stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.5">
+      <path d="M87 12V78M113 12V78M62 34H138M62 56H138" />
+    </g>
+    <g stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none">
+      <g className="art-node">
+        <path d="M70 17l10 10M80 17l-10 10" />
+      </g>
+      <g className="art-node" style={{ animationDelay: "0.5s" }}>
+        <circle cx="125" cy="23" r="7.5" />
+      </g>
+      <g className="art-node" style={{ animationDelay: "1s" }}>
+        <path d="M95 40l10 10M105 40l-10 10" />
+      </g>
+      <g className="art-node" style={{ animationDelay: "1.5s" }}>
+        <circle cx="75" cy="67" r="7.5" />
+      </g>
+      <g className="art-node" style={{ animationDelay: "0.8s" }}>
+        <path d="M120 62l10 10M130 62l-10 10" />
+      </g>
+    </g>
+  </>
+);
+
 const artMap: Record<string, Art> = {
+  "tic-tac-toe": {
+    text: "text-slate-600 dark:text-slate-300",
+    bg: "from-slate-100/70 to-indigo-100/40 dark:from-slate-500/15 dark:to-indigo-500/10",
+    scene: ticTacToeScene,
+  },
   watervision: {
     text: "text-cyan-500 dark:text-cyan-300",
     bg: "from-cyan-100/70 to-sky-100/50 dark:from-cyan-500/15 dark:to-sky-500/10",
