@@ -86,10 +86,10 @@ export default function Home() {
                 className="animate-spin-slow absolute -inset-1.5 rounded-full bg-[conic-gradient(from_0deg,#6366f1,#3b82f6,#06b6d4,#8b5cf6,#6366f1)] opacity-70 blur-[6px]"
               />
               <Image
-                src="/sivan.jpg"
+                src="/sivan.webp"
                 alt={t.hero.photoAlt}
-                width={667}
-                height={1000}
+                width={1254}
+                height={1254}
                 priority
                 className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-white shadow-lg dark:border-[#0a0f1f]"
               />
