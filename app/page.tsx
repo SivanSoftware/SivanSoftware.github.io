@@ -285,7 +285,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      <footer className="border-t border-[#E7DFD6] bg-white/60 py-6 text-center text-sm text-gray-500 backdrop-blur-sm dark:border-white/10 dark:bg-[#05070f]/60 dark:text-gray-400">
+      <footer className="border-t border-[#E7DFD6]/50 bg-transparent py-6 text-center text-sm text-gray-500 dark:border-white/5 dark:text-gray-400">
         © {new Date().getFullYear()} {t.footer}
       </footer>
     </main>
