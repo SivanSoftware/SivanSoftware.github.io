@@ -41,16 +41,16 @@ function StatTile({ stat, run, delay }: { stat: Stat; run: boolean; delay: numbe
 
   return (
     <div
-      className="glow-hover group relative overflow-hidden rounded-xl border border-indigo-200/70 bg-white/80 p-5 text-center shadow-sm backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 dark:border-indigo-400/20 dark:bg-white/[0.04]"
+      className="glow-hover group relative overflow-hidden rounded-xl border border-[#E7DFD6] bg-white/70 p-5 text-center shadow-sm backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-white/[0.04]"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-0.5 origin-[right_center] scale-x-0 bg-gradient-to-l from-indigo-500 to-sky-400 transition-transform duration-500 group-hover:scale-x-100"
+        className="absolute inset-x-0 top-0 h-0.5 origin-[right_center] scale-x-0 bg-gradient-to-l from-[#8E72AE] to-[#C2A368] transition-transform duration-500 group-hover:scale-x-100"
       />
       <div
         dir="ltr"
-        className="bg-gradient-to-l from-blue-600 to-indigo-500 bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl dark:from-sky-300 dark:to-indigo-300"
+        className="animate-gradient bg-gradient-to-l from-[#8E72AE] via-[#7E6A9E] to-[#C2A368] bg-clip-text text-3xl font-extrabold text-transparent sm:text-4xl dark:from-[#c3b0dd] dark:via-[#b7a6d4] dark:to-[#d8c08a]"
       >
         {countable ? `${display}${suffix}` : stat.value}
       </div>

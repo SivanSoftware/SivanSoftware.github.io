@@ -137,7 +137,7 @@ export default function Home() {
               <p className="mb-3 text-lg font-semibold text-[#6E5B86] sm:text-xl dark:text-[#c3b0dd]">
                 {t.hero.role}
               </p>
-              <p className="text-base leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300">
+              <p className="text-justify text-base leading-relaxed text-[#5a5160] sm:text-lg dark:text-gray-300">
                 {t.hero.bio}
               </p>
             </div>
