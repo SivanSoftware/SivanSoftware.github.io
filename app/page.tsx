@@ -67,7 +67,7 @@ export default function Home() {
 
       {/* Hero — לוגו (ימין) + שם ו-CTAs (שמאל) */}
       <section className="relative">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 px-4 py-20 sm:py-28 md:flex-row md:justify-between md:gap-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 px-4 pt-28 pb-24 sm:pt-40 sm:pb-36 md:flex-row md:justify-between md:gap-8">
           {/* לוגו — צד ימין בעברית / שמאל באנגלית */}
           <div className="fade-up float-y shrink-0" style={{ animationDelay: "60ms" }}>
             <Image
