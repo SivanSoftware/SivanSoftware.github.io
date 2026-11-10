@@ -13,7 +13,7 @@
   --brand-secondary: #7c3aed; /* violet  */
   --brand-accent: #2563eb;    /* blue    */
   --brand-ink: #1e1b4b;       /* navy    */
-  --brand-bg: #f8faff;
+  --brand-bg: #f6f1ea;
   --brand-bg-dark: #0a0f1f;
 }
 
@@ -63,6 +63,17 @@ body::before {
     linear-gradient(rgba(129, 140, 248, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(129, 140, 248, 0.06) 1px, transparent 1px);
   background-size: auto, auto, 160px 160px, 40px 40px, 40px 40px;
+}
+
+/* רקע חדש — תמונת הבלובים הפסטליים והבוטניקה בזהב */
+body::before {
+  background-image: url("/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.dark body::before {
+  background-image: none;
 }
 
 /* מרווח לעוגנים כדי שהניווט הקבוע לא יסתיר כותרות */
