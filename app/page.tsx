@@ -83,8 +83,8 @@ export default function Home() {
             <Image
               src="/logo-full-dark.png"
               alt={t.hero.logoAlt}
-              width={720}
-              height={490}
+              width={1536}
+              height={1024}
               priority
               className="mx-auto hidden h-auto w-full dark:block"
             />
