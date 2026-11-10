@@ -197,8 +197,14 @@ export default function Home() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {t.skillGroups.map((group, index) => {
             const accent = topicAccents[index % topicAccents.length];
+            const isLastAlone =
+              index === t.skillGroups.length - 1 && t.skillGroups.length % 3 === 1;
             return (
-              <Reveal key={group.label} delay={index * 60} className="h-full">
+              <Reveal
+                key={group.label}
+                delay={index * 60}
+                className={`h-full ${isLastAlone ? "lg:col-start-2" : ""}`}
+              >
                 <div className="group relative h-full overflow-hidden rounded-2xl border border-[#E7DFD6] bg-white/70 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04] dark:hover:bg-white/[0.06]">
                   <span
                     aria-hidden="true"
