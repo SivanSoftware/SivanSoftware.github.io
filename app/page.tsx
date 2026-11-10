@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProjectModal from "./components/ProjectModal";
-import ProjectShowcase from "./components/ProjectShowcase";
+import ProjectCarousel from "./components/ProjectCarousel";
 import Experience from "./components/Experience";
 import Stats from "./components/Stats";
 import Reveal from "./components/Reveal";
@@ -176,7 +176,7 @@ export default function Home() {
           heading={t.projects.heading}
           sub={t.projects.subheading}
         />
-        <ProjectShowcase
+        <ProjectCarousel
           projects={t.projectList}
           detailsLabel={t.projects.details}
           githubLabel={t.projects.github}
