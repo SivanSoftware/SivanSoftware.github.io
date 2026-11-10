@@ -67,32 +67,32 @@ export default function Home() {
 
       {/* Hero — באנר הלוגו המלא (שם + כותרת) עם כפתורי CTA מתחת */}
       <section className="relative">
-        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 pt-28 pb-24 sm:pt-36 sm:pb-32">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-24 sm:pt-52 sm:pb-32">
           <h1 className="sr-only">{t.hero.name}</h1>
 
-          {/* באנר הלוגו — גרסה בהירה / כהה */}
-          <div className="fade-up w-full" style={{ animationDelay: "80ms" }}>
+          {/* לוגו מלא (שם + כותרת) — רקע שקוף, גרסה בהירה / כהה */}
+          <div className="fade-up float-y w-full max-w-xl" style={{ animationDelay: "80ms" }}>
             <Image
-              src="/logo-banner.webp"
+              src="/logo-full.png"
               alt={t.hero.logoAlt}
-              width={2000}
-              height={667}
+              width={1536}
+              height={1024}
               priority
-              className="h-auto w-full rounded-3xl shadow-[0_18px_60px_-24px_rgba(110,91,134,0.45)] ring-1 ring-black/5 dark:hidden"
+              className="mx-auto h-auto w-full dark:hidden"
             />
             <Image
-              src="/logo-banner-dark.webp"
+              src="/logo-full-dark.png"
               alt={t.hero.logoAlt}
-              width={2000}
-              height={667}
+              width={720}
+              height={490}
               priority
-              className="hidden h-auto w-full rounded-3xl shadow-[0_18px_60px_-24px_rgba(0,0,0,0.7)] ring-1 ring-white/10 dark:block"
+              className="mx-auto hidden h-auto w-full dark:block"
             />
           </div>
 
           {/* כפתורי CTA */}
           <div
-            className="fade-up mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-3 sm:flex-row"
+            className="fade-up mt-6 flex w-full flex-col flex-wrap items-center justify-center gap-3 sm:flex-row"
             style={{ animationDelay: "280ms" }}
           >
             <a href="#projects" className="btn-glass btn-glass-primary w-full sm:w-auto">
