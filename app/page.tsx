@@ -27,6 +27,27 @@ const skillAccents = [
   { label: "text-teal-700 dark:text-teal-300", dot: "text-teal-400", pill: "bg-teal-50 text-teal-800 border-teal-200 hover:bg-teal-100 hover:border-teal-300 dark:bg-teal-500/10 dark:text-teal-200 dark:border-teal-400/20 dark:hover:bg-teal-500/20" },
 ];
 
+/** מדגיש מילים נבחרות המסומנות ב-**...** בצבע הפלום של המותג */
+function RichText({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <strong
+            key={i}
+            className="font-semibold text-[#6E5B86] dark:text-[#c3b0dd]"
+          >
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function SectionHeading({
   eyebrow,
   heading,
@@ -138,7 +159,7 @@ export default function Home() {
                 {t.hero.role}
               </p>
               <p className="text-justify text-base leading-relaxed text-[#5a5160] sm:text-lg dark:text-gray-300">
-                {t.hero.bio}
+                <RichText text={t.hero.bio} />
               </p>
             </div>
           </div>

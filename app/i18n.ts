@@ -99,7 +99,7 @@ const he: Dictionary = {
     name: "סיון לסרי",
     role: "מפתחת ג'וניור · בוגרת הנדסת תוכנה במכללה האקדמית כנרת",
     bio:
-      "מפתחת Full-Stack בסטארטאפ AI, ובוגרת הנדסת תוכנה שסיימה ראשונה במחזור (מתוך 63). אוהבת לבנות תוכנה מקצה לקצה: ממודל הנתונים וה-API ועד הממשק שאנשים באמת משתמשים בו. בדרך בניתי מערכת חניה מבוזרת ועמידה לתקלות ב-Java, אפליקציות ווב מלאות ב-Next.js, NestJS ו-Angular, אפליקציית אנדרואיד, ובפרויקט הגמר את WaterVision VR, פלטפורמת מציאות מדומה למשקפי Meta Quest, שבה הייתי גם מפתחת וגם Scrum Master של צוות בן חמישה. נמשכת לבק-אנד, מערכות מבוזרות ואמינות, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.",
+      "מפתחת **Full-Stack** בסטארטאפ AI, ובוגרת הנדסת תוכנה שסיימה **ראשונה במחזור** (מתוך 63). אוהבת לבנות תוכנה **מקצה לקצה**: ממודל הנתונים וה-API ועד הממשק שאנשים באמת משתמשים בו. בדרך בניתי מערכת חניה מבוזרת ועמידה לתקלות ב-**Java**, אפליקציות ווב מלאות ב-Next.js, NestJS ו-Angular, אפליקציית אנדרואיד, ובפרויקט הגמר את **WaterVision VR**, פלטפורמת מציאות מדומה למשקפי Meta Quest, שבה הייתי גם מפתחת וגם **Scrum Master** של צוות בן חמישה. נמשכת ל**בק-אנד, מערכות מבוזרות ואמינות**, ואוהבת ללמוד טכנולוגיות חדשות תוך כדי בנייה.",
     ctaProjects: "לפרויקטים שלי",
     ctaContact: "דברו איתי",
     ctaCv: "הורדת קורות חיים",
@@ -388,7 +388,7 @@ const en: Dictionary = {
     name: "Sivan Lasri",
     role: "Junior Developer · Software Engineering graduate, Kinneret Academic College",
     bio:
-      "Full-Stack Developer at an AI startup and a Software Engineering graduate who finished 1st out of 63 in my cohort. I love building software end to end, from the data model and the API to the interface people actually use. Along the way I've built a fault-tolerant distributed parking system in Java, full-stack web apps in Next.js, NestJS and Angular, an Android app, and for my final project WaterVision VR, a VR platform for Meta Quest where I was both a developer and the Scrum Master of a five-person team. I'm drawn to backend, distributed systems and reliability, and I enjoy picking up new technologies while building.",
+      "**Full-Stack Developer** at an AI startup and a Software Engineering graduate who **finished 1st out of 63** in my cohort. I love building software **end to end**, from the data model and the API to the interface people actually use. Along the way I've built a fault-tolerant distributed parking system in **Java**, full-stack web apps in Next.js, NestJS and Angular, an Android app, and for my final project **WaterVision VR**, a VR platform for Meta Quest where I was both a developer and the **Scrum Master** of a five-person team. I'm drawn to **backend, distributed systems and reliability**, and I enjoy picking up new technologies while building.",
     ctaProjects: "View my projects",
     ctaContact: "Get in touch",
     ctaCv: "Download CV",
