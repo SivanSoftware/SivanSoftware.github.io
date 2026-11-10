@@ -65,60 +65,59 @@ export default function Home() {
     <main id="top" className="pt-20">
       <ScrollProgress />
 
-      {/* Hero — לוגו (ימין) + שם ו-CTAs (שמאל) */}
+      {/* Hero — באנר הלוגו המלא (שם + כותרת) עם כפתורי CTA מתחת */}
       <section className="relative">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 px-4 pt-28 pb-24 sm:pt-40 sm:pb-36 md:flex-row md:justify-between md:gap-8">
-          {/* לוגו — צד ימין בעברית / שמאל באנגלית */}
-          <div className="fade-up float-y shrink-0" style={{ animationDelay: "60ms" }}>
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 pt-28 pb-24 sm:pt-36 sm:pb-32">
+          <h1 className="sr-only">{t.hero.name}</h1>
+
+          {/* באנר הלוגו — גרסה בהירה / כהה */}
+          <div className="fade-up w-full" style={{ animationDelay: "80ms" }}>
             <Image
-              src="/logo-mark.png"
+              src="/logo-banner.webp"
               alt={t.hero.logoAlt}
-              width={477}
-              height={279}
+              width={2000}
+              height={667}
               priority
-              className="h-auto w-60 sm:w-72 md:w-80"
+              className="h-auto w-full rounded-3xl shadow-[0_18px_60px_-24px_rgba(110,91,134,0.45)] ring-1 ring-black/5 dark:hidden"
+            />
+            <Image
+              src="/logo-banner-dark.webp"
+              alt={t.hero.logoAlt}
+              width={2000}
+              height={667}
+              priority
+              className="hidden h-auto w-full rounded-3xl shadow-[0_18px_60px_-24px_rgba(0,0,0,0.7)] ring-1 ring-white/10 dark:block"
             />
           </div>
 
-          {/* שם + CTAs — צד שני */}
-          <div className="text-center md:text-start">
-            <h1
-              className="fade-up text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl"
-              style={{ animationDelay: "180ms" }}
+          {/* כפתורי CTA */}
+          <div
+            className="fade-up mt-10 flex w-full flex-col flex-wrap items-center justify-center gap-3 sm:flex-row"
+            style={{ animationDelay: "280ms" }}
+          >
+            <a href="#projects" className="btn-glass btn-glass-primary w-full sm:w-auto">
+              {t.hero.ctaProjects}
+            </a>
+            <a
+              href="/sivan-lasri-cv.pdf"
+              download
+              className="btn-glass btn-glass-ghost group w-full sm:w-auto"
             >
-              <span className="animate-gradient bg-gradient-to-l from-[#8E72AE] via-[#7E6A9E] to-[#C2A368] bg-clip-text text-transparent">
-                {t.hero.name}
-              </span>
-            </h1>
-
-            <div
-              className="fade-up mt-8 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row md:justify-start"
-              style={{ animationDelay: "340ms" }}
-            >
-              <a href="#projects" className="btn-glass btn-glass-primary w-full sm:w-auto">
-                {t.hero.ctaProjects}
-              </a>
-              <a
-                href="/sivan-lasri-cv.pdf"
-                download
-                className="btn-glass btn-glass-ghost group w-full sm:w-auto"
+              <svg
+                className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                <svg
-                  className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={1.8}
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
-                </svg>
-                {t.hero.ctaCv}
-              </a>
-              <a href="#contact" className="btn-glass btn-glass-ghost w-full sm:w-auto">
-                {t.hero.ctaContact}
-              </a>
-            </div>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+              </svg>
+              {t.hero.ctaCv}
+            </a>
+            <a href="#contact" className="btn-glass btn-glass-ghost w-full sm:w-auto">
+              {t.hero.ctaContact}
+            </a>
           </div>
         </div>
       </section>

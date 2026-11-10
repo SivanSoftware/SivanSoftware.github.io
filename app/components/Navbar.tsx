@@ -112,7 +112,15 @@ export default function Navbar() {
             width={242}
             height={160}
             priority
-            className="h-9 sm:h-10 w-auto"
+            className="h-9 sm:h-10 w-auto dark:hidden"
+          />
+          <Image
+            src="/logo-mark-dark.png"
+            alt={t.hero.logoAlt}
+            width={242}
+            height={160}
+            priority
+            className="hidden h-9 sm:h-10 w-auto dark:block"
           />
           <span>{t.nav.name}</span>
         </a>

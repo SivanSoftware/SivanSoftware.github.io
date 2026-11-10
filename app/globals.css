@@ -73,7 +73,10 @@ body::before {
   background-repeat: no-repeat;
 }
 .dark body::before {
-  background-image: none;
+  background-image: url("/bg-dark.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* מרווח לעוגנים כדי שהניווט הקבוע לא יסתיר כותרות */
