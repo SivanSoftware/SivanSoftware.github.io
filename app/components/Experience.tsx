@@ -20,7 +20,7 @@ function KindIcon({ kind }: { kind: ExperienceItem["kind"] }) {
   );
 }
 
-function TimelineRow({
+function ExperienceCard({
   item,
   index,
   techLabel,
@@ -29,86 +29,82 @@ function TimelineRow({
   index: number;
   techLabel: string;
 }) {
-  const reveal = useReveal<HTMLLIElement>(index * 140);
+  const reveal = useReveal<HTMLLIElement>(index * 130);
 
   return (
-    <li
-      ref={reveal.ref}
-      style={reveal.style}
-      className={`${reveal.className} relative ps-16 sm:ps-20`}
-    >
-      {/* נקודת ציר הזמן */}
-      <span className="pulse-ring absolute start-4 top-1.5 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-blue-600 text-white shadow-lg ring-4 ring-[#f5f8ff] rtl:translate-x-1/2 dark:ring-[#0a0f1f]">
-        <KindIcon kind={item.kind} />
-      </span>
+    <li ref={reveal.ref} style={reveal.style} className={reveal.className}>
+      <article className="group relative overflow-hidden rounded-2xl border border-[#E7DFD6] bg-white/70 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04] dark:hover:bg-white/[0.06]">
+        {/* פס מבטא זהב-פלום בראש הכרטיס */}
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-1 origin-[right_center] scale-x-0 bg-gradient-to-l from-[#8E72AE] via-[#7E6A9E] to-[#C2A368] transition-transform duration-500 group-hover:scale-x-100"
+        />
 
-      <div className="glow-hover group rounded-xl border border-indigo-200/70 bg-white/85 p-5 shadow-sm backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 sm:p-6 dark:border-indigo-400/20 dark:bg-white/[0.04]">
-        <div className="flex items-start gap-4">
-          <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <h3 className="text-lg font-bold text-[#3E2E4F] dark:text-indigo-100">
-                {item.role}
-              </h3>
+        <div className="grid gap-5 p-6 sm:p-7 md:grid-cols-[186px_1fr] md:gap-7">
+          {/* עמודת תאריך + ארגון */}
+          <div className="flex items-start gap-3 md:flex-col md:items-start md:gap-3 md:border-e md:border-[#eadfd2] md:pe-6 dark:md:border-white/10">
+            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f3ecf7] text-[#6E5B86] ring-1 ring-[#e4d8ec] dark:bg-[#7E6A9E]/12 dark:text-[#cdb9e6] dark:ring-[#7E6A9E]/25">
+              {item.logo ? (
+                <span className="relative h-7 w-7 overflow-hidden rounded">
+                  <Image src={item.logo} alt={item.org} fill className="object-contain" />
+                </span>
+              ) : (
+                <KindIcon kind={item.kind} />
+              )}
+            </span>
+            <div className="min-w-0">
               <span
                 dir="ltr"
-                className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 font-mono text-xs font-semibold text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-300"
+                className="block font-mono text-sm font-bold tracking-tight text-[#b48d43] dark:text-[#d8c08a]"
               >
                 {item.period}
               </span>
+              <p className="mt-1 text-sm font-semibold text-[#6E5B86] dark:text-[#c3b0dd]">
+                {item.org}
+              </p>
             </div>
-            <p className="mt-0.5 font-semibold text-indigo-600 dark:text-sky-300">
-              {item.org}
-            </p>
           </div>
 
-          {/* אמblem מונפש של הארגון — או לוגו אמיתי אם הוגדר ב-i18n */}
-          {item.logo ? (
-            <div className="relative hidden h-16 w-16 shrink-0 overflow-hidden rounded-lg sm:block">
-              <Image src={item.logo} alt={item.org} fill className="object-contain" />
-            </div>
-          ) : (
-            <div className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-100 to-sky-100 text-indigo-500 sm:flex dark:from-indigo-500/15 dark:to-sky-500/10 dark:text-indigo-300">
-              <span className="float-y flex items-center justify-center">
-                <span className="scale-[1.6]">
-                  <KindIcon kind={item.kind} />
+          {/* עמודת תפקיד + תיאור */}
+          <div>
+            <h3 className="text-lg font-extrabold text-[#3E2E4F] sm:text-xl dark:text-[#e9def5]">
+              {item.role}
+            </h3>
+
+            <ul className="mt-3 space-y-2">
+              {item.points.map((point) => (
+                <li
+                  key={point}
+                  className="flex gap-2.5 text-sm leading-relaxed text-[#5a5160] dark:text-gray-300"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-[#C2A368] to-[#8E72AE]"
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            {item.tech && item.tech.length > 0 && (
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-xs text-[#a99cb6] dark:text-gray-500">
+                  {techLabel}:
                 </span>
-              </span>
-            </div>
-          )}
-        </div>
-
-        <ul className="mt-4 space-y-2">
-          {item.points.map((point) => (
-            <li
-              key={point}
-              className="flex gap-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-            >
-              <span
-                aria-hidden="true"
-                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400 dark:bg-sky-400"
-              />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-
-        {item.tech && item.tech.length > 0 && (
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs text-gray-400 dark:text-gray-500">
-              {techLabel}:
-            </span>
-            {item.tech.map((tech) => (
-              <span
-                key={tech}
-                dir="ltr"
-                className="rounded-md border border-indigo-100 bg-indigo-50 px-2.5 py-1 font-mono text-xs text-indigo-800 dark:border-indigo-400/20 dark:bg-indigo-500/10 dark:text-indigo-200"
-              >
-                {tech}
-              </span>
-            ))}
+                {item.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    dir="ltr"
+                    className="rounded-md border border-[#e4d8ec] bg-[#f3ecf7] px-2.5 py-1 font-mono text-xs text-[#6E5B86] dark:border-[#7E6A9E]/25 dark:bg-[#7E6A9E]/10 dark:text-[#cdb9e6]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      </article>
     </li>
   );
 }
@@ -120,25 +116,11 @@ export default function Experience({
   items: ExperienceItem[];
   techLabel: string;
 }) {
-  const lineReveal = useReveal<HTMLSpanElement>(0);
-
   return (
-    <Reveal className="relative mx-auto max-w-3xl">
-      <ol className="relative space-y-8">
-        {/* קו ציר הזמן — מצויר בכניסה למסך */}
-        <span
-          ref={lineReveal.ref}
-          style={lineReveal.style}
-          aria-hidden="true"
-          className={`timeline-line ${lineReveal.className} absolute bottom-2 start-4 top-2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-indigo-500 via-blue-500 to-indigo-300 rtl:translate-x-1/2 dark:from-indigo-400 dark:via-sky-400 dark:to-indigo-500/40`}
-        />
+    <Reveal className="mx-auto max-w-3xl">
+      <ol className="space-y-5 sm:space-y-6">
         {items.map((item, index) => (
-          <TimelineRow
-            key={item.id}
-            item={item}
-            index={index}
-            techLabel={techLabel}
-          />
+          <ExperienceCard key={item.id} item={item} index={index} techLabel={techLabel} />
         ))}
       </ol>
     </Reveal>
