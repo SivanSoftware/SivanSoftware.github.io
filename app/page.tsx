@@ -10,19 +10,35 @@ import { useLanguage } from "./components/LanguageProvider";
 // שמות טכנולוגיות באנגלית מקבלים גופן מונוספייס; טקסט עברי נשאר בגופן הרגיל
 const isLatin = (text: string) => !/[֐-׿]/.test(text);
 
-/**
- * גוון לכל קבוצת כישורים, לפי סדר הקבוצות (זהה בשתי השפות) — נותן לחלון
- * תחושה של הדגשת תחביר. המחרוזות מלאות כדי ש-Tailwind יזהה אותן.
- */
-const skillAccents = [
-  { label: "text-indigo-700 dark:text-indigo-300", dot: "text-indigo-400", pill: "bg-indigo-50 text-indigo-800 border-indigo-200 hover:bg-indigo-100 hover:border-indigo-300 dark:bg-indigo-500/10 dark:text-indigo-200 dark:border-indigo-400/20 dark:hover:bg-indigo-500/20" },
-  { label: "text-violet-700 dark:text-violet-300", dot: "text-violet-400", pill: "bg-violet-50 text-violet-800 border-violet-200 hover:bg-violet-100 hover:border-violet-300 dark:bg-violet-500/10 dark:text-violet-200 dark:border-violet-400/20 dark:hover:bg-violet-500/20" },
-  { label: "text-emerald-700 dark:text-emerald-300", dot: "text-emerald-400", pill: "bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300 dark:bg-emerald-500/10 dark:text-emerald-200 dark:border-emerald-400/20 dark:hover:bg-emerald-500/20" },
-  { label: "text-sky-700 dark:text-sky-300", dot: "text-sky-400", pill: "bg-sky-50 text-sky-800 border-sky-200 hover:bg-sky-100 hover:border-sky-300 dark:bg-sky-500/10 dark:text-sky-200 dark:border-sky-400/20 dark:hover:bg-sky-500/20" },
-  { label: "text-rose-700 dark:text-rose-300", dot: "text-rose-400", pill: "bg-rose-50 text-rose-800 border-rose-200 hover:bg-rose-100 hover:border-rose-300 dark:bg-rose-500/10 dark:text-rose-200 dark:border-rose-400/20 dark:hover:bg-rose-500/20" },
-  { label: "text-amber-700 dark:text-amber-300", dot: "text-amber-500", pill: "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100 hover:border-amber-300 dark:bg-amber-500/10 dark:text-amber-200 dark:border-amber-400/20 dark:hover:bg-amber-500/20" },
-  { label: "text-teal-700 dark:text-teal-300", dot: "text-teal-400", pill: "bg-teal-50 text-teal-800 border-teal-200 hover:bg-teal-100 hover:border-teal-300 dark:bg-teal-500/10 dark:text-teal-200 dark:border-teal-400/20 dark:hover:bg-teal-500/20" },
+/** גוונים רכים לכרטיסי הכישורים, בתוך פלטת הפלום/זהב/מרווה/לבנדר */
+const topicAccents = [
+  { badge: "bg-[#f1ebf7] text-[#6E5B86] ring-[#e4d8ec] dark:bg-[#7E6A9E]/12 dark:text-[#cdb9e6] dark:ring-[#7E6A9E]/25", bar: "from-[#8E72AE] to-[#C2A368]" },
+  { badge: "bg-[#f6efe1] text-[#b48d43] ring-[#ecdcc0] dark:bg-[#C2A368]/12 dark:text-[#d8c08a] dark:ring-[#C2A368]/25", bar: "from-[#C2A368] to-[#8E72AE]" },
+  { badge: "bg-[#eef4ec] text-[#5f7a5a] ring-[#d9e6d3] dark:bg-[#6f8a68]/15 dark:text-[#a9c7a0] dark:ring-[#6f8a68]/30", bar: "from-[#8aa882] to-[#C2A368]" },
+  { badge: "bg-[#efeaf6] text-[#7E6A9E] ring-[#e0d6ec] dark:bg-[#7E6A9E]/12 dark:text-[#c3b0dd] dark:ring-[#7E6A9E]/25", bar: "from-[#7E6A9E] to-[#b48d43]" },
 ];
+
+/** אייקון נושא לכל כרטיס כישורים (לפי סדר הקבוצות) */
+function TopicIcon({ index }: { index: number }) {
+  const cls = "h-5 w-5";
+  const common = { className: cls, fill: "none", stroke: "currentColor", strokeWidth: 1.8, viewBox: "0 0 24 24", "aria-hidden": true as const };
+  switch (index % 7) {
+    case 0: // שפות
+      return <svg {...common}><path strokeLinecap="round" strokeLinejoin="round" d="M8 9l-3 3 3 3m8-6l3 3-3 3M14 5l-4 14" /></svg>;
+    case 1: // מערכות מבוזרות / backend
+      return <svg {...common}><rect x="3" y="4" width="18" height="6" rx="1.5" /><rect x="3" y="14" width="18" height="6" rx="1.5" /><path strokeLinecap="round" d="M7 7h.01M7 17h.01" /></svg>;
+    case 2: // מסדי נתונים
+      return <svg {...common}><ellipse cx="12" cy="6" rx="7" ry="3" /><path strokeLinecap="round" d="M5 6v12c0 1.66 3.13 3 7 3s7-1.34 7-3V6M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3" /></svg>;
+    case 3: // frontend
+      return <svg {...common}><rect x="3" y="4" width="18" height="16" rx="2" /><path strokeLinecap="round" d="M3 9h18M7 6.5h.01M9.5 6.5h.01" /></svg>;
+    case 4: // מובייל / XR
+      return <svg {...common}><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path strokeLinecap="round" d="M11 18.5h2" /></svg>;
+    case 5: // DevOps
+      return <svg {...common}><path strokeLinecap="round" strokeLinejoin="round" d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.5 2.5-2-2 2.5-2.5z" /></svg>;
+    default: // בדיקות ומתודולוגיה
+      return <svg {...common}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M12 3l7 4v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V7l7-4z" /></svg>;
+  }
+}
 
 /** מדגיש מילים נבחרות המסומנות ב-**...** בצבע הפלום של המותג */
 function RichText({ text }: { text: string }) {
@@ -177,56 +193,43 @@ export default function Home() {
           sub={t.about.intro}
         />
 
-        {/* כרטיס בסגנון חלון עורך קוד */}
-        <Reveal className="max-w-4xl mx-auto">
-          <div className="rounded-xl shadow-lg border border-indigo-200 overflow-hidden bg-white/85 backdrop-blur-sm dark:border-indigo-400/20 dark:bg-white/[0.04] dark:shadow-black/40">
-            <div
-              dir="ltr"
-              className="flex items-center gap-2 px-4 py-2.5 bg-[#3E2E4F] border-b border-indigo-900 dark:bg-[#05070f] dark:border-indigo-400/15"
-            >
-              <span className="w-3 h-3 rounded-full bg-red-400" />
-              <span className="w-3 h-3 rounded-full bg-yellow-400" />
-              <span className="w-3 h-3 rounded-full bg-green-400" />
-              <span className="font-mono text-xs text-indigo-200 ms-3">
-                skills.ts
-              </span>
-            </div>
-
-            <div className="p-5 sm:p-7 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              {t.skillGroups.map((group, index) => {
-                const accent = skillAccents[index % skillAccents.length];
-                return (
-                  <Reveal key={group.label} delay={index * 70}>
-                    <h3
-                      className={`text-sm font-bold mb-2.5 flex items-center gap-1.5 ${accent.label}`}
-                    >
-                      <span
-                        className={`font-mono ${accent.dot}`}
-                        aria-hidden="true"
-                      >
-                        ▸
-                      </span>
+        {/* רשת כרטיסים לפי נושאים */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {t.skillGroups.map((group, index) => {
+            const accent = topicAccents[index % topicAccents.length];
+            return (
+              <Reveal key={group.label} delay={index * 60} className="h-full">
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-[#E7DFD6] bg-white/70 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04] dark:hover:bg-white/[0.06]">
+                  <span
+                    aria-hidden="true"
+                    className={`absolute inset-x-0 top-0 h-1 origin-[right_center] scale-x-0 bg-gradient-to-l ${accent.bar} transition-transform duration-500 group-hover:scale-x-100`}
+                  />
+                  <div className="mb-3.5 flex items-center gap-2.5">
+                    <span className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ring-1 ${accent.badge}`}>
+                      <TopicIcon index={index} />
+                    </span>
+                    <h3 className="text-sm font-bold text-[#3E2E4F] dark:text-[#e9def5]">
                       {group.label}
                     </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <span
-                          key={item}
-                          dir={isLatin(item) ? "ltr" : undefined}
-                          className={`border px-3 py-1 rounded-md text-sm transition-colors duration-200 ${accent.pill} ${
-                            isLatin(item) ? "font-mono" : "font-medium"
-                          }`}
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </div>
-        </Reveal>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        dir={isLatin(item) ? "ltr" : undefined}
+                        className={`rounded-md border border-[#e4d8ec] bg-[#f3ecf7] px-2.5 py-1 text-xs text-[#6E5B86] transition-colors dark:border-[#7E6A9E]/25 dark:bg-[#7E6A9E]/10 dark:text-[#cdb9e6] ${
+                          isLatin(item) ? "font-mono" : "font-medium"
+                        }`}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
       </section>
 
       {/* צרו קשר */}
