@@ -245,34 +245,47 @@ export default function Home() {
           sub={t.contact.subheading}
         />
         <Reveal>
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-center px-2">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-3 px-2 sm:flex-row">
             <a
               href="mailto:sivanlasri4@gmail.com"
-              className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition transform hover:-translate-y-0.5 text-center"
+              className="btn-glass btn-glass-primary w-full sm:w-auto"
             >
-              ✉️ sivanlasri4@gmail.com
+              {/* מעטפה */}
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.7} viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7l8 5.5L20 7" />
+              </svg>
+              <span dir="ltr">sivanlasri4@gmail.com</span>
             </a>
             <a
               href="https://www.linkedin.com/in/sivan-lasri-a05924230/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3 rounded-lg bg-[#0A66C2] text-white font-semibold shadow-md hover:bg-[#084d92] transition transform hover:-translate-y-0.5 text-center"
+              className="btn-glass btn-glass-ghost w-full sm:w-auto"
             >
+              {/* לוגו LinkedIn */}
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.33c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H9z" />
+              </svg>
               {t.contact.linkedin}
             </a>
             <a
               href="https://github.com/SivanSoftware"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gray-800 text-white font-semibold shadow-md hover:bg-black transition transform hover:-translate-y-0.5 text-center dark:bg-white/10 dark:hover:bg-white/20"
+              className="btn-glass btn-glass-ghost w-full sm:w-auto"
             >
+              {/* לוגו GitHub */}
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5C5.73.5.6 5.63.6 11.9c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.1c-3.17.69-3.84-1.3-3.84-1.3-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.2-1.27-5.2-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.78 1.04.78 2.1v3.11c0 .3.2.66.79.55 4.51-1.5 7.77-5.76 7.77-10.78C23.4 5.63 18.27.5 12 .5z" />
+              </svg>
               GitHub
             </a>
           </div>
         </Reveal>
       </section>
 
-      <footer className="bg-white border-t border-indigo-100 py-6 text-center text-gray-500 text-sm dark:bg-[#05070f] dark:border-indigo-400/15 dark:text-gray-400">
+      <footer className="border-t border-[#E7DFD6] bg-white/60 py-6 text-center text-sm text-gray-500 backdrop-blur-sm dark:border-white/10 dark:bg-[#05070f]/60 dark:text-gray-400">
         © {new Date().getFullYear()} {t.footer}
       </footer>
     </main>
