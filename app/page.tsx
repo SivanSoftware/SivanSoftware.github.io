@@ -124,14 +124,14 @@ export default function Home() {
             >
               <a
                 href="#projects"
-                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-gradient-to-l from-indigo-600 to-blue-600 text-white font-semibold shadow-md hover:from-indigo-700 hover:to-blue-700 transition transform hover:-translate-y-0.5 text-center"
+                className="btn-glass btn-glass-primary w-full sm:w-auto"
               >
                 {t.hero.ctaProjects}
               </a>
               <a
                 href="/sivan-lasri-cv.pdf"
                 download
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-white text-indigo-700 border border-indigo-300 font-semibold shadow-sm hover:bg-indigo-50 transition transform hover:-translate-y-0.5 text-center dark:bg-white/5 dark:text-indigo-200 dark:border-indigo-400/30 dark:hover:bg-indigo-500/10"
+                className="btn-glass btn-glass-ghost group w-full sm:w-auto"
               >
                 <svg
                   className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
@@ -147,7 +147,7 @@ export default function Home() {
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-indigo-50 text-indigo-700 border border-transparent font-semibold shadow-sm hover:bg-indigo-100 transition transform hover:-translate-y-0.5 text-center dark:bg-indigo-500/10 dark:text-indigo-200 dark:hover:bg-indigo-500/20"
+                className="btn-glass btn-glass-ghost w-full sm:w-auto"
               >
                 {t.hero.ctaContact}
               </a>

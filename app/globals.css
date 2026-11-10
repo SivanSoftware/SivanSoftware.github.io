@@ -456,6 +456,75 @@ section[id] {
   will-change: transform, opacity;
 }
 
+/* ===== כפתורי זכוכית נוזלית (liquid glass) ===== */
+.btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-align: center;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+.btn-glass:hover {
+  transform: translateY(-2px);
+}
+.btn-glass:active {
+  transform: translateY(0);
+}
+
+/* ראשי — גרדיאנט מותג מזוגג */
+.btn-glass-primary {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.92), rgba(124, 58, 237, 0.92));
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 26px -10px rgba(79, 70, 229, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.btn-glass-primary:hover {
+  box-shadow: 0 16px 32px -10px rgba(124, 58, 237, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* משני — זכוכית חלבית בהירה */
+.btn-glass-ghost {
+  background: rgba(255, 255, 255, 0.55);
+  color: #4338ca;
+  box-shadow: 0 8px 20px -10px rgba(30, 27, 75, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+.btn-glass-ghost:hover {
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 14px 26px -10px rgba(79, 70, 229, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+.dark .btn-glass-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c7d2fe;
+  border-color: rgba(199, 210, 254, 0.2);
+  box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.dark .btn-glass-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass {
+    transition: background 0.28s ease;
+  }
+  .btn-glass:hover {
+    transform: none;
+  }
+}
+
 /* זוהר רך בריחוף */
 .glow-hover {
   transition: box-shadow 0.4s ease, transform 0.4s ease;
