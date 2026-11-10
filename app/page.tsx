@@ -66,35 +66,22 @@ export default function Home() {
       <ScrollProgress />
 
       {/* פתיח */}
-      <section className="relative max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-        {/* כתמי אורורה מרחפים ברקע */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        >
-          <div className="blob absolute -top-12 -start-10 h-64 w-64 rounded-full bg-indigo-400/30 blur-3xl dark:bg-indigo-500/20" />
-          <div className="blob blob-delay blob-slow absolute top-16 end-0 h-72 w-72 rounded-full bg-blue-400/25 blur-3xl dark:bg-blue-500/15" />
-          <div className="blob blob-slow absolute -bottom-10 start-1/3 h-56 w-56 rounded-full bg-violet-400/20 blur-3xl dark:bg-violet-500/15" />
-        </div>
-
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14 bg-white/70 backdrop-blur-sm rounded-2xl border border-indigo-200 shadow-lg p-6 sm:p-10 md:p-12 dark:bg-white/[0.04] dark:border-indigo-400/20 dark:shadow-black/40">
-          <div className="fade-up shrink-0" style={{ animationDelay: "60ms" }}>
-            <div className="float-y relative">
-              {/* טבעת גרדיאנט מסתובבת מאחורי התמונה */}
-              <span
-                aria-hidden="true"
-                className="animate-spin-slow absolute -inset-1.5 rounded-full bg-[conic-gradient(from_0deg,#4f46e5,#2563eb,#7c3aed,#4f46e5)] opacity-70 blur-[6px]"
-              />
-              <Image
-                src="/sivan.webp"
-                alt={t.hero.photoAlt}
-                width={1254}
-                height={1254}
-                priority
-                className="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-white shadow-lg dark:border-[#0a0f1f]"
-              />
+      <section className="relative">
+        {/* רצועת Hero — קצה לקצה */}
+        <div className="border-y border-indigo-200/60 bg-white/70 backdrop-blur-sm dark:border-indigo-400/15 dark:bg-white/[0.04]">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 py-16 sm:px-6 sm:py-24 md:flex-row md:gap-14">
+            <div className="fade-up shrink-0" style={{ animationDelay: "60ms" }}>
+              <div className="float-y relative">
+                <Image
+                  src="/sivan.webp"
+                  alt={t.hero.photoAlt}
+                  width={1254}
+                  height={1254}
+                  priority
+                  className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover object-top border-4 border-white shadow-md ring-1 ring-indigo-100 dark:border-[#0a0f1f] dark:ring-indigo-400/20"
+                />
+              </div>
             </div>
-          </div>
 
           <div className="text-center md:text-start">
             <h1
@@ -153,10 +140,11 @@ export default function Home() {
               </a>
             </div>
           </div>
+          </div>
         </div>
 
         {/* רצועת נתונים */}
-        <div className="mt-8">
+        <div className="mx-auto mt-8 max-w-6xl px-4 sm:px-6">
           <Stats stats={t.stats} />
         </div>
       </section>

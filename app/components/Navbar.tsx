@@ -98,7 +98,8 @@ export default function Navbar() {
           : "bg-white/75 dark:bg-[#0a0f1f]/70"
       }`}
     >
-      <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3 sm:p-4">
+      <div className="relative max-w-6xl mx-auto flex items-center justify-between px-4 py-3 sm:p-4">
+        {/* לוגו — פינת ההתחלה (ימין בעברית, שמאל באנגלית) */}
         <a
           href="#top"
           className="flex items-center gap-2 font-extrabold text-xl sm:text-2xl text-indigo-700 hover:underline transition dark:text-indigo-300"
@@ -115,8 +116,8 @@ export default function Navbar() {
           <span>{t.nav.name}</span>
         </a>
 
-        {/* קישורים — דסקטופ */}
-        <div className="hidden sm:flex items-center gap-1">
+        {/* קישורים — במרכז (דסקטופ) */}
+        <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 sm:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -131,10 +132,14 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <ThemeToggle className="ms-2" />
+        </div>
+
+        {/* מתגים — פינה שנייה (דסקטופ) */}
+        <div className="hidden items-center gap-2 sm:flex">
+          <ThemeToggle />
           <button
             onClick={toggleLang}
-            className={`${langButtonClasses} ms-1`}
+            className={langButtonClasses}
             aria-label={t.langToggle.aria}
             lang={lang === "he" ? "en" : "he"}
           >
