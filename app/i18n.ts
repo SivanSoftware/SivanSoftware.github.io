@@ -198,7 +198,7 @@ const he: Dictionary = {
       category: "מציאות מדומה · פרויקט גמר",
       title: "WaterVision VR · פלטפורמת פגישות VR",
       summary:
-        "פלטפורמת VR לפגישות בתעשיית המים על Meta Quest, ופרויקט הגמר שלי כמפתחת וכ-Scrum Master. הכי מגניב: **תמלול דיבור בזמן אמת וסימולציית טיהור שפכים תלת-ממדית חיה**.",
+        "פלטפורמת VR לפגישות מקצועיות בתעשיית המים על Meta Quest, שפיתחתי כפרויקט הגמר בתפקיד מפתחת ו-Scrum Master. כוללת חדר ישיבות משותף, **תמלול דיבור לטקסט בזמן אמת וסימולציית טיהור שפכים תלת-ממדית**.",
       description:
         "WaterVision VR הוא פרויקט הגמר שלי (2026), פלטפורמת VR/AR לפגישות מקצועיות בתחום תשתיות המים, שפותחה ב-Unity 6 (C#) למשקפי Meta Quest. שימשתי בו גם כמפתחת וגם כ-Scrum Master של צוות בן חמישה חברים, בעבודה בשיטת Agile.\n\n" +
         "הפלטפורמה כוללת חדר ישיבות משותף עם avatars מסונכרנים, מעקב ידיים ותקשורת קולית; תמלול דיבור לטקסט בזמן אמת עם ייצוא ל-PDF; חדר מודלים תלת-ממדי לקבצי GLB/FBX עם סימולציה חיה של טיהור שפכים; וניתוח השתתפות (זמן דיבור לכל משתתף).\n\n" +
@@ -223,7 +223,7 @@ const he: Dictionary = {
       category: "מערכות מבוזרות",
       title: "Mulligan · מערכת חניה מבוזרת",
       summary:
-        "מערכת חניה מבוזרת ב-Java לנהגים, פקחים ופקידי עירייה. הלב של הפרויקט: **אשכולות עמידים לתקלות עם קונצנזוס Raft ששורדים אפילו צומת זדוני**.",
+        "מערכת חניה מבוזרת ב-Java לנהגים, פקחים ופקידי עירייה, הבנויה על **אשכולות עמידים לתקלות עם קונצנזוס Raft ואבטחת TLS/HMAC מקצה לקצה**.",
       description:
         "Mulligan היא מערכת חניה מבוזרת שנבנתה ב-Java ומשרתת שלושה תפקידים: נהגים (רישום רכב, התחלת/סיום חניה, תשלום והמלצת חניה), פקחי חניה (בדיקת רכבים והנפקת דוחות) ופקידי עירייה (צפייה בדוחות עסקאות ודוחות חניה).\n\n" +
         "המערכת עמידה לתקלות מקצה לקצה: MongoDB replica set של 3 צמתים, אשכול RabbitMQ של 3 צמתים עם quorum queues, ואשכול המלצות של 3 צמתים המשלב קונצנזוס Raft (Apache Ratis) עם הצבעת רוב, כך שהאשכול שורד גם צומת שנפל וגם צומת זדוני.\n\n" +
@@ -249,7 +249,7 @@ const he: Dictionary = {
       category: "אפליקציית אנדרואיד",
       title: "SugarSteps · לימוד בישול בשלבים",
       summary:
-        "אפליקציית אנדרואיד ללימוד בישול לפי רמות קושי, עם **שני תפקידים: תלמיד שצופה בשיעורים ומדריך שמנהל אותם**.",
+        "אפליקציית אנדרואיד ללימוד בישול לפי רמות קושי, עם **שני תפקידים, תלמיד ומדריך, ונתונים הנשמרים מקומית ב-Room/SQLite**.",
       description:
         "SugarSteps היא אפליקציית אנדרואיד ללימוד בישול בשלבים, השיעורים מאורגנים לפי רמות קושי (קל, בינוני, קשה).\n\n" +
         "האפליקציה תומכת בשני תפקידים: תלמידים שיכולים לצפות בשיעורים, ומדריכים שיכולים להוסיף, לערוך ולמחוק אותם. בנוסף יש מסך הרשמה עם בחירת תפקיד ואישור תנאים, ומסך הגדרות לעדכון פרטים אישיים.\n\n" +
@@ -265,7 +265,7 @@ const he: Dictionary = {
       category: "מערכת ניהול",
       title: "מערכת ניהול מפעל יריעות פלסטיק",
       summary:
-        "מערכת בקרה למפעל יריעות פלסטיק ב-Java עם ממשק Swing. הבולט: **שש שאילתות אנליטיות, אחת מהן רצה במקביל ב-Threads**.",
+        "מערכת בקרה ב-Java למפעל יריעות פלסטיק עם ממשק Swing, הכוללת **ייבוא נתונים מ-CSV ל-MySQL ושש שאילתות אנליטיות, אחת מהן מקבילית ב-Threads**.",
       description:
         "מערכת בקרה למפעל המייצר יריעות פלסטיק לחממות. המערכת קוראת נתוני ייצור מקובץ CSV, מייבאת אותם למסד נתונים MySQL דרך JDBC, ומציגה ממשק גרפי בנוי ב-Java Swing.\n\n" +
         "המערכת כוללת שש שאילתות SQL אנליטיות לניתוח פעילות המפעל, סך ייצור לפי מכונה, שיעור פגמים ממוצע, סיכומי ייצור יומיים ועוד, והשאילתה השישית רצה במקביל עם Threads לשיפור ביצועים.\n\n" +
@@ -279,10 +279,11 @@ const he: Dictionary = {
       icon: "pulse",
       iconImage: "/projects/moveit-icon.webp",
       image: "/projects/moveit.webp",
+      imageFit: "contain",
       category: "אתר ווב",
       title: "Moveit · המאמן האישי שלך",
       summary:
-        "אתר כושר אינטראקטיבי עם שאלון העדפות אישי והרשמה רב-שלבית. הבסיס: **פרופיל שנשמר ב-SQL לקראת תוכניות אימון מותאמות אישית**.",
+        "אתר כושר עם שאלון העדפות אישי והרשמה רב-שלבית הכוללת הצהרת בריאות, ש**שומר את הפרופיל ב-SQL כבסיס לתוכניות אימון מותאמות אישית**.",
       description:
         "Moveit הוא אתר כושר שנועד ללוות משתמשים במסע הכושר האישי שלהם, ופותח במסגרת קורס פיתוח יישומי ווב.\n\n" +
         "האתר כולל שאלון העדפות אישי (רמת כושר, מטרות, ימים פנויים ומשך אימון מועדף), תהליך הרשמה רב-שלבי עם הצהרת בריאות, מסכי התחברות ובית עם ניווט נוח, וממשק אינטראקטיבי עם אינדיקטורים של התקדמות.\n\n" +
@@ -300,7 +301,7 @@ const he: Dictionary = {
       category: "אתר תצוגה · פרויקט גמר",
       title: "אתר WaterVision VR",
       summary:
-        "אתר תצוגה סטטי ורספונסיבי לפרויקט הגמר, מתארח ב-Firebase. מרכז **סקירת מוצר, תיעוד ספרינטים, גלריה, פוסטר וסרטון במקום אחד**.",
+        "אתר תצוגה סטטי ורספונסיבי לפרויקט הגמר, מתארח ב-Firebase, המרכז **סקירת מוצר, תיעוד ארבעה ספרינטים, גלריה, פוסטר וסרטון הגשה**.",
       description:
         "אתר התצוגה הרשמי של פרויקט הגמר WaterVision VR, נבנה ב-HTML, CSS ו-JavaScript (סטטי, ללא תלויות build) ומתארח ב-Firebase Hosting.\n\n" +
         "האתר מרכז את כל סיפור הפרויקט: סקירת מוצר, תיעוד לארבעה ספרינטים, גלריית צילומי מסך ותמונות מאירועים, הפוסטר של הפרויקט, סרטון ההגשה הסופי ועמוד צוות.\n\n" +
@@ -315,7 +316,7 @@ const he: Dictionary = {
       category: "משחק · C++",
       title: "Tic-Tac-Toe · משחק ב-C++",
       summary:
-        "איקס-עיגול לשני שחקנים בטרמינל ב-C++ מודרני (C++17). הנקי: **לוגיקת לוח מופרדת מה-I/O עם בדיקות יחידה ב-CTest**.",
+        "משחק איקס-עיגול לשני שחקנים בטרמינל ב-C++ מודרני (C++17), עם **לוגיקת לוח מופרדת מה-I/O, בדיקות יחידה ב-CTest ובנייה ב-CMake**.",
       description:
         "משחק איקס-עיגול (Tic-Tac-Toe) לשני שחקנים הרץ בטרמינל, כתוב ב-C++ מודרני (C++17).\n\n" +
         "לוגיקת הלוח מופרדת מלולאת הקלט/פלט, מה שמאפשר כיסוי בבדיקות יחידה (CTest). השחקנים מזינים מספר משבצת (1–9), ו-q יוצא מהמשחק.\n\n" +
@@ -488,7 +489,7 @@ const en: Dictionary = {
       category: "Virtual Reality · Final Project",
       title: "WaterVision VR · VR Meeting Platform",
       summary:
-        "A VR meeting platform for the water industry on Meta Quest, and my final project as developer and Scrum Master. The standout: **real-time speech-to-text and a live 3D wastewater-treatment simulation**.",
+        "A VR platform for professional water-industry meetings on Meta Quest, which I built as my final project as developer and Scrum Master. It includes a shared meeting room, **real-time speech-to-text and a 3D wastewater-treatment simulation**.",
       description:
         "WaterVision VR is my final graduation project (2026), a VR/AR platform for professional meetings in the water-infrastructure field, built in Unity 6 (C#) for Meta Quest headsets. I served as both a developer and the Scrum Master of a five-person team, working in an Agile methodology.\n\n" +
         "The platform includes a shared meeting room with synchronized avatars, hand tracking and voice; real-time speech-to-text transcription with PDF export; a 3D model room for GLB/FBX files with a live wastewater-treatment simulation; and participation analytics (speaking time per attendee).\n\n" +
@@ -513,7 +514,7 @@ const en: Dictionary = {
       category: "Distributed Systems",
       title: "Mulligan · Distributed Parking System",
       summary:
-        "A distributed parking system in Java for drivers, enforcement officers and city clerks. The core: **Raft-consensus clusters that survive even a malicious node**.",
+        "A distributed parking system in Java for drivers, enforcement officers and city clerks, built on **fault-tolerant Raft-consensus clusters with end-to-end TLS/HMAC security**.",
       description:
         "Mulligan is a distributed parking system built in Java, serving three roles: drivers (register vehicles, start/stop parking, pay and get a parking recommendation), parking enforcement officers (inspect vehicles and issue citations) and municipality officers (view transaction and citation reports).\n\n" +
         "The system is fault tolerant end to end: a 3-node MongoDB replica set, a 3-node RabbitMQ cluster with quorum queues, and a 3-node recommender cluster combining Raft consensus (Apache Ratis) with majority voting, so the cluster survives both a failed node and a malicious one.\n\n" +
@@ -539,7 +540,7 @@ const en: Dictionary = {
       category: "Android App",
       title: "SugarSteps · Learn Cooking by Levels",
       summary:
-        "An Android app for learning cooking by difficulty level, with **two roles: a student who watches lessons and an instructor who manages them**.",
+        "An Android app for learning to cook by difficulty level, with **two roles, trainee and instructor, and data stored locally in Room/SQLite**.",
       description:
         "SugarSteps is an Android app for learning cooking step by step, lessons are organized by difficulty level (easy, medium, hard).\n\n" +
         "The app supports two roles: students who can view lessons, and instructors who can add, edit and delete them. It also includes a registration screen with role selection and terms approval, and a settings screen for updating personal details.\n\n" +
@@ -555,7 +556,7 @@ const en: Dictionary = {
       category: "Management System",
       title: "Plastic Sheet Factory Management System",
       summary:
-        "A Java control system for a plastic-sheet factory with a Swing interface. The highlight: **six analytics queries, one of them running in parallel with threads**.",
+        "A Java control system for a plastic-sheet factory with a Swing interface, featuring **CSV-to-MySQL import and six analytics queries, one of them parallelized with threads**.",
       description:
         "A control system for a factory producing plastic sheets for greenhouses. The system reads production data from a CSV file, imports it into a MySQL database via JDBC, and presents a graphical interface built with Java Swing.\n\n" +
         "It includes six analytical SQL queries for analyzing factory operations, total production per machine, average defect rate, daily production summaries and more, and the sixth query runs in parallel using Threads to improve performance.\n\n" +
@@ -569,10 +570,11 @@ const en: Dictionary = {
       icon: "pulse",
       iconImage: "/projects/moveit-icon.webp",
       image: "/projects/moveit.webp",
+      imageFit: "contain",
       category: "Web App",
       title: "Moveit · Your Personal Trainer",
       summary:
-        "An interactive fitness website with a personal preferences questionnaire and multi-step sign-up. The base: **a profile stored in SQL toward personalized training plans**.",
+        "A fitness website with a personal preferences questionnaire and a multi-step sign-up including a health declaration, **storing the profile in SQL as the basis for personalized training plans**.",
       description:
         "Moveit is a fitness website designed to guide users on their personal fitness journey, developed as part of a web application development course.\n\n" +
         "The site includes a personal preferences questionnaire (fitness level, goals, available days and preferred workout duration), a multi-step registration flow with a health declaration, login and home screens with easy navigation, and an interactive interface with progress indicators.\n\n" +
@@ -590,7 +592,7 @@ const en: Dictionary = {
       category: "Showcase Website · Final Project",
       title: "WaterVision VR · Showcase Website",
       summary:
-        "A static, responsive showcase site for my graduation project, hosted on Firebase. It gathers **a product overview, sprint docs, a gallery, poster and video in one place**.",
+        "A static, responsive showcase site for my graduation project, hosted on Firebase, bringing together **a product overview, four sprint write-ups, a gallery, poster and submission video**.",
       description:
         "The official showcase site for the WaterVision VR graduation project, built in plain HTML, CSS and JavaScript (static, no build dependencies) and hosted on Firebase Hosting.\n\n" +
         "It brings together the whole project story: a product overview, documentation for four sprints, a gallery of screenshots and event photos, the project poster, the final submission video and a team page.\n\n" +
@@ -605,7 +607,7 @@ const en: Dictionary = {
       category: "Game · C++",
       title: "Tic-Tac-Toe · C++ Game",
       summary:
-        "Two-player terminal Tic-Tac-Toe in modern C++ (C++17). The clean part: **board logic decoupled from I/O with unit tests in CTest**.",
+        "A two-player terminal Tic-Tac-Toe in modern C++ (C++17), with **board logic decoupled from I/O, unit tests in CTest and a CMake build**.",
       description:
         "A two-player Tic-Tac-Toe game that runs in the terminal, written in modern C++ (C++17).\n\n" +
         "The board logic is separated from the input/output loop, which makes it unit-testable (CTest). Players enter a cell number (1–9), and q quits the game.\n\n" +
