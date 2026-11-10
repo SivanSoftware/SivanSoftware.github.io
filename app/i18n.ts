@@ -329,7 +329,7 @@ const he: Dictionary = {
     {
       id: "siftt",
       kind: "work",
-      role: "מפתחת Full-Stack (התמחות)",
+      role: "מפתחת Full-Stack",
       org: "DealFlow · Siftt AI",
       period: "2026 – היום",
       points: [
@@ -620,7 +620,7 @@ const en: Dictionary = {
     {
       id: "siftt",
       kind: "work",
-      role: "Full-Stack Developer (Intern)",
+      role: "Full-Stack Developer",
       org: "DealFlow · Siftt AI",
       period: "2026 – Present",
       points: [

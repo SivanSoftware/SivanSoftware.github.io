@@ -52,14 +52,14 @@ function ExperienceCard({
                 <KindIcon kind={item.kind} />
               )}
             </span>
-            <div className="min-w-0">
+            <div className="min-w-0 md:w-full">
               <span
                 dir="ltr"
-                className="block font-mono text-sm font-bold tracking-tight text-[#b48d43] dark:text-[#d8c08a]"
+                className="block text-right font-mono text-sm font-bold tracking-tight text-[#b48d43] dark:text-[#d8c08a]"
               >
                 {item.period}
               </span>
-              <p className="mt-1 text-sm font-semibold text-[#6E5B86] dark:text-[#c3b0dd]">
+              <p className="mt-1 text-right text-sm font-semibold text-[#6E5B86] dark:text-[#c3b0dd]">
                 {item.org}
               </p>
             </div>
