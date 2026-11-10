@@ -44,6 +44,7 @@ export type Dictionary = {
   meta: { title: string; description: string };
   nav: {
     name: string;
+    summary: string;
     projects: string;
     experience: string;
     about: string;
@@ -84,6 +85,7 @@ const he: Dictionary = {
   },
   nav: {
     name: "סיון לסרי",
+    summary: "תקציר",
     projects: "פרויקטים",
     experience: "ניסיון",
     about: "כישורים ורקע",
@@ -372,6 +374,7 @@ const en: Dictionary = {
   },
   nav: {
     name: "Sivan Lasri",
+    summary: "About Me",
     projects: "Projects",
     experience: "Experience",
     about: "Skills & Background",

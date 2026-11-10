@@ -65,70 +65,83 @@ export default function Home() {
     <main id="top" className="pt-20">
       <ScrollProgress />
 
-      {/* Hero — תמונה + שם + CTAs בלבד (ללא תיחום, תופס את העין) */}
+      {/* Hero — לוגו (ימין) + שם ו-CTAs (שמאל) */}
       <section className="relative">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-7 px-4 py-20 text-center sm:py-28">
-          <div className="fade-up float-y" style={{ animationDelay: "60ms" }}>
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 px-4 py-20 sm:py-28 md:flex-row md:justify-between md:gap-8">
+          {/* לוגו — צד ימין בעברית / שמאל באנגלית */}
+          <div className="fade-up float-y shrink-0" style={{ animationDelay: "60ms" }}>
             <Image
-              src="/sivan.webp"
-              alt={t.hero.photoAlt}
-              width={1254}
-              height={1254}
+              src="/logo-mark.png"
+              alt={t.hero.logoAlt}
+              width={477}
+              height={279}
               priority
-              className="h-40 w-40 rounded-full border-4 border-white object-cover object-top shadow-xl ring-1 ring-[#e7dcea] sm:h-52 sm:w-52 md:h-60 md:w-60 dark:border-white/10"
+              className="h-auto w-60 sm:w-72 md:w-80"
             />
           </div>
 
-          <h1
-            className="fade-up text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl"
-            style={{ animationDelay: "180ms" }}
-          >
-            <span className="animate-gradient bg-gradient-to-l from-[#8E72AE] via-[#7E6A9E] to-[#C2A368] bg-clip-text text-transparent">
-              {t.hero.name}
-            </span>
-          </h1>
-
-          <div
-            className="fade-up flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row"
-            style={{ animationDelay: "340ms" }}
-          >
-            <a href="#projects" className="btn-glass btn-glass-primary w-full sm:w-auto">
-              {t.hero.ctaProjects}
-            </a>
-            <a
-              href="/sivan-lasri-cv.pdf"
-              download
-              className="btn-glass btn-glass-ghost group w-full sm:w-auto"
+          {/* שם + CTAs — צד שני */}
+          <div className="text-center md:text-start">
+            <h1
+              className="fade-up text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl"
+              style={{ animationDelay: "180ms" }}
             >
-              <svg
-                className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.8}
-                viewBox="0 0 24 24"
-                aria-hidden="true"
+              <span className="animate-gradient bg-gradient-to-l from-[#8E72AE] via-[#7E6A9E] to-[#C2A368] bg-clip-text text-transparent">
+                {t.hero.name}
+              </span>
+            </h1>
+
+            <div
+              className="fade-up mt-8 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row md:justify-start"
+              style={{ animationDelay: "340ms" }}
+            >
+              <a href="#projects" className="btn-glass btn-glass-primary w-full sm:w-auto">
+                {t.hero.ctaProjects}
+              </a>
+              <a
+                href="/sivan-lasri-cv.pdf"
+                download
+                className="btn-glass btn-glass-ghost group w-full sm:w-auto"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
-              </svg>
-              {t.hero.ctaCv}
-            </a>
-            <a href="#contact" className="btn-glass btn-glass-ghost w-full sm:w-auto">
-              {t.hero.ctaContact}
-            </a>
+                <svg
+                  className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+                </svg>
+                {t.hero.ctaCv}
+              </a>
+              <a href="#contact" className="btn-glass btn-glass-ghost w-full sm:w-auto">
+                {t.hero.ctaContact}
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* אודות — תקציר */}
-      <section id="about-intro" className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+      {/* אודות — תמונה + תקציר */}
+      <section id="about-intro" className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-20">
         <Reveal>
-          <div className="rounded-2xl border border-[#E7DFD6] bg-white/60 p-6 text-center shadow-sm backdrop-blur-sm sm:p-9 dark:border-white/10 dark:bg-white/[0.04]">
-            <p className="mb-3 text-lg font-semibold text-[#6E5B86] sm:text-xl dark:text-[#c3b0dd]">
-              {t.hero.role}
-            </p>
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300">
-              {t.hero.bio}
-            </p>
+          <div className="flex flex-col items-center gap-8 rounded-2xl border border-[#E7DFD6] bg-white/60 p-6 text-center shadow-sm backdrop-blur-sm sm:p-9 md:flex-row md:gap-10 md:text-start dark:border-white/10 dark:bg-white/[0.04]">
+            <Image
+              src="/sivan.webp"
+              alt={t.hero.photoAlt}
+              width={1209}
+              height={1209}
+              className="h-40 w-40 shrink-0 rounded-full border-4 border-white object-cover object-top shadow-lg ring-1 ring-[#e7dcea] sm:h-48 sm:w-48 dark:border-white/10"
+            />
+            <div>
+              <p className="mb-3 text-lg font-semibold text-[#6E5B86] sm:text-xl dark:text-[#c3b0dd]">
+                {t.hero.role}
+              </p>
+              <p className="text-base leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300">
+                {t.hero.bio}
+              </p>
+            </div>
           </div>
         </Reveal>
         <div className="mt-8">
@@ -137,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* פרויקטים */}
-      <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
           eyebrow={t.eyebrows.projects}
           heading={t.projects.heading}
@@ -153,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* ניסיון */}
-      <section id="experience" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <section id="experience" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
           eyebrow={t.eyebrows.experience}
           heading={t.experience.heading}
@@ -163,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* כישורים ורקע */}
-      <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
           eyebrow={t.eyebrows.about}
           heading={t.about.heading}
@@ -223,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* צרו קשר */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+      <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-28">
         <SectionHeading
           eyebrow={t.eyebrows.contact}
           heading={t.contact.heading}

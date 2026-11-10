@@ -59,7 +59,7 @@ export default function Navbar() {
 
   // מסמן את הסעיף שנמצא כרגע מול העין
   useEffect(() => {
-    const sections = ["projects", "experience", "about", "contact"]
+    const sections = ["about-intro", "projects", "experience", "about", "contact"]
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -78,6 +78,7 @@ export default function Navbar() {
   }, []);
 
   const links = [
+    { href: "#about-intro", id: "about-intro", label: t.nav.summary },
     { href: "#projects", id: "projects", label: t.nav.projects },
     { href: "#experience", id: "experience", label: t.nav.experience },
     { href: "#about", id: "about", label: t.nav.about },
