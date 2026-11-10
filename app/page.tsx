@@ -46,22 +46,14 @@ function RichText({ text }: { text: string }) {
 }
 
 function SectionHeading({
-  eyebrow,
   heading,
   sub,
 }: {
-  eyebrow: string;
   heading: string;
   sub: string;
 }) {
   return (
     <Reveal className="mb-10">
-      <p
-        dir="ltr"
-        className="font-mono text-sm text-indigo-500/80 mb-2 text-center tracking-tight dark:text-sky-400/80"
-      >
-        {eyebrow}
-      </p>
       <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3E2E4F] mb-3 text-center dark:text-indigo-100">
         {heading}
       </h2>
@@ -163,7 +155,6 @@ export default function Home() {
       {/* פרויקטים */}
       <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
-          eyebrow={t.eyebrows.projects}
           heading={t.projects.heading}
           sub={t.projects.subheading}
         />
@@ -173,7 +164,6 @@ export default function Home() {
       {/* ניסיון */}
       <section id="experience" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
-          eyebrow={t.eyebrows.experience}
           heading={t.experience.heading}
           sub={t.experience.subheading}
         />
@@ -183,7 +173,6 @@ export default function Home() {
       {/* כישורים ורקע */}
       <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <SectionHeading
-          eyebrow={t.eyebrows.about}
           heading={t.about.heading}
           sub={t.about.intro}
         />
@@ -243,7 +232,6 @@ export default function Home() {
       {/* צרו קשר */}
       <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-28">
         <SectionHeading
-          eyebrow={t.eyebrows.contact}
           heading={t.contact.heading}
           sub={t.contact.subheading}
         />
