@@ -271,7 +271,7 @@ export default function ProjectShowcase({
                 />
                 <IconBadge project={project} accent={a} size="h-10 w-10" />
                 <span className="min-w-0 flex-1">
-                  <span className={`block truncate text-sm font-bold ${isActive ? a.text : "text-[#1E1B4B] dark:text-indigo-100"}`}>
+                  <span className={`block truncate text-sm font-bold ${isActive ? a.text : "text-[#3E2E4F] dark:text-indigo-100"}`}>
                     {project.title}
                   </span>
                   <span className="block truncate text-xs text-gray-500 dark:text-gray-400">
@@ -431,7 +431,7 @@ export default function ProjectShowcase({
                 <span className={`block text-xs font-semibold ${accent.text}`}>
                   {active.category}
                 </span>
-                <h3 className="text-xl font-extrabold text-[#1E1B4B] sm:text-2xl dark:text-indigo-100">
+                <h3 className="text-xl font-extrabold text-[#3E2E4F] sm:text-2xl dark:text-indigo-100">
                   {active.title}
                 </h3>
               </div>

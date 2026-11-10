@@ -46,7 +46,7 @@ function TimelineRow({
         <div className="flex items-start gap-4">
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <h3 className="text-lg font-bold text-[#1E1B4B] dark:text-indigo-100">
+              <h3 className="text-lg font-bold text-[#3E2E4F] dark:text-indigo-100">
                 {item.role}
               </h3>
               <span
