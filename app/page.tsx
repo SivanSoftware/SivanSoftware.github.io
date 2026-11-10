@@ -73,7 +73,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
         >
           <div className="blob absolute -top-12 -start-10 h-64 w-64 rounded-full bg-indigo-400/30 blur-3xl dark:bg-indigo-500/20" />
-          <div className="blob blob-delay blob-slow absolute top-16 end-0 h-72 w-72 rounded-full bg-sky-400/25 blur-3xl dark:bg-sky-500/15" />
+          <div className="blob blob-delay blob-slow absolute top-16 end-0 h-72 w-72 rounded-full bg-blue-400/25 blur-3xl dark:bg-blue-500/15" />
           <div className="blob blob-slow absolute -bottom-10 start-1/3 h-56 w-56 rounded-full bg-violet-400/20 blur-3xl dark:bg-violet-500/15" />
         </div>
 
@@ -83,7 +83,7 @@ export default function Home() {
               {/* טבעת גרדיאנט מסתובבת מאחורי התמונה */}
               <span
                 aria-hidden="true"
-                className="animate-spin-slow absolute -inset-1.5 rounded-full bg-[conic-gradient(from_0deg,#6366f1,#3b82f6,#06b6d4,#8b5cf6,#6366f1)] opacity-70 blur-[6px]"
+                className="animate-spin-slow absolute -inset-1.5 rounded-full bg-[conic-gradient(from_0deg,#4f46e5,#2563eb,#7c3aed,#4f46e5)] opacity-70 blur-[6px]"
               />
               <Image
                 src="/sivan.webp"
@@ -102,12 +102,12 @@ export default function Home() {
               style={{ animationDelay: "160ms" }}
             >
               {t.hero.greeting}{" "}
-              <span className="animate-gradient bg-gradient-to-l from-blue-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent">
+              <span className="animate-gradient bg-gradient-to-l from-indigo-600 via-violet-500 to-blue-600 bg-clip-text text-transparent">
                 {t.hero.name}
               </span>
             </h1>
             <p
-              className="fade-up text-lg sm:text-xl font-semibold text-indigo-700 mb-4 dark:text-sky-300"
+              className="fade-up text-lg sm:text-xl font-semibold text-indigo-700 mb-4 dark:text-indigo-300"
               style={{ animationDelay: "260ms" }}
             >
               {t.hero.role}

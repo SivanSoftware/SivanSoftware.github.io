@@ -3,16 +3,16 @@ import Navbar from "./components/Navbar";
 import { LanguageProvider } from "./components/LanguageProvider";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { ReactNode } from "react";
-import { Rubik, JetBrains_Mono } from "next/font/google";
+import { Heebo, JetBrains_Mono } from "next/font/google";
 import type { Metadata } from "next";
 
 type RootLayoutProps = {
   children: ReactNode;
 };
 
-const rubik = Rubik({
+const heebo = Heebo({
   subsets: ["latin", "hebrew"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="he"
       dir="rtl"
-      className={`${rubik.className} ${jetbrainsMono.variable}`}
+      className={`${heebo.className} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
