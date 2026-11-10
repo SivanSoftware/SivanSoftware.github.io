@@ -184,6 +184,40 @@ section[id] {
   color: #fff;
 }
 
+/* קישורי אייקון (GitHub / דפדפן) בפאנל הפרויקט */
+.cf-iconlink {
+  display: inline-flex;
+  height: 2.9rem;
+  width: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid #e2d6ea;
+  background: rgba(255, 255, 255, 0.75);
+  color: #3e2e4f;
+  box-shadow: 0 4px 14px -6px rgba(110, 91, 134, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+.cf-iconlink:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  border-color: #C2A368;
+  color: #6e5b86;
+}
+:root:not([data-theme="light"]) .cf-iconlink,
+.dark .cf-iconlink {
+  border-color: rgba(126, 106, 158, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  color: #e9def5;
+}
+:root:not([data-theme="light"]) .cf-iconlink:hover,
+.dark .cf-iconlink:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(194, 163, 104, 0.6);
+  color: #fff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cf-card {
     transition: opacity 0.2s ease;

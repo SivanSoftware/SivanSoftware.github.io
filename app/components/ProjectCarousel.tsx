@@ -10,6 +10,24 @@ const DESKTOP: Metrics = { cardW: 300, cardH: 400, spacing: 212, depth: 150, ang
 const TABLET: Metrics = { cardW: 270, cardH: 370, spacing: 168, depth: 130, angle: 38 };
 const MOBILE: Metrics = { cardW: 230, cardH: 330, spacing: 78, depth: 120, angle: 34 };
 
+/** מדגיש את החלק "הכי טוב" המסומן ב-**...** בצבע הפלום של המותג */
+function Emphasis({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <strong key={i} className="font-semibold text-[#6E5B86] dark:text-[#c3b0dd]">
+            {part}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function useMetrics(): Metrics {
   const [m, setM] = useState<Metrics>(DESKTOP);
   useEffect(() => {
@@ -26,16 +44,8 @@ function useMetrics(): Metrics {
 
 export default function ProjectCarousel({
   projects,
-  detailsLabel,
-  githubLabel,
-  liveLabel,
-  onOpen,
 }: {
   projects: Project[];
-  detailsLabel: string;
-  githubLabel: string;
-  liveLabel: string;
-  onOpen: (id: string) => void;
 }) {
   const n = projects.length;
   const [active, setActive] = useState(0);
@@ -148,8 +158,7 @@ export default function ProjectCarousel({
                   drag.current.moved = false;
                   return;
                 }
-                if (isActive) onOpen(project.id);
-                else setActive(i);
+                if (!isActive) setActive(i);
               }}
               className="cf-card group"
               style={{
@@ -182,15 +191,6 @@ export default function ProjectCarousel({
                   </h3>
                 </div>
 
-                {/* רמז "פתח" בכרטיס הפעיל */}
-                {isActive && (
-                  <span className="pointer-events-none absolute end-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/35 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
-                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 3h6v6M21 3l-9 9M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
-                    </svg>
-                    {detailsLabel}
-                  </span>
-                )}
               </div>
             </button>
           );
@@ -261,8 +261,8 @@ export default function ProjectCarousel({
             </div>
           </div>
 
-          <p className="mx-auto mb-5 max-w-2xl text-sm leading-relaxed text-[#5a5160] sm:text-base dark:text-gray-300">
-            {activeProject.summary}
+          <p className="mx-auto mb-6 max-w-xl text-sm leading-relaxed text-[#5a5160] sm:text-base dark:text-gray-300">
+            <Emphasis text={activeProject.summary} />
           </p>
 
           <div className="mb-6 flex flex-wrap justify-center gap-2">
@@ -277,24 +277,21 @@ export default function ProjectCarousel({
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2">
-            <button
-              onClick={() => onOpen(activeProject.id)}
-              className="rounded-md bg-gradient-to-l from-[#8E72AE] to-[#C2A368] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:brightness-105 sm:text-base"
-            >
-              {detailsLabel}
-            </button>
+          <div className="flex flex-wrap items-center justify-center gap-3">
             {activeProject.liveUrl && (
               <a
                 href={activeProject.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-md border border-[#bcd6c6] bg-[#eef5f0] px-5 py-2.5 text-sm font-semibold text-[#4f7a63] shadow-sm transition hover:bg-[#e4f0e9] sm:text-base dark:border-emerald-400/20 dark:bg-emerald-500/10 dark:text-emerald-300"
+                aria-label={`${activeProject.title} — live site`}
+                title={activeProject.title}
+                className="cf-iconlink"
               >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5h5v5M19 5l-8 8M19 13v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4" />
+                {/* דפדפן */}
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.7} viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path strokeLinecap="round" d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" />
                 </svg>
-                {liveLabel}
               </a>
             )}
             {activeProject.githubUrl && (
@@ -302,9 +299,14 @@ export default function ProjectCarousel({
                 href={activeProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md bg-[#3E2E4F] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#2b2038] sm:text-base dark:bg-white/10 dark:hover:bg-white/20"
+                aria-label={`${activeProject.title} — GitHub`}
+                title="GitHub"
+                className="cf-iconlink"
               >
-                {githubLabel}
+                {/* לוגו GitHub */}
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 .5C5.73.5.6 5.63.6 11.9c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.1c-3.17.69-3.84-1.3-3.84-1.3-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.72-1.54-2.53-.29-5.2-1.27-5.2-5.64 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.38-2.67 5.35-5.21 5.63.41.35.78 1.04.78 2.1v3.11c0 .3.2.66.79.55 4.51-1.5 7.77-5.76 7.77-10.78C23.4 5.63 18.27.5 12 .5z" />
+                </svg>
               </a>
             )}
           </div>

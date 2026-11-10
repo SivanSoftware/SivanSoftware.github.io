@@ -1,14 +1,11 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
-import ProjectModal from "./components/ProjectModal";
 import ProjectCarousel from "./components/ProjectCarousel";
 import Experience from "./components/Experience";
 import Stats from "./components/Stats";
 import Reveal from "./components/Reveal";
 import ScrollProgress from "./components/ScrollProgress";
 import { useLanguage } from "./components/LanguageProvider";
-import type { Project } from "./i18n";
 
 // שמות טכנולוגיות באנגלית מקבלים גופן מונוספייס; טקסט עברי נשאר בגופן הרגיל
 const isLatin = (text: string) => !/[֐-׿]/.test(text);
@@ -75,12 +72,6 @@ function SectionHeading({
 
 export default function Home() {
   const { t } = useLanguage();
-  const [openProjectId, setOpenProjectId] = useState<string | null>(null);
-
-  // מחזיקים מזהה ולא אובייקט, כך שתוכן הפופאפ מתחלף יחד עם השפה
-  const openProject: Project | undefined = t.projectList.find(
-    (p) => p.id === openProjectId
-  );
 
   return (
     <main id="top" className="pt-20">
@@ -176,13 +167,7 @@ export default function Home() {
           heading={t.projects.heading}
           sub={t.projects.subheading}
         />
-        <ProjectCarousel
-          projects={t.projectList}
-          detailsLabel={t.projects.details}
-          githubLabel={t.projects.github}
-          liveLabel={t.projects.live}
-          onOpen={(id) => setOpenProjectId(id)}
-        />
+        <ProjectCarousel projects={t.projectList} />
       </section>
 
       {/* ניסיון */}
@@ -293,17 +278,6 @@ export default function Home() {
       <footer className="bg-white border-t border-indigo-100 py-6 text-center text-gray-500 text-sm dark:bg-[#05070f] dark:border-indigo-400/15 dark:text-gray-400">
         © {new Date().getFullYear()} {t.footer}
       </footer>
-
-      <ProjectModal
-        isOpen={openProject !== undefined}
-        onClose={() => setOpenProjectId(null)}
-        title={openProject?.title ?? ""}
-        description={openProject?.description ?? ""}
-        githubUrl={openProject?.githubUrl}
-        liveUrl={openProject?.liveUrl}
-        liveLabel={t.projects.live}
-        tech={openProject?.tech}
-      />
     </main>
   );
 }
