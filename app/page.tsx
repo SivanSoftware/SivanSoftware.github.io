@@ -87,7 +87,7 @@ export default function Home() {
 
       {/* Hero — באנר הלוגו המלא (שם + כותרת) עם כפתורי CTA מתחת */}
       <section className="relative">
-        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 pt-40 pb-24 sm:pt-52 sm:pb-32">
+        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 pt-24 pb-16 sm:pt-52 sm:pb-32">
           <h1 className="sr-only">{t.hero.name}</h1>
 
           {/* לוגו מלא (שם + כותרת) — רקע שקוף, גרסה בהירה / כהה */}

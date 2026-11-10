@@ -201,9 +201,9 @@ section[id] {
 }
 .cf-iconlink:hover {
   transform: translateY(-2px);
-  background: #fff;
-  border-color: #C2A368;
-  color: #6e5b86;
+  background: #3e2e4f;
+  border-color: #3e2e4f;
+  color: #fff;
 }
 :root:not([data-theme="light"]) .cf-iconlink,
 .dark .cf-iconlink {
@@ -213,8 +213,8 @@ section[id] {
 }
 :root:not([data-theme="light"]) .cf-iconlink:hover,
 .dark .cf-iconlink:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(194, 163, 104, 0.6);
+  background: #1d1528;
+  border-color: rgba(194, 163, 104, 0.55);
   color: #fff;
 }
 

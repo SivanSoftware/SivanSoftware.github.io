@@ -101,7 +101,7 @@ export default function ProjectCarousel({
   const stageH = m.cardH + 56;
 
   return (
-    <div className="select-none">
+    <div className="select-none overflow-x-clip">
       {/* הבמה התלת-ממדית */}
       <div
         className="cf-perspective relative mx-auto w-full"
